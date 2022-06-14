@@ -9,10 +9,10 @@ body {
 
 #menu {
     position: absolute;
-    width: 300px;
+    width: 150px;
     height: auto;
     background: black;
-    left: -300px;
+    left: -150px;
     transition: 1.5s;
 }
 
@@ -23,14 +23,15 @@ body {
 #menu ul li {
     list-style: none;
     color: #fff;
-    font-size: 20px;
-    padding: 20px 24px;
+    font-size: 15px;
+    padding: 5px 5px;
 }
 
 #menu .btnMenu {
     position: absolute;
+    margin-top: 10px;
     top: 30px;
-    left: 330px;
+    left: 180px;
 }
 
 .btnMenu span {
