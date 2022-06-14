@@ -29,13 +29,15 @@ menu.active {
 #menu .btnMenu {
     position: absolute;
     top: 30px;
-    left: 300px;
+    left: 330px;
 }
 
-.btnMenu {
+.btnMenu span {
     width: 45px;
-    height: 45px;
-    background: #000;
+    height: 4px;
+    background: black;
     display: block;
     margin-top: 4px;
 }
+
+=
