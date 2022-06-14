@@ -7,12 +7,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#menu {
+#totals {
     position: absolute;
-    width: 150px;
+    width: 400px;
     height: auto;
-    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
-    left: -150px;
+    /* background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255)); */
+    background-color: #000;
+    /*right: -400px;*/
     transition: 1.5s;
     /* Border for entire menu */
     border-width: 3px;
@@ -24,18 +25,11 @@ body {
     box-shadow: 0 0 30px rgb(178, 155, 255);
 }
 
-#menu.active {
-    left: 0;
+#totals.active {
+    right: 0;
 }
 
-#menu ul li {
-    list-style: none;
-    color: #fff;
-    font-size: 15px;
-    padding: 5px 5px;
-}
-
-#menu .btnMenu {
+#totals .btnTotals {
     position: absolute;
     background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
     width: 50px;
@@ -54,7 +48,7 @@ body {
     box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
-.btnMenu span {
+.btnTotals span {
     width: 40px;
     height: 5px;
     background: white;
