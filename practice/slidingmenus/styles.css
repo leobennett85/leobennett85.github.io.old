@@ -11,9 +11,17 @@ body {
     position: absolute;
     width: 150px;
     height: auto;
-    background: black;
+    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
     left: -150px;
     transition: 1.5s;
+    /* Border for entire menu */
+    border-style: solid;
+    border-width: 5px;
+    border-color: #000;
+    border-radius: 0 15px 15px 0;
+
+    /* Shadow for whole menu */
+    box-shadow: 10px 10px 18px #000555;
 }
 
 #menu.active {
@@ -29,15 +37,33 @@ body {
 
 #menu .btnMenu {
     position: absolute;
-    margin-top: 10px;
-    top: 30px;
-    left: 180px;
+    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
+    width: 50px;
+    top: 10px;
+    left: 150px;
+    height: 40px;
+
+    /* Border for menu button */
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+
+    /* Shadow for menu button */
+    box-shadow: 10px 10px 10px #000444;
 }
 
 .btnMenu span {
-    width: 45px;
-    height: 4px;
-    background: black;
+    width: 40px;
+    height: 5px;
+    background: white;
     display: block;
-    margin-top: 4px;
+    margin: 3px;
+
+    /* Menu Bars Outline */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 5px;
 }
