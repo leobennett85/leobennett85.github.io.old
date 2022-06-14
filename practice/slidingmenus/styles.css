@@ -13,9 +13,10 @@ body {
     height: auto;
     background: black;
     left: -300px;
+    transition: 1.5s;
 }
 
-menu.active {
+#menu.active {
     left: 0;
 }
 
@@ -39,5 +40,3 @@ menu.active {
     display: block;
     margin-top: 4px;
 }
-
-=
