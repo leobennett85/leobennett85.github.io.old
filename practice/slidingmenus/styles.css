@@ -9,15 +9,29 @@ body {
 
 #menu {
     position: absolute;
-    top: 150px;
     width: 300px;
-    height: 300px;
+    height: auto;
     background: black;
+    left: -300px;
 }
 
 #menu ul li {
     list-style: none;
     color: #fff;
-    font-size: 1rem;
+    font-size: 20px;
     padding: 20px 24px;
+}
+
+#menu .btnMenu {
+    position: absolute;
+    top: 30px;
+    left: 300px;
+}
+
+.btnMenu {
+    width: 45px;
+    height: 45px;
+    background: #000;
+    display: block;
+    margin-top: 4px;
 }
