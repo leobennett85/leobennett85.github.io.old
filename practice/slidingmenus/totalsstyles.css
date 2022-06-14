@@ -1,32 +1,25 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
+/*
 #totals {
     position: absolute;
     width: 400px;
-    height: auto;
-    /* background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255)); */
+    height: 400px;
+    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
     background-color: #000;
-    /*right: -400px;*/
+    left: 100%;
     transition: 1.5s;
-    /* Border for entire menu */
+
+    /* Border for entire menu
     border-width: 3px;
     border-style: solid;
     border-color: rgb(55, 40, 141);
     border-radius: 0 15px 15px 0;
 
-    /* Shadow for whole menu */
+    /* Shadow for whole menu
     box-shadow: 0 0 30px rgb(178, 155, 255);
 }
 
 #totals.active {
-    right: 0;
+    right: -400px;
 }
 
 #totals .btnTotals {
@@ -37,14 +30,14 @@ body {
     left: 151px;
     height: 40px;
 
-    /* Border for menu button */
+    /* Border for menu button
     border-width: 3px;
     border-style: solid;
     border-color: rgb(55, 40, 141);
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 
-    /* Shadow for menu button */
+    /* Shadow for menu button
     box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
@@ -55,9 +48,11 @@ body {
     display: block;
     margin: 3px;
 
-    /* Menu Bars Outline */
+    /* Menu Bars Outline 
     border-width: 2px;
     border-style: solid;
     border-color: #000;
     border-radius: 5px;
 }
+
+*/
