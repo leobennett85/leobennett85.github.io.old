@@ -1,54 +1,54 @@
-/*
 #totals {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    right: -350px;
+    width: 350px;
+    height: 500px;
+
     background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
-    background-color: #000;
-    left: 100%;
     transition: 1.5s;
 
-    /* Border for entire menu
+    /* Border for entire Totals */
     border-width: 3px;
     border-style: solid;
     border-color: rgb(55, 40, 141);
-    border-radius: 0 15px 15px 0;
+    border-radius: 15px 0 0 15px;
 
-    /* Shadow for whole menu
-    box-shadow: 0 0 30px rgb(178, 155, 255);
+    Shadow for whole menu box-shadow: 0 0 30px rgb(178, 155, 255);
 }
 
 #totals.active {
-    right: -400px;
+    right: 0px;
 }
 
 #totals .btnTotals {
     position: absolute;
-    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
     width: 50px;
-    top: 10px;
-    left: 151px;
+    top: 60px;
+    right: 351px;
     height: 40px;
+    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
 
-    /* Border for menu button
+
+    /* Border for Totals button */
     border-width: 3px;
     border-style: solid;
     border-color: rgb(55, 40, 141);
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 
-    /* Shadow for menu button
+    /* Shadow for menu button*/
     box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
+
 .btnTotals span {
     width: 40px;
-    height: 5px;
+    height: 30px;
     background: white;
     display: block;
     margin: 3px;
 
-    /* Menu Bars Outline 
+    /* Menu Bars Outline */
     border-width: 2px;
     border-style: solid;
     border-color: #000;
