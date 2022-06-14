@@ -15,6 +15,10 @@ body {
     left: -300px;
 }
 
+menu.active {
+    left: 0;
+}
+
 #menu ul li {
     list-style: none;
     color: #fff;
