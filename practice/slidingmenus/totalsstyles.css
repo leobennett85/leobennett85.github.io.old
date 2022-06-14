@@ -13,7 +13,8 @@
     border-color: rgb(55, 40, 141);
     border-radius: 15px 0 0 15px;
 
-    Shadow for whole menu box-shadow: 0 0 30px rgb(178, 155, 255);
+    /*Shadow for whole menu */
+    box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
 #totals.active {
@@ -36,7 +37,7 @@
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 
-    /* Shadow for menu button*/
+    /* Shadow for Totals button*/
     box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
