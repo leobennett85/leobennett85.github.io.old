@@ -1,5 +1,5 @@
 #totals {
-    position: absolute;
+    position: fixed;
     right: -300px;
     width: 300px;
     height: 500px;
@@ -18,7 +18,7 @@
 }
 
 #totals.active {
-    right: 0px;
+    right: 0;
 }
 
 #totals .btnTotals {
