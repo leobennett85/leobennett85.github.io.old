@@ -1,7 +1,7 @@
 #totals {
     position: absolute;
-    right: -350px;
-    width: 350px;
+    right: -300px;
+    width: 300px;
     height: 500px;
 
     background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
@@ -25,7 +25,7 @@
     position: absolute;
     width: 50px;
     top: 60px;
-    right: 351px;
+    right: 301px;
     height: 40px;
     background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
 
@@ -49,11 +49,17 @@
     display: block;
     margin: 3px;
 
+
     /* Menu Bars Outline */
     border-width: 2px;
     border-style: solid;
     border-color: #000;
     border-radius: 5px;
-}
 
-*/
+    /* Font for Sigma Symbol */
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+
+}
