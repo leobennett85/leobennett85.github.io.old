@@ -5,6 +5,7 @@
     background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
     left: -150px;
     transition: 1.5s;
+
     /* Border for entire menu */
     border-width: 3px;
     border-style: solid;
@@ -24,6 +25,9 @@
     color: #fff;
     font-size: 15px;
     padding: 5px 5px;
+
+    /* Borders */
+    border: 1px;
 }
 
 #menu .btnMenu {
