@@ -19,20 +19,6 @@ function showMenu() {
         menu.classList.replace('deactivateMenu','activateMenu');
     }
 }
-/*
-function showMenu() {
-    let totalsState;
-    console.log(totalsState);
-
-
-    if (document.getElementById('totals').classList.contains('dectivateTotals')) {
-        hideTotals();
-        document.getElementById('menu').classList.toggle('activateMenu');
-    } else if (document.getElementById('totals').classList.contains('deactivateTotals')) {
-        document.getElementById('menu').classList.toggle('activateMenu');
-    }
-}
-*/
 
 function showTotals() {
     let menu = document.getElementById('menu');
@@ -50,17 +36,6 @@ function showTotals() {
         totals.classList.replace('deactivateTotals','activateTotals');
     }
 }
-
-/*
-function showTotals() {
-    if (document.getElementById('menu').classList.contains('activateMenu')) {
-        hideMenu();
-        document.getElementById('totals').classList.toggle('activateTotals');
-    } else if (document.getElementById('menu').classList.contains('deactivateMenu')) {
-        document.getElementById('totals').classList.toggle('activateTotals');
-    }
-}
-*/
 
 function hideMenu() {
     document.getElementById('menu').classList.toggle('deactivateMenu');
