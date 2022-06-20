@@ -1,12 +1,71 @@
-function showMenu() {
-    
-    document.getElementById('menu').classList.toggle('active');
+function setMenus() {
+    hideMenu();
+    hideTotals();
 }
+
+function showMenu() {
+    let menu = document.getElementById('menu');
+    let totals = document.getElementById('totals');
+    
+    //menu is deactive - totals is active
+    if ((menu.classList.contains('deactivateMenu')) && (totals.classList.contains('activateTotals'))) {
+        totals.classList.replace('activateTotals', 'deactivateTotals');
+        menu.classList.replace('deactivateMenu', 'activateMenu');
+    //menu is active - totals is deactive
+    } else if ((menu.classList.contains('activateMenu')) && (totals.classList.contains('deactivateTotals'))) {
+        menu.classList.replace('activateMenu', 'deactivateMenu');
+    //menu is deactive - totals is deactive
+    } else if ((menu.classList.contains('deactivateMenu')) && (totals.classList.contains('deactivateTotals'))) {
+        menu.classList.replace('deactivateMenu','activateMenu');
+    }
+}
+/*
+function showMenu() {
+    let totalsState;
+    console.log(totalsState);
+
+
+    if (document.getElementById('totals').classList.contains('dectivateTotals')) {
+        hideTotals();
+        document.getElementById('menu').classList.toggle('activateMenu');
+    } else if (document.getElementById('totals').classList.contains('deactivateTotals')) {
+        document.getElementById('menu').classList.toggle('activateMenu');
+    }
+}
+*/
 
 function showTotals() {
-    document.getElementById('totals').classList.toggle('active');
+    let menu = document.getElementById('menu');
+    let totals = document.getElementById('totals');
+    
+    //totals is deactive - menu is active
+    if ((totals.classList.contains('deactivateTotals')) && (menu.classList.contains('activateMenu'))) {
+        menu.classList.replace('activateMenu', 'deactivateMenu');
+        totals.classList.replace('deactivateTotals', 'activateTotals');
+    //totals is active - menu is deactive
+    } else if ((totals.classList.contains('activateTotals')) && (menu.classList.contains('deactivateMenu'))) {
+        totals.classList.replace('activateTotals', 'deactivateTotals');
+    //totals is deactive - menu is deactive
+    } else if ((totals.classList.contains('deactivateTotals')) && (menu.classList.contains('deactivateMenu'))) {
+        totals.classList.replace('deactivateTotals','activateTotals');
+    }
 }
 
-function isActive() {
-    
+/*
+function showTotals() {
+    if (document.getElementById('menu').classList.contains('activateMenu')) {
+        hideMenu();
+        document.getElementById('totals').classList.toggle('activateTotals');
+    } else if (document.getElementById('menu').classList.contains('deactivateMenu')) {
+        document.getElementById('totals').classList.toggle('activateTotals');
+    }
+}
+*/
+
+function hideMenu() {
+    document.getElementById('menu').classList.toggle('deactivateMenu');
+}
+
+function hideTotals() {
+    document.getElementById('totals').classList.toggle('deactivateTotals');
 }

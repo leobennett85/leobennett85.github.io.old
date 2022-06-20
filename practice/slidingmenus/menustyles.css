@@ -16,8 +16,12 @@
     box-shadow: 0 0 30px rgb(178, 155, 255);
 }
 
-#menu.active {
+#menu.activateMenu {
     left: 0;
+}
+
+#menu.deactivateMenu {
+    left: -150px;
 }
 
 #menu ul li {

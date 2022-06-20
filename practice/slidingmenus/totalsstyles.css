@@ -17,8 +17,12 @@
     box-shadow: 0 0 30px rgb(168, 145, 244);
 }
 
-#totals.active {
+#totals.activateTotals {
     right: 0;
+}
+
+#totals.deactivateTotals {
+    right: -300px;
 }
 
 #totals .btnTotals {
