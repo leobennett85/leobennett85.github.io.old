@@ -1,0 +1,30 @@
+.grid-wrapper {
+    /*Wrapper Display*/
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 25px auto;
+    grid-template-rows: auto;
+    background-image: linear-gradient(to bottom right, rgb(168, 145, 244), rgb(169, 229, 255));
+}
+
+.expcon {
+    /*Expand-Contract - style*/
+    background-color: aliceblue;
+    cursor: pointer;
+
+    /*Expand-Contract - positioning*/
+    text-align: center;
+
+}
+
+.expcon:hover {
+    background-color: antiquewhite;
+}
+
+.summary {
+    background-color: aliceblue;
+}
+
+.content {
+    background-color: aliceblue;
+}
