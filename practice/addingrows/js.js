@@ -2,6 +2,6 @@ function collapse() {
     let 
 }
 
-function expand {
+function expand() {
 
 }
