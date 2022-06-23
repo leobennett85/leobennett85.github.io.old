@@ -103,10 +103,23 @@
 }
 
 /*Content block and how to hide it*/
-.content {
+#content {
+    /*Style*/
     background-color: aliceblue;
-    display: none;
-    overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    /*Positioning*/
     grid-column-start: 3;
     grid-column-end: 8;
+    font-size: 0.5rem;
+    display: block;
+}
+
+#content.contract {
+    display: none;
+    overflow: hide;
+}
+
+#content.expand {
+    display: block;
 }
