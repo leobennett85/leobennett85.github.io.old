@@ -118,11 +118,12 @@
     background-color: aliceblue;
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
 
     /*Positioning*/
     display: flex;
     justify-content: center;
-    align-items: center;
+    00 align-items: center;
 }
 
 .expcon:hover {
@@ -151,7 +152,7 @@
 
     /*Positioning*/
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
 }
 
@@ -162,7 +163,7 @@
 
     /*Positioning*/
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     font-size: 0.5rem;
 }

@@ -10,8 +10,8 @@
   </head>
   <body onload="setContent()">
     <div class="grid-wrapper">
-      <div class="index">0</div>
-      <div class="expcon" onclick="expand()">+</div>
+      <div class="index"></div>
+      <div class="expcon">Details</div>
       <div class="startingtime">Time</div>
       <div class="starting">
         Starting<br />
@@ -23,6 +23,17 @@
       </div>
       <div class="fare">Fare Total</div>
       <div class="runningtotal">Running Total</div>
+    </div>
+
+    <!-- Row 2 example only -->
+    <div class="grid-wrapper">
+      <div class="index">1</div>
+      <div class="expcon" onclick="expand()">+</div>
+      <div class="startingtime">2:00PM</div>
+      <div class="starting">15 Mt. Pleasant Avenue, St. John's</div>
+      <div class="ending">11 Fennelly's Rd, Portugal Cove</div>
+      <div class="fare">$ 25.00</div>
+      <div class="runningtotal">$ 25.00</div>
       <div id="content">
         <div class="contentGridWrapper">
           <div class="contotaltime">Total Time:</div>
@@ -33,37 +44,6 @@
           <div class="contip">Tip:</div>
         </div>
       </div>
-
-      <!-- Row 2 example only -->
-      <div class="index">1</div>
-      <div class="expcon" onclick="expand()">+</div>
-      <div class="startingtime">2:00PM</div>
-      <div class="starting">
-        Starting<br />
-        Address
-      </div>
-      <div class="ending">
-        Destination<br />
-        Address
-      </div>
-      <div class="fare">Fare Total</div>
-      <div class="runningtotal">Running Total</div>
-      <div id="content">...</div>
-
-      <div class="index">2</div>
-      <div class="expcon" onclick="expand()">+</div>
-      <div class="startingtime">3:00PM</div>
-      <div class="starting">
-        Starting<br />
-        Address
-      </div>
-      <div class="ending">
-        Destination<br />
-        Address
-      </div>
-      <div class="fare">Fare Total</div>
-      <div class="runningtotal">Running Total</div>
-      <div id="content">...</div>
     </div>
   </body>
 </html>
