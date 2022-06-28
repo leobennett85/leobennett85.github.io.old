@@ -10,6 +10,19 @@
     background-color: white;
 }
 
+.contentGridWrapper {
+    /*Wrapper Display*/
+    display: grid;
+    gap: 3px;
+    grid-template-areas:
+        'contotaltime condistance confaretype'
+        'empty condolperkm confaretotal'
+        'empty empty tip';
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    background-color: white;
+}
+
 .index {
     /*Style*/
     background-color: aliceblue;
