@@ -5,7 +5,7 @@ function setContent() {
 
 function expand() {
     let content = document.getElementById('content');
-s
+
     //Make the content DIV visible
     content.classList.toggle('expand');
 }
@@ -16,16 +16,33 @@ function contract(){
 
 /*Adding a row*/
 function addRow() {
-    const createDiv = document.createElement("div");
-    createDiv.innerHTML = "";
-    const wrapperelement = document.getElementById("fareTable");
-    wrapperelement.appendChild(createDiv);    
+    const rowAdd =  elementFromHtml(`
+        <div class="grid-wrapper">
+            <div class="index">1</div>
+            <div class="expcon" onclick="expand()">+</div>
+            <div class="startingtime">2:00PM</div>
+            <div class="starting">15 Mt. Pleasant Avenue, St. John's</div>
+            <div class="ending">11 Fennelly's Rd, Portugal Cove</div>
+            <div class="fare">$ 25.00</div>
+            <div class="runningtotal">$ 25.00</div>
+            <div id="content">
+            <div class="contentGridWrapper">
+            <div class="contotaltime">Total Time:</div>
+            <div class="condistance">Distance(km):</div>
+            <div class="confaretype">Type of Fare:</div>
+            <div class="condolperkm">$/km:</div>
+            <div class="confaretotal">Total Fare:</div>
+            <div class="contip">Tip:</div>
+        </div>
+    `);
+
+    document.body.appendChild(rowAdd);
 }
 
-function elementFromHtml(html) {s
-    const template = document.createElement("template");
+function elementFromHtml(html) {
+    const newRow = document.createElement("div");
 
-    template.innerHTML = html.trim();
+    newRow.innerHTML = html.trim();
 
     return template.content.firstElementChild;
 }
