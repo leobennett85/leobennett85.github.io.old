@@ -36,13 +36,13 @@ function addRow() {
         </div>
     `);
 
-    document.body.appendChild(rowAdd);
+    document.getElementById("fareTable").appendChild(rowAdd);
 }
 
 function elementFromHtml(html) {
-    const newRow = document.createElement("div");
+    const template = document.createElement("template");
 
-    newRow.innerHTML = html.trim();
+    template.innerHTML = html.trim();
 
     return template.content.firstElementChild;
 }
