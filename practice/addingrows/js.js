@@ -14,7 +14,26 @@ function contract(){
     document.getElementById('content').classList.toggle('contract');
 }
 
-
+//Create an object for the html of the page
+//TEST: Create the object, then use console to return values
+let elementConstruct = {
+    clGridWrapper: `<div class="grid-wrapper">`,
+    clIndex: `<div class="index">1</div>`,
+    clExpCon: `<div class="expcon" onclick="expand()">+</div>`,
+    clStartingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
+    clEndingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
+    clFare: `<div class="fare">$ 25.00</div>`,
+    clRunningTotal: `<div class="runningtotal">$ 25.00</div>`,
+    idContent: `<div id="content">`,
+    clContentGridWrapper: `<div class="contentGridWrapper">`,
+    clContentTotalTime: `<div class="contotaltime">Total Time:</div>`,
+    clContentDistance: `<div class="condistance">Distance(km):</div>`,
+    clContentFareType: `<div class="confaretype">Type of Fare:</div>`,
+    clContentDollarPerKm: `<div class="condolperkm">$/km:</div>`,
+    clContentFareTotal: `<div class="confaretotal">Total Fare:</div>`,
+    clContentTip: `<div class="contip">Tip:</div>`,
+    endingDiv: `</div>`,
+}
 
 /*Adding a row*/
 function addRow() {
@@ -22,7 +41,6 @@ function addRow() {
         <div class="grid-wrapper">
             <div class="index">1</div>
             <div class="expcon" onclick="expand()">+</div>
-            <div class="startingtime">2:00PM</div>
             <div class="starting">15 Mt. Pleasant Avenue, St. John's</div>
             <div class="ending">11 Fennelly's Rd, Portugal Cove</div>
             <div class="fare">$ 25.00</div>
