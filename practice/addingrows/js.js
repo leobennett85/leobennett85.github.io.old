@@ -14,6 +14,8 @@ function contract(){
     document.getElementById('content').classList.toggle('contract');
 }
 
+
+
 /*Adding a row*/
 function addRow() {
     const rowAdd =  elementFromHtml(`
