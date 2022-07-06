@@ -55,7 +55,7 @@ function addRow() {
         elementConstruct.clContentDollarPerKm +
         elementConstruct.clContentFareTotal +
         elementConstruct.clContentTip +
-        elementConstruct.endingDiv        
+        elementConstruct.endingDiv
     );
 
     document.getElementById("fareTable").appendChild(rowAdd);
