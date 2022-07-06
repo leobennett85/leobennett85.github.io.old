@@ -134,7 +134,7 @@
     grid-template-areas: 'contotaltime condistance confaretype'
         'empty condolperkm confaretotal'
         'empty empty tip';
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto;
     background-color: white;
 }
