@@ -20,6 +20,7 @@ let elementConstruct = {
     clGridWrapper: `<div class="grid-wrapper">`,
     clIndex: `<div class="index">1</div>`,
     clExpCon: `<div class="expcon" onclick="expand()">+</div>`,
+    clTime: `<div class="startingtime">2:00PM</div>`,
     clStartingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
     clEndingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
     clFare: `<div class="fare">$ 25.00</div>`,
@@ -32,14 +33,29 @@ let elementConstruct = {
     clContentDollarPerKm: `<div class="condolperkm">$/km:</div>`,
     clContentFareTotal: `<div class="confaretotal">Total Fare:</div>`,
     clContentTip: `<div class="contip">Tip:</div>`,
-    endingDiv: `</div>`,
+    endingDiv: `</div>`
 }
 
 /*Adding a row*/
 function addRow() {
     const rowAdd =  elementFromHtml(
-        elementConstruct.clGridWrapper,
-        elementConstruct.clIndex
+        elementConstruct.clGridWrapper +
+        elementConstruct.clIndex +
+        elementConstruct.clExpCon +
+        elementConstruct.clTime +
+        elementConstruct.clStartingAdd +
+        elementConstruct.clEndingAdd +
+        elementConstruct.clFare +
+        elementConstruct.clRunningTotal +
+        elementConstruct.idContent +
+        elementConstruct.clContentGridWrapper +
+        elementConstruct.clContentTotalTime +
+        elementConstruct.clContentDistance +
+        elementConstruct.clContentFareType +
+        elementConstruct.clContentDollarPerKm +
+        elementConstruct.clContentFareTotal +
+        elementConstruct.clContentTip +
+        elementConstruct.endingDiv        
     );
 
     document.getElementById("fareTable").appendChild(rowAdd);
