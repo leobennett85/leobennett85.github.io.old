@@ -17,8 +17,15 @@ function contract(){
 //Create an object for the html of the page
 //TEST: Create the object, then use console to return values
 let elementConstruct = {
+    // index: 1,
+
     clGridWrapper: `<div class="grid-wrapper">`,
-    clIndex: `<div class="index">1</div>`,
+    /*
+    clIndex: function(index) {
+        return `<div id="${index}">${index}</div>`
+    },
+    */
+    clIndex: (index) => `<div id="${index}">${index}</div>`,
     clExpCon: `<div class="expcon" onclick="expand()">+</div>`,
     clTime: `<div class="startingtime">2:00PM</div>`,
     clStartingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
@@ -36,11 +43,20 @@ let elementConstruct = {
     endingDiv: `</div>`
 }
 
+/*getIndex*/
+function getCurrentIndex() {
+    let currentIndex = document.getElementById('index');
+    console.log("Current Index: " + currentIndex);
+}
+
 /*Adding a row*/
 function addRow() {
+    const fareTableElement = document.getElementById("fareTable");
+    const fareTableCount = fareTableElement.childElementCount;
+
     const rowAdd =  elementFromHtml(
         elementConstruct.clGridWrapper +
-        elementConstruct.clIndex +
+        elementConstruct.clIndex(fareTableCount) +
         elementConstruct.clExpCon +
         elementConstruct.clTime +
         elementConstruct.clStartingAdd +
@@ -58,7 +74,7 @@ function addRow() {
         elementConstruct.endingDiv
     );
 
-    document.getElementById("fareTable").appendChild(rowAdd);
+    fareTableElement.appendChild(rowAdd);
 }
 
 function elementFromHtml(html) {
