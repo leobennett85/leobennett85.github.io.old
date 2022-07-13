@@ -16,14 +16,7 @@ contract = () => {
 //Create an object for the html of the page
 //TEST: Create the object, then use console to return values
 let elementConstruct = {
-    // index: 1,
-
     clGridWrapper: `<div class="grid-wrapper">`,
-    /*
-    clIndex: function(index) {
-        return `<div id="${index}">${index}</div>`
-    },
-    */
     // Call function clIndex() with index parameter passed to it
     clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
     // Call expand(); onClick event to expand and current row
