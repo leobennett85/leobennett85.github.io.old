@@ -5,14 +5,101 @@
     grid-template-areas:
         'index expcon statingtime starting ending fare runningtotal'
         'empty empty content content content content content';
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 3fr 3fr 1fr 1fr;
     grid-template-rows: auto auto;
     background-color: white;
-    margin: 0;
-    padding: 0;
 }
 
-/*Content hidden from view*/
+.contentGridWrapper {
+    /*Wrapper Display*/
+    display: grid;
+    gap: 3px;
+    grid-template-areas:
+        'contotaltime condistance confaretype'
+        'empty condolperkm confaretotal'
+        'empty empty tip';
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    background-color: white;
+}
+
+.contotaltime {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.condistance {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.confaretype {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.condolperkm {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    justify-content: left;
+    align-items: center;
+}
+
+.confaretotal {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    justify-content: left;
+    align-items: center;
+}
+
+.contip {
+    /*Style*/
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 0.5rem;
+
+    /*Positioning*/
+    display: flex;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    justify-content: left;
+    align-items: center;
+}
 
 .index {
     /*Style*/
@@ -21,7 +108,7 @@
     font-size: 0.5rem;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -34,7 +121,7 @@
     font-size: 0.5rem;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -51,7 +138,7 @@
     font-size: 0.5rem;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -64,7 +151,7 @@
     font-size: 0.5rem;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -75,7 +162,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.5rem;
@@ -87,7 +174,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.5rem;
@@ -99,7 +186,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     /*Positioning*/
-    display: grid;
+    display: flex;
     justify-content: right;
     align-items: center;
     font-size: 0.5rem;
@@ -113,7 +200,7 @@
 
     /*Positioning*/
     grid-column-start: 3;
-    grid-column-end: 8;
+    grid-column-end: 7;
     font-size: 0.5rem;
     display: block;
 }
@@ -124,95 +211,5 @@
 }
 
 #content.expand {
-    display: grid;
-}
-
-.contentGridWrapper {
-    /*Wrapper Display*/
-    display: grid;
-    gap: 3px;
-    grid-template-areas: 'contotaltime condistance confaretype'
-        'empty condolperkm confaretotal'
-        'empty empty tip';
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
-    background-color: white;
-}
-
-.contotaltime {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    justify-content: left;
-    align-items: center;
-}
-
-.condistance {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    justify-content: left;
-    align-items: center;
-}
-
-.confaretype {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    justify-content: left;
-    align-items: center;
-}
-
-.condolperkm {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    justify-content: left;
-    align-items: center;
-}
-
-.confaretotal {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    justify-content: left;
-    align-items: center;
-}
-
-.contip {
-    /*Style*/
-    background-color: bisque;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.5rem;
-
-    /*Positioning*/
-    display: grid;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    justify-content: left;
-    align-items: center;
+    display: block;
 }

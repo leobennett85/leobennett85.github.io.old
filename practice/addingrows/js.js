@@ -1,24 +1,32 @@
-/*Showing and hiding content*/
-function setContent() {
-    contract();
+setContent = () => {
+    const content = document.getElementById('content');
+    content.classList.toggle('contract');
 }
 
-function expand() {
-    let content = document.getElementById('content');
-
-    //Make the content DIV visible
+expand = () => {
+    const content = document.getElementById('content');
     content.classList.toggle('expand');
 }
 
-function contract(){
-    document.getElementById('content').classList.toggle('contract');
+contract = () => {
+    const content = document.getElementById('content');
+    content.classList.toggle('contract');
 }
 
 //Create an object for the html of the page
 //TEST: Create the object, then use console to return values
 let elementConstruct = {
+    // index: 1,
+
     clGridWrapper: `<div class="grid-wrapper">`,
-    clIndex: `<div class="index">1</div>`,
+    /*
+    clIndex: function(index) {
+        return `<div id="${index}">${index}</div>`
+    },
+    */
+    // Call function clIndex() with index parameter passed to it
+    clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
+    // Call expand(); onClick event to expand and current row
     clExpCon: `<div class="expcon" onclick="expand()">+</div>`,
     clTime: `<div class="startingtime">2:00PM</div>`,
     clStartingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
@@ -38,9 +46,15 @@ let elementConstruct = {
 
 /*Adding a row*/
 function addRow() {
+    // Return the elements of the fareTable div
+    const fareTableElement = document.getElementById("fareTable");
+    // Count the elements of the fareTable div and return the current element count
+    const fareTableCount = fareTableElement.childElementCount;
+
     const rowAdd =  elementFromHtml(
         elementConstruct.clGridWrapper +
-        elementConstruct.clIndex +
+        // Use the element count in fareTable from fareTableCount and fareTableElement to return proper index
+        elementConstruct.clIndex(fareTableCount) +
         elementConstruct.clExpCon +
         elementConstruct.clTime +
         elementConstruct.clStartingAdd +
@@ -58,7 +72,7 @@ function addRow() {
         elementConstruct.endingDiv
     );
 
-    document.getElementById("fareTable").appendChild(rowAdd);
+    fareTableElement.appendChild(rowAdd);
 }
 
 function elementFromHtml(html) {
