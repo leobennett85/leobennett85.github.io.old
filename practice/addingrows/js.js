@@ -75,10 +75,6 @@ function addRow() {
     fareTableElement.appendChild(rowAdd);
 }
 
-function indexCollection() {
-
-}
-
 function elementFromHtml(html) {
     const template = document.createElement("template");
 
