@@ -1,13 +1,13 @@
+/* FAREtABLE
 .grid-wrapper {
-    /*Wrapper Display*/
-    display: grid;
-    gap: 3px;
-    grid-template-areas:
-        'index expcon statingtime starting ending fare runningtotal'
-        'empty empty content content content content content';
-    grid-template-columns: 1fr 1fr 1fr 3fr 3fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    background-color: white;
+    Wrapper Display*/
+display: grid;
+gap: 3px;
+grid-template-areas: 'index expcon statingtime starting ending fare runningtotal'
+'empty empty content content content content content';
+grid-template-columns: 1fr 1fr 1fr 3fr 3fr 1fr 1fr;
+grid-template-rows: auto auto;
+background-color: white;
 }
 
 .contentGridWrapper {
