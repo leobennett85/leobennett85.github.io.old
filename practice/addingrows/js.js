@@ -3,9 +3,12 @@ setContent = () => {
     content.classList.toggle('contract');
 }
 
-expand = () => {
-    const content = document.getElementById('content');
-    content.classList.toggle('expand');
+expand = (index) => {
+    const grid = "grid" + index;
+    console.log(grid);
+    const content = document.getElementById(grid); 
+    console.log(content);
+    
 }
 
 contract = () => {
@@ -13,23 +16,18 @@ contract = () => {
     content.classList.toggle('contract');
 }
 
+const startingAddress = "randow value";
+
 //Create an object for the html of the page
 //TEST: Create the object, then use console to return values
 let elementConstruct = {
-    // index: 1,
-
-    clGridWrapper: `<div class="grid-wrapper">`,
-    /*
-    clIndex: function(index) {
-        return `<div id="${index}">${index}</div>`
-    },
-    */
+    clGridWrapper: (index) => `<div class="grid-wrapper" id="grid${index}">`,
     // Call function clIndex() with index parameter passed to it
     clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
     // Call expand(); onClick event to expand and current row
-    clExpCon: `<div class="expcon" onclick="expand()">+</div>`,
+    clExpCon: (index) => `<div class="expcon" onclick="expand(${index})">+</div>`,
     clTime: `<div class="startingtime">2:00PM</div>`,
-    clStartingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
+    clStartingAdd: (add) => `<div class="starting">${add}</div>`,
     clEndingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
     clFare: `<div class="fare">$ 25.00</div>`,
     clRunningTotal: `<div class="runningtotal">$ 25.00</div>`,
@@ -52,12 +50,12 @@ function addRow() {
     const fareTableCount = fareTableElement.childElementCount;
 
     const rowAdd =  elementFromHtml(
-        elementConstruct.clGridWrapper +
+        elementConstruct.clGridWrapper(fareTableCount) +
         // Use the element count in fareTable from fareTableCount and fareTableElement to return proper index
         elementConstruct.clIndex(fareTableCount) +
-        elementConstruct.clExpCon +
+        elementConstruct.clExpCon(fareTableCount) +
         elementConstruct.clTime +
-        elementConstruct.clStartingAdd +
+        elementConstruct.clStartingAdd(startingAddress) +
         elementConstruct.clEndingAdd +
         elementConstruct.clFare +
         elementConstruct.clRunningTotal +
