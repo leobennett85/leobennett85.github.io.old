@@ -113,7 +113,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /*Postioning and Display*/
     grid-column-start: 3;
-    grid-column-end: 7;
+    grid-column-end: 8;
     font-size: 0.5rem;
     display: block;
 }
