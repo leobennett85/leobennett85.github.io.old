@@ -1,4 +1,12 @@
-#sitewrap {}
+#siteWrap {
+    padding: 0;
+    margin: 0;
+}
+
+#menuWrap {
+    padding: 0;
+    margin: 0;
+}
 
 body {
     /* Font settings for menu */
