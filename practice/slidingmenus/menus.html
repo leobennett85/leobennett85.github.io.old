@@ -10,31 +10,40 @@
     <title>Sliding Menus for TaxiStats</title>
     <script src="js.js"></script>
   </head>
-  <body onload="setMenus();">
+  <body>
   <div id="sitewrap">
     <div id="menuWrap">
-      <div id="menu">
-        <div class="add" onclick="showMenu()">
+      <div id="add" class="menuAdd">
+        <div id="add" class="btnAdd" onclick="showAdd();">
           <span>&Delta;</span>
         </div>
-        <div class="update" onclick="showMenu()">
+      </div>
+      
+      <div id="update" class="menuUpdate">
+        <div id="update" class="btnUpdate" onclick="showUpdate();">
           <span>&Theta;</span>
         </div>
-        <div class="edit" onclick="showMenu()">
+      </div>
+
+      <div id="edit" class="menuEdit">
+        <div id="edit" class="btnEdit" onclick="showEdit();">
           <span>&Rho;</span>
         </div>
-        <div class="eod" onclick="showMenu()">
-          <span>&Xi;</span>
+      </div>
+
+      <div id="eod" class="menuEod">
+        <div id="eod" class="btnEod" onclick="showEod();">
+          <span>&Omega;</span>
         </div>
       </div>
-    </div>
+  </div>
 
-    <div id="totalsWrap">
-      <div id="totals">
-        <div class="btnTotals" onclick="showTotals()">
-          <span>&Sigma;</span>
-        </div>
+  <div id="totalsWrap">
+    <div id="totals" class="menuTotals">
+      <div id="totals" class="btnTotals" onclick="showTotals()">
+        <span>&Sigma;</span>
       </div>
     </div>
   </div>
+</div>
 </html>
