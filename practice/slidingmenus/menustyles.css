@@ -9,7 +9,7 @@
     transition: 0.5s;
 
     /* Background Style */
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(230, 230, 230));
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
 
     /* Border for entire menu */
     border-width: 1px;
@@ -41,13 +41,13 @@
     cursor: pointer;
 
     /* Background Style*/
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(230, 230, 230));
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
 
     /* Border for menu button */
     border-width: 1px;
     border-style: solid;
     border-top-color: rgb(230, 230, 230);
-    border-top-color: rgb(230, 230, 230);
+    border-left-color: rgb(230, 230, 230);
     border-right-color: rgb(255, 255, 255);
     border-bottom-color: rgb(255, 255, 255);
 
