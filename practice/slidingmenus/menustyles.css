@@ -1,19 +1,25 @@
 #menu {
+    /* Menu button postioning */
     position: absolute;
     width: 150px;
-    height: 100%;
+    left: 150px;
+    height: 70px;
+    /* Menu Effect */
+    transition: 0.5s;
+
+    /* Background Style*/
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(230, 230, 230));
-    left: -15px;
-    transition: 1.5s;
 
     /* Border for entire menu */
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(168, 168, 168);
-    /*border-radius: 0 15px 15px 0;*/
+    border-top-color: rgb(230, 230, 230);
+    border-left-color: #000;
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
 
     /* Shadow for whole menu */
-    box-shadow: 0 0 30px rgb(214, 214, 214);
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
 }
 
 #menu.activateMenu {
@@ -35,29 +41,33 @@
 }
 
 #menu .addRun {
+    /* Menu button postioning */
     position: absolute;
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(230, 230, 230));
+    top: -1px;
     width: 50px;
-    top: 0px;
     left: 150px;
     height: 70px;
     cursor: pointer;
 
+    /* Background Style*/
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(230, 230, 230));
+
     /* Border for menu button */
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(168, 168, 168);
-    /*border-bottom-right-radius: 10px;
-    border-top-right-radius:
-    10px;*/
+    border-top-color: rgb(230, 230, 230);
+    border-top-color: rgb(230, 230, 230);
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+
 
     /* Shadow for menu button */
-    box-shadow: 0 0 30px rgb(214, 214, 214);
+    box-shadow: 2px 2px 7px rgb(150, 150, 150);
 
     /* Font for Addition Symbol */
     text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px rgb(168, 168, 168);
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(168, 168, 168), -1px -1px rgb(168, 168, 168);
     font-family: 'Times New Roman', Times, serif;
     font-size: 55px;
     font-weight: normal;
