@@ -14,8 +14,9 @@
     grid-template-rows: auto auto;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Column Styles for header info */
-#index {
+.index {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -27,7 +28,8 @@
     align-items: center;
 }
 
-#expCon {
+/* Expand contract button */
+.expCon {
     /*Style*/
     background-color: aliceblue;
     cursor: pointer;
@@ -41,12 +43,15 @@
 }
 
 /* Hover Style for expcon */
-#expCon:hover {
+.expCon:hover {
     /*Style*/
     background-color: antiquewhite;
 }
 
-#startTime {
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.startTime {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -58,7 +63,7 @@
     align-items: center;
 }
 
-#startAdd {
+.startAdd {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -69,7 +74,7 @@
     justify-content: center;
 }
 
-#endAdd {
+.endAdd {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -80,7 +85,7 @@
     justify-content: center;
 }
 
-#fare {
+.fare {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -92,7 +97,7 @@
     font-size: 0.5rem;
 }
 
-#runningTotal {
+.runningTotal {
     /*Style*/
     background-color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -104,7 +109,8 @@
     font-size: 0.5rem;
 }
 
-/* Content class and IDs to show/hide */
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Content id to show/hide content block */
 #content {
     /*Style*/
     background-color: aliceblue;
@@ -116,18 +122,21 @@
     display: block;
 }
 
-/*ID to hide or display content block*/
+/*Class to hide or display content block*/
 /*Hide #content*/
-.contract {
+#content.contract {
     display: none;
     overflow: hide;
 }
 
 /*Display #content*/
-.expand {
+#content.expand {
     display: block;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Wrapper for content block */
 #contentGridWrapper {
     /*Style*/
@@ -143,7 +152,7 @@
     grid-template-rows: auto auto auto;
 }
 
-#conTotalTime {
+.conTotalTime {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -155,7 +164,7 @@
     align-items: center;
 }
 
-#conDistance {
+.conDistance {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -167,7 +176,7 @@
     align-items: center;
 }
 
-#conFareType {
+.conFareType {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -179,7 +188,7 @@
     align-items: center;
 }
 
-#conDolPerKm {
+.conDolPerKm {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -193,7 +202,7 @@
     align-items: center;
 }
 
-#conFareTotal {
+.conFareTotal {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -207,7 +216,7 @@
     align-items: center;
 }
 
-#conTip {
+.conTip {
     /*Style*/
     background-color: bisque;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -220,3 +229,5 @@
     justify-content: left;
     align-items: center;
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/

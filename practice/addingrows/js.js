@@ -3,12 +3,9 @@ setContent = () => {
     content.classList.toggle('contract');
 }
 
-expand = (index) => {
-    const grid = "grid" + index;
-    console.log(grid);
-    const content = document.getElementById(grid); 
-    console.log(content);
-    
+expand = () => {
+    const content = document.getElementById('content');
+    content.classList.toggle('expand');
 }
 
 contract = () => {
@@ -16,29 +13,27 @@ contract = () => {
     content.classList.toggle('contract');
 }
 
-const startingAddress = "randow value";
-
 //Create an object for the html of the page
 //TEST: Create the object, then use console to return values
 let elementConstruct = {
-    clGridWrapper: (index) => `<div class="grid-wrapper" id="grid${index}">`,
+    clGridWrapper: `<div id="gridWrapper">`,
     // Call function clIndex() with index parameter passed to it
     clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
     // Call expand(); onClick event to expand and current row
-    clExpCon: (index) => `<div class="expcon" onclick="expand(${index})">+</div>`,
-    clTime: `<div class="startingtime">2:00PM</div>`,
-    clStartingAdd: (add) => `<div class="starting">${add}</div>`,
-    clEndingAdd: `<div class="starting">15 Mt. Pleasant Avenue, St. John's</div>`,
+    clExpCon: `<div class="expCon" onclick="expand()">+</div>`,
+    clTime: `<div class="startTime">2:00PM</div>`,
+    clStartingAdd: `<div class="startAdd">11 Fennellys Rd</div>`,
+    clEndingAdd: `<div class="endAdd">15 Mt. Pleasant Avenue, St. John's</div>`,
     clFare: `<div class="fare">$ 25.00</div>`,
-    clRunningTotal: `<div class="runningtotal">$ 25.00</div>`,
+    clRunningTotal: `<div class="runningTotal">$ 25.00</div>`,
     idContent: `<div id="content">`,
-    clContentGridWrapper: `<div class="contentGridWrapper">`,
-    clContentTotalTime: `<div class="contotaltime">Total Time:</div>`,
-    clContentDistance: `<div class="condistance">Distance(km):</div>`,
-    clContentFareType: `<div class="confaretype">Type of Fare:</div>`,
-    clContentDollarPerKm: `<div class="condolperkm">$/km:</div>`,
-    clContentFareTotal: `<div class="confaretotal">Total Fare:</div>`,
-    clContentTip: `<div class="contip">Tip:</div>`,
+    clContentGridWrapper: `<div id="contentGridWrapper">`,
+    clContentTotalTime: `<div class="conTotalTime">Total Time:</div>`,
+    clContentDistance: `<div class="conDistance">Distance(km):</div>`,
+    clContentFareType: `<div class="conFareType">Type of Fare:</div>`,
+    clContentDollarPerKm: `<div class="conDolPerKm">$/km:</div>`,
+    clContentFareTotal: `<div class="conFareTotal">Total Fare:</div>`,
+    clContentTip: `<div class="conTip">Tip:</div>`,
     endingDiv: `</div>`
 }
 
@@ -50,12 +45,12 @@ function addRow() {
     const fareTableCount = fareTableElement.childElementCount;
 
     const rowAdd =  elementFromHtml(
-        elementConstruct.clGridWrapper(fareTableCount) +
+        elementConstruct.clGridWrapper +
         // Use the element count in fareTable from fareTableCount and fareTableElement to return proper index
         elementConstruct.clIndex(fareTableCount) +
-        elementConstruct.clExpCon(fareTableCount) +
+        elementConstruct.clExpCon +
         elementConstruct.clTime +
-        elementConstruct.clStartingAdd(startingAddress) +
+        elementConstruct.clStartingAdd +
         elementConstruct.clEndingAdd +
         elementConstruct.clFare +
         elementConstruct.clRunningTotal +
