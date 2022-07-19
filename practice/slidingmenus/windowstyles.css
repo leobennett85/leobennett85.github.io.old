@@ -15,7 +15,9 @@
     margin: 0;
 }
 
-body {
+html body {
     /* Font settings for menu */
+    margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

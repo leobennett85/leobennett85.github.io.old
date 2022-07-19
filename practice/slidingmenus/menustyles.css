@@ -75,7 +75,7 @@
 #update.menuUpdate {
     /* Menu Add postioning */
     position: absolute;
-    top: 80px;
+    top: 70px;
     width: 150px;
     left: -150px;
     height: 70px;
@@ -148,7 +148,7 @@
 #edit.menuEdit {
     /* Menu postioning */
     position: absolute;
-    top: 150px;
+    top: 140px;
     width: 150px;
     left: -150px;
     height: 70px;
@@ -221,7 +221,7 @@
 #eod.menuEod {
     /* Menu postioning */
     position: absolute;
-    top: 220px;
+    top: 210px;
     width: 150px;
     left: -150px;
     height: 70px;
