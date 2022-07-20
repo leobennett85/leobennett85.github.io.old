@@ -4,20 +4,85 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TaxiStats Index</title>
+    <link href="styles/menu.css" rel="stylesheet" />
+    <link href="styles/content.css" rel="stylesheet" />
+    <title>Adding Rows to a Grid</title>
+    <script src="js/menu.js"></script>
+    <script src="js/content.js"></script>
   </head>
+  <body onload="setContent();">
+    <!--MENU SECTION---------------------------------------------------------------------------------------------->
+    <div id="sitewrap">
+      <div id="menuWrap">
+        <div id="add" class="menuAdd">
+          <div id="add" class="btnAdd" onclick="showAdd();">
+            <span>&Delta;</span>
+          </div>
+        </div>
 
-  <body>
-    <h1>Index of TaxiStats v2.0</h1>
-    <h2>
-      Current Task:
-      <a href="practice/addingrows/add.html">
-        Add rows to a grid via a button
-      </a>
-    </h2>
-    <h2>
-      2022-06-20:
-      <a href="practice/slidingmenus/menus.html"> Develop Sliding Menus </a>
-    </h2>
+        <div id="update" class="menuUpdate">
+          <div id="update" class="btnUpdate" onclick="showUpdate();">
+            <span>&Theta;</span>
+          </div>
+        </div>
+
+        <div id="edit" class="menuEdit">
+          <div id="edit" class="btnEdit" onclick="showEdit();">
+            <span>&Rho;</span>
+          </div>
+        </div>
+
+        <div id="eod" class="menuEod">
+          <div id="eod" class="btnEod" onclick="showEod();">
+            <span>&Omega;</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="totalsWrap">
+        <div id="totals" class="menuTotals">
+          <div id="totals" class="btnTotals" onclick="showTotals()">
+            <span>&Sigma;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
+
+    <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
+    <div id="fareTable">
+      <div id="gridWrapper">
+        <div class="index"></div>
+        <div class="expCon">Details</div>
+        <div class="startTime">Time</div>
+        <div class="startAdd">Starting Address</div>
+        <div class="endAdd">Destination Address</div>
+        <div class="fare">Fare Total</div>
+        <div class="runningTotal">Running Total</div>
+      </div>
+      <!-- Row 2 example only -->
+      <div id="gridWrapper">
+        <div class="index">1</div>
+        <div class="expCon" onclick="expand();">+</div>
+        <div class="startTime">2:00PM</div>
+        <div class="startAdd">15 Mt. Pleasant Avenue, St. John's</div>
+        <div class="endAdd">11 Fennelly's Rd, Portugal Cove</div>
+        <div class="fare">$ 25.00</div>
+        <div class="runningTotal">$ 25.00</div>
+        <div id="content">
+          <div id="contentGridWrapper">
+            <div class="conTotalTime">Total Time:</div>
+            <div class="conDistance">Distance(km):</div>
+            <div class="conFareType">Type of Fare:</div>
+            <div class="conDolPerKm">$/km:</div>
+            <div class="conFareTotal">Total Fare:</div>
+            <div class="conTip">Tip:</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/" onClick="addRow(); return false">Click here to add row</a>
+    <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
   </body>
 </html>
