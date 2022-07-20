@@ -6,34 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/menu.css" rel="stylesheet" />
     <link href="styles/content.css" rel="stylesheet" />
+    <link href="styles/window.css" rel="stylesheet" />
     <title>Adding Rows to a Grid</title>
     <script src="js/menu.js"></script>
     <script src="js/content.js"></script>
   </head>
-  <body onload="setContent();">
+  <body onload="setContent(); setMenus();">
     <!--MENU SECTION---------------------------------------------------------------------------------------------->
     <div id="sitewrap">
       <div id="menuWrap">
         <div id="add" class="menuAdd">
-          <div id="add" class="btnAdd" onclick="showAdd();">
+          <div id="add" class="btnAdd" onclick="clickAdd();">
             <span>&Delta;</span>
           </div>
         </div>
 
         <div id="update" class="menuUpdate">
-          <div id="update" class="btnUpdate" onclick="showUpdate();">
+          <div id="update" class="btnUpdate" onclick="clickUpdate();">
             <span>&Theta;</span>
           </div>
         </div>
 
         <div id="edit" class="menuEdit">
-          <div id="edit" class="btnEdit" onclick="showEdit();">
+          <div id="edit" class="btnEdit" onclick="clickEdit();">
             <span>&Rho;</span>
           </div>
         </div>
 
         <div id="eod" class="menuEod">
-          <div id="eod" class="btnEod" onclick="showEod();">
+          <div id="eod" class="btnEod" onclick="clickEod();">
             <span>&Omega;</span>
           </div>
         </div>
@@ -41,7 +42,7 @@
 
       <div id="totalsWrap">
         <div id="totals" class="menuTotals">
-          <div id="totals" class="btnTotals" onclick="showTotals()">
+          <div id="totals" class="btnTotals" onclick="clickTotals();">
             <span>&Sigma;</span>
           </div>
         </div>
@@ -83,6 +84,7 @@
     </div>
 
     <a href="/" onClick="addRow(); return false">Click here to add row</a>
+    <a href="/" onClick="hideAll(); return false">Click here to hide menus</a>
     <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
   </body>
 </html>
