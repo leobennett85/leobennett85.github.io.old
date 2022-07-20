@@ -23,7 +23,7 @@ function showAdd() {
 function showUpdate() {
     let menu = document.getElementById('update');
     menu.classList.toggle('showUpdate');
-}\
+}
 
 function showEdit() {
     let menu = document.getElementById('edit');
