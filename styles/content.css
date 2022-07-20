@@ -1,4 +1,7 @@
-/* Entire table class: fareTable{} */
+/* Entire table class */
+#fareTable {
+    display: grid;
+}
 
 /* Wrapper ID for header info and content info */
 #gridWrapper {
