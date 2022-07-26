@@ -52,33 +52,57 @@
 
     <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
     <div id="fareTable">
-      <div id="gridWrapper">
-        <div class="index"></div>
-        <div class="expCon">Details</div>
-        <div class="startTime">Time</div>
-        <div class="startAdd">Starting Address</div>
-        <div class="endAdd">Destination Address</div>
-        <div class="fare">Fare Total</div>
-        <div class="runningTotal">Running Total</div>
+      <div id="gridHeader">
+        <div id="gridHeader" class="gridHeaderWrapper">
+          <div id="gridHeader" class="spaceleft"></div>
+          <div id="gridHeader" class="index">Run</div>
+          <div id="gridHeader" class="expcon">+/-</div>
+          <div id="gridHeader" class="time">Time</div>
+          <div id="gridHeader" class="startadd">Starting Address</div>
+          <div id="gridHeader" class="runtotal">Total</div>
+          <div id="gridHeader" class="spaceright"></div>
+        </div>
       </div>
-      <!-- Row 2 example only -->
-      <div id="gridWrapper">
-        <div class="index">1</div>
-        <div class="expCon" onclick="expand();">+</div>
-        <div class="startTime">2:00PM</div>
-        <div class="startAdd">15 Mt. Pleasant Avenue, St. John's</div>
-        <div class="endAdd">11 Fennelly's Rd, Portugal Cove</div>
-        <div class="fare">$ 25.00</div>
-        <div class="runningTotal">$ 25.00</div>
-        <div id="content">
-          <div id="contentGridWrapper">
-            <div class="conTotalTime">Total Time:</div>
-            <div class="conDistance">Distance(km):</div>
-            <div class="conFareType">Type of Fare:</div>
-            <div class="conDolPerKm">$/km:</div>
-            <div class="conFareTotal">Total Fare:</div>
-            <div class="conTip">Tip:</div>
+
+      <div id="gridInfo">
+        <div id="gridInfo" class="gridInfoWrapper">
+          <div id="gridInfo" class="spaceleft"></div>
+          <div id="gridInfo" class="index">1</div>
+          <div id="gridInfo" class="expcon" onClick="expand();">+</div>
+          <div id="gridInfo" class="time">4:00PM</div>
+          <div id="gridInfo" class="startadd">15 Mt. Pleasant Avenue</div>
+          <div id="gridInfo" class="runtotal">25</div>
+          <div id="gridInfo" class="spaceright"></div>
+        </div>
+      </div>
+
+      <div id="gridDetails">
+        <div id="gridDetails" class="gridDetailsWrapper">
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="detailsEndTime">Arrival Time:</div>
+          <div id="gridDetails" class="detailsDestination">
+            Destination Address:
           </div>
+          <div id="gridDetails" class="detailsFareTotal">Fare Total:</div>
+          <div id="gridDetails" class="spaceright"></div>
+
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="detailsTotalTime">Total Time:</div>
+          <div id="gridDetails" class="detailsDistance">Distance (km):</div>
+          <div id="gridDetails" class="detailsDollarsPerKm">$/km:</div>
+          <div id="gridDetails" class="spaceright"></div>
+
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="spaceleft"></div>
+          <div id="gridDetails" class="detailsFareType">FareType:</div>
+          <div id="gridDetails" class="detailsFareType">Tip:</div>
+          <div id="gridDetails" class="spaceright"></div>
         </div>
       </div>
     </div>
