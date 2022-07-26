@@ -1,16 +1,16 @@
 setContent = () => {
-    const content = document.getElementById('content');
-    content.classList.toggle('contract');
+    const content = document.getElementById('gridDetails');
+    content.classList.toggle('hide');
 }
 
 expand = () => {
-    const content = document.getElementById('content');
-    content.classList.toggle('expand');
+    const content = document.getElementById('gridDetails');
+    content.classList.toggle('show');
 }
 
 contract = () => {
-    const content = document.getElementById('content');
-    content.classList.toggle('contract');
+    const content = document.getElementById('gridDetails');
+    content.classList.toggle('hide');
 }
 
 //Create an object for the html of the page
