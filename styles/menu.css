@@ -17,12 +17,62 @@
     border-width: 1px;
     border-style: solid;
     border-top-color: rgb(230, 230, 230);
-    border-left-color: #000;
+    border-left-color: rgb(150, 150, 150);
     border-right-color: rgb(255, 255, 255);
     border-bottom-color: rgb(255, 255, 255);
 
     /* Shadow for whole menu */
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
+}
+
+#add.menuAddRun {
+    height: 50%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#add.menuAddRun:hover {
+    box-shadow: 2px 2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
+#add.menuAddExpense {
+    height: 50%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#add.menuAddExpense:hover {
+    box-shadow: -2px -2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
 }
 
 /*-- Button --*/
@@ -98,6 +148,58 @@
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
 }
 
+
+#update.menuUpdateGas {
+    height: 50%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#update.menuUpdateGas:hover {
+    box-shadow: 2px 2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
+#update.menuUpdateKmPer {
+    height: 50%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#update.menuUpdateKmPer:hover {
+    box-shadow: -2px -2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
+
 /*-- Button --*/
 #update.btnUpdate {
     /* Update button postioning */
@@ -171,6 +273,31 @@
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
 }
 
+#edit.menuEditRuns {
+    height: 100%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#edit.menuEditRuns:hover {
+    box-shadow: -2px -2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
 /*-- Button --*/
 #edit.btnEdit {
     /* Button postioning */
@@ -242,6 +369,31 @@
 
     /* Shadow for whole menu */
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
+}
+
+#eod.menuEodClose {
+    height: 100%;
+    outline: rgb(150, 150, 150) inset 1px;
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#eod.menuEodClose:hover {
+    box-shadow: -2px -2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
 }
 
 /*-- Button --*/
