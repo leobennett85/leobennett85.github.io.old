@@ -14,9 +14,48 @@ contract = () => {
 }
 
 //Create an object for the html of the page
-//TEST: Create the object, then use console to return values
-let elementConstruct = {
-    clGridWrapper: `<div id="gridWrapper">`,
+let newGridInfo = {
+    idGridIndfo:        `<div id="gridInfo">`,
+    idGridInfoLayout:       `<div id="gridInfoLayout">`,
+    clSpaceLeft:               `<div class="space"></div>`,
+    clIndex:                    `<div class="infoStyle index">1</div>`,
+    clExpCon:                   `<div class="infoStyle expcon" onClick="expand();">+</div>`,
+    clInfoStyle:                `<div class="infoStyle time">4:00PM</div>`,
+    clStartAdd:                 `<div class="infoStyle startadd">15 Mt. Pleasant Avenue</div>`,
+    clRunTotal:                 `<div class="infoStyle runtotal">25</div>`,
+    clSpaceRight:               `<div class="space"></div>`,
+    closeDiv:           `</div></div>`
+}
+
+let newGridDetails = {
+    idGridDetails:          `<div id="gridDetails">`,
+    idGridDetailsLayout:        `<div id="gridDetailsLayout">`,
+    clSpace1:                       `<div class="space"></div>`,
+    clSpace2:                       `<div class="space"></div>`,
+    clSpace3:                       `<div class="space"></div>`,
+    clDetailsEndTime:               `<div class="detailsStyle detailsEndTime">Arrival Time:</div>`,
+    clDetailsDestination:           `<div class="detailsStyle detailsDestination">Destination Address:</div>`,
+    clDetailsFareTotal:             `<div class="detailsStyle detailsFareTotal">Fare Total:</div>`,
+    clSpace4:                       `<div class="space"></div>`,
+    clSpace6:                       `<div class="space"></div>`,
+    clSpace7:                       `<div class="space"></div>`,
+    clSpace8:                       `<div class="space"></div>`,
+    cldetailsTotalTime:             `<div class="detailsStyle detailsTotalTime">Total Time:</div>`,
+    clDetailsDistance:              `<div class="detailsStyle detailsDistance">Distance (km):</div>`,
+    clDetailDollarsPerKm:           `<div class="detailsStyle detailsDollarsPerKm">$/km:</div>`,
+    clSpace9:                       `<div class="space"></div>`,
+    clSpace10:                      `<div class="space"></div>`,
+    clSpace11:                      `<div class="space"></div>`,
+    clSpace12:                      `<div class="space"></div>`,
+    clSpace13:                      `<div class="space"></div>`,
+    clDetailsFareType:              `<div class="detailsStyle detailsFareType">FareType:</div>`,
+    clDetailsTip:                   `<div class="detailsStyle detailsTip">Tip:</div>`,
+    clspace14:                      `<div class="space"></div>`,
+    closeDiv:               `</div><div>`
+}
+
+    /* old object
+    idGridInfo: `<div id="">`,
     // Call function clIndex() with index parameter passed to it
     clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
     // Call expand(); onClick event to expand and current row
@@ -35,6 +74,7 @@ let elementConstruct = {
     clContentFareTotal: `<div class="conFareTotal">Total Fare:</div>`,
     clContentTip: `<div class="conTip">Tip:</div>`,
     endingDiv: `</div>`
+    End of old Object */
 }
 
 /*Adding a row*/
