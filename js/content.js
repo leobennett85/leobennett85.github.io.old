@@ -15,43 +15,43 @@ contract = () => {
 
 //Create an object for the html of the page
 let newGridInfo = {
-    idGridIndfo:        `<div id="gridInfo">`,
-    idGridInfoLayout:       `<div id="gridInfoLayout">`,
-    clSpaceLeft:               `<div class="space"></div>`,
-    clIndex:                    `<div class="infoStyle index">1</div>`,
-    clExpCon:                   `<div class="infoStyle expcon" onClick="expand();">+</div>`,
-    clInfoStyle:                `<div class="infoStyle time">4:00PM</div>`,
-    clStartAdd:                 `<div class="infoStyle startadd">15 Mt. Pleasant Avenue</div>`,
-    clRunTotal:                 `<div class="infoStyle runtotal">25</div>`,
-    clSpaceRight:               `<div class="space"></div>`,
-    closeDiv:           `</div></div>`
+    idGridIndfo: (index) => `<div id="gridInfo${index}">`,
+    idGridInfoLayout: (index) => `<div id="gridInfoLayout${index}">`,
+    clSpaceLeft: `<div class="space"></div>`,
+    clIndex: (index) => `<div class="infoStyle${index} index${index}">${index}</div>`,
+    clExpCon: (index) => `<div class="infoStyle${index} expcon${index}" onClick="expand();">+</div>`,
+    clTime: (index) => `<div class="infoStyle${index} time${index}"></div>`,
+    clStartAdd: (index) => `<div class="infoStyle${index} startadd${index}"></div>`,
+    clRunTotal: (index) => `<div class="infoStyle${index} runtotal${index}"></div>`,
+    clSpaceRight: `<div class="space"></div>`,
+    closeDiv: `</div></div>`
 }
 
 let newGridDetails = {
-    idGridDetails:          `<div id="gridDetails">`,
-    idGridDetailsLayout:        `<div id="gridDetailsLayout">`,
-    clSpace1:                       `<div class="space"></div>`,
-    clSpace2:                       `<div class="space"></div>`,
-    clSpace3:                       `<div class="space"></div>`,
-    clDetailsEndTime:               `<div class="detailsStyle detailsEndTime">Arrival Time:</div>`,
-    clDetailsDestination:           `<div class="detailsStyle detailsDestination">Destination Address:</div>`,
-    clDetailsFareTotal:             `<div class="detailsStyle detailsFareTotal">Fare Total:</div>`,
-    clSpace4:                       `<div class="space"></div>`,
-    clSpace6:                       `<div class="space"></div>`,
-    clSpace7:                       `<div class="space"></div>`,
-    clSpace8:                       `<div class="space"></div>`,
-    cldetailsTotalTime:             `<div class="detailsStyle detailsTotalTime">Total Time:</div>`,
-    clDetailsDistance:              `<div class="detailsStyle detailsDistance">Distance (km):</div>`,
-    clDetailDollarsPerKm:           `<div class="detailsStyle detailsDollarsPerKm">$/km:</div>`,
-    clSpace9:                       `<div class="space"></div>`,
-    clSpace10:                      `<div class="space"></div>`,
-    clSpace11:                      `<div class="space"></div>`,
-    clSpace12:                      `<div class="space"></div>`,
-    clSpace13:                      `<div class="space"></div>`,
-    clDetailsFareType:              `<div class="detailsStyle detailsFareType">FareType:</div>`,
-    clDetailsTip:                   `<div class="detailsStyle detailsTip">Tip:</div>`,
-    clspace14:                      `<div class="space"></div>`,
-    closeDiv:               `</div><div>`
+    idGridDetails: (index) => `<div id="gridDetails${index}">`,
+    idGridDetailsLayout: (index) => `<div id="gridDetailsLayout${index}">`,
+    clSpaceA1: `<div class="space"></div>`,
+    clSpaceA2: `<div class="space"></div>`,
+    clSpaceA3: `<div class="space"></div>`,
+    clDetailsEndTime: (index) => `<div class="detailsStyle${index} detailsEndTime${index}">Arrival Time:</div>`,
+    clDetailsDestination: (index) => `<div class="detailsStyle${index} detailsDestination${index}">Destination Address:</div>`,
+    clDetailsFareTotal: (index) => `<div class="detailsStyle${index} detailsFareTotal${index}">Fare Total:</div>`,
+    clSpaceB1: `<div class="space"></div>`,
+    clSpaceB2: `<div class="space"></div>`,
+    clSpaceB3: `<div class="space"></div>`,
+    clSpaceB4: `<div class="space"></div>`,
+    clDetailsTotalTime: (index) => `<div class="detailsStyle${index} detailsTotalTime${index}">Total Time:</div>`,
+    clDetailsDistance: (index) => `<div class="detailsStyle${index} detailsDistance${index}">Distance (km):</div>`,
+    clDetailDollarsPerKm: (index) => `<div class="detailsStyle${index} detailsDollarsPerKm${index}">$/km:</div>`,
+    clSpaceC1: `<div class="space"></div>`,
+    clSpaceC2: `<div class="space"></div>`,
+    clSpaceC3: `<div class="space"></div>`,
+    clSpaceC4: `<div class="space"></div>`,
+    clSpaceC5: `<div class="space"></div>`,
+    clDetailsFareType: (index) => `<div class="detailsStyle${index} detailsFareType${index}">FareType:</div>`,
+    clDetailsTip: (index) => `<div class="detailsStyle${index} detailsTip${index}">Tip:</div>`,
+    clspaceD1: `<div class="space"></div>`,
+    closeDiv: `</div><div>`
 }
 
     /* old object
@@ -74,10 +74,50 @@ let newGridDetails = {
     clContentFareTotal: `<div class="conFareTotal">Total Fare:</div>`,
     clContentTip: `<div class="conTip">Tip:</div>`,
     endingDiv: `</div>`
-    End of old Object */
+}
+End of old Object */
+
+function addNewFareTable() {
+    const fareTableElement = document.getElementById("fareTable");
+    const fareTableCount = fareTableElement.childElementCount;
+    // gridInfo Section
+    newGridInfo.idGridIndfo(fareTableCount) +
+    newGridInfo.idGridInfoLayout(fareTableCount) +
+    newGridInfo.clIndex(fareTableCount) +
+    newGridInfo.clExpCon(fareTableCount) +
+    newGridInfo.clTime(fareTableCount) +
+    newGridInfo.clStartAdd(fareTableCount) +
+    newGridInfo.clRunTotal(fareTableCount) +
+    newGridInfo.clSpaceRight(fareTableCount) +
+    newGridInfo.closeDiv
+
+    // gridDetails section
+    newGridDetails.idGridDetails(fareTableCount) +
+    newGridDetails.idGridDetailsLayout(fareTableCount) +
+    newGridDetails.clSpaceA1 +
+    newGridDetails.clSpaceA2 +
+    newGridDetails.clSpaceA3 +
+    newGridDetails.clDetailsEndTime(fareTableCount) +
+    newGridDetails.clDetailsDestination(fareTableCount) +
+    newGridDetails.clDetailsFareTotal(fareTableCount) +
+    newGridDetails.clSpaceB1 +
+    newGridDetails.clSpaceB2 +
+    newGridDetails.clSpaceB3 +
+    newGridDetails.clSpaceB4 +
+    newGridDetails.clDetailsTotalTime(fareTableCount) +
+    newGridDetails.clDetailsDistance(fareTableCount) +
+    newGridDetails.clDetailDollarsPerKm(fareTableCount) +
+    newGridDetails.clSpaceC1 +
+    newGridDetails.clSpaceC2 +
+    newGridDetails.clSpaceC3 +
+    newGridDetails.clSpaceC4 +
+    newGridDetails.clDetailsFareType(fareTableCount) +
+    newGridDetails.clDetailsTip(fareTableCount) +
+    newGridDetails.clSpaceC5
 }
 
-/*Adding a row*/
+/* old function 
+/*Adding a row
 function addRow() {
     // Return the elements of the fareTable div
     const fareTableElement = document.getElementById("fareTable");
@@ -107,6 +147,7 @@ function addRow() {
 
     fareTableElement.appendChild(rowAdd);
 }
+*/
 
 function elementFromHtml(html) {
     const template = document.createElement("template");
