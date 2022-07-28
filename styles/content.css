@@ -4,60 +4,42 @@
     padding: 0;
 }
 
+.space {
+    background-color: white;
+}
+
 #gridHeader {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.8rem;
     color: rgb(230, 230, 230);
 }
 
-#gridHeader.gridHeaderWrapper {
+#gridHeaderLayout {
     background-color: white;
     display: grid;
     gap: 3px;
     grid-template-areas:
-        'spaceleft index    expcon  time    startadd    runtotal    spaceright';
+        'space index    expcon  time    startadd    runtotal    space';
     grid-template-columns:
         3.3rem 1fr 1fr 3fr 6fr 2fr 3.3rem;
     grid-template-rows: auto;
 }
 
-#gridHeader.spaceleft {
-    width: 3.5rem;
-}
-
-#gridHeader.index {
+.headerStyle {
     background-color: rgb(44, 134, 161);
     display: flex;
     justify-content: center;
 }
 
-#gridHeader.expcon {
-    background-color: rgb(44, 134, 161);
-    display: flex;
-    justify-content: center;
-}
+.index {}
 
-#gridHeader.time {
-    background-color: rgb(44, 134, 161);
-    display: flex;
-    justify-content: center;
-}
+.expcon {}
 
-#gridHeader.startadd {
-    background-color: rgb(44, 134, 161);
-    display: flex;
-    justify-content: center;
-}
+.time {}
 
-#gridHeader.runtotal {
-    background-color: rgb(44, 134, 161);
-    display: flex;
-    justify-content: center;
-}
+.startadd {}
 
-#gridHeader.spaceright {
-    width: 3.3rem;
-}
+.runtotal {}
 
 #gridInfo {
     font-family: 'Courier New', Courier, monospace;
@@ -65,59 +47,37 @@
     padding-top: 1px;
 }
 
-#gridInfo.gridInfoWrapper {
+#gridInfoLayout {
     background-color: white;
     display: grid;
     gap: 3px;
     grid-template-areas:
-        'spaceleft index    expcon  time    startadd    runtotal    spaceright';
+        'space index    expcon  time    startadd    runtotal    space';
     grid-template-columns:
         3.3rem 1fr 1fr 3fr 6fr 2fr 3.3rem;
     grid-template-rows: auto;
 }
 
-#gridInfo.spaceleft {
-    width: 3.3rem;
-}
-
-#gridInfo.index {
+.infoStyle {
     background-color: rgb(158, 208, 223);
     display: flex;
     justify-content: center;
 }
 
-#gridInfo.expcon {
-    background-color: rgb(158, 208, 223);
-    display: flex;
-    justify-content: center;
-}
+.index {}
 
-#gridInfo.expcon:hover {
+.expcon {}
+
+.expcon:hover {
     background-color: rgb(205, 240, 247);
     cursor: pointer;
 }
 
-#gridInfo.time {
-    background-color: rgb(158, 208, 223);
-    display: flex;
-    justify-content: center;
-}
+.time {}
 
-#gridInfo.startadd {
-    background-color: rgb(158, 208, 223);
-    display: flex;
-    justify-content: center;
-}
+.startadd {}
 
-#gridInfo.runtotal {
-    background-color: rgb(158, 208, 223);
-    display: flex;
-    justify-content: center;
-}
-
-#gridInfo.spaceright {
-    width: 3.3rem;
-}
+.runtotal {}
 
 #gridDetails {
     font-family: 'Courier New', Courier, monospace;
@@ -125,63 +85,43 @@
     padding-top: 1px;
 }
 
-#gridDetails.gridDetailsWrapper {
+#gridDetailsLayout {
     background-color: white;
     display: grid;
     gap: 3px;
     grid-template-areas:
-        'spaceleft  spaceleft  spaceleft    detailsEndTime      detailsDestination      detailsFareTotal        spaceright'
-        'spaceleft  spaceleft  spaceleft    detailsTotalTime    detailsDistance         detailsDollarsPerKm     spaceright'
-        'spaceleft  spaceleft  spaceleft    spaceleft           detailsFareType         detailsTips             spaceright';
+        'space      space      space        detailsEndTime      detailsDestination      detailsFareTotal        space'
+        'space      space      space        detailsTotalTime    detailsDistance         detailsDollarsPerKm     space'
+        'space      space      space        space               detailsFareType         detailsTips             space';
     grid-template-columns:
         3.3rem 1fr 1fr 3fr 6fr 2fr 3.3rem;
     grid-template-rows: auto auto auto;
 }
 
-#gridDetails.hide {
+.detailsStyle {
+    background-color: rgb(205, 240, 247);
+    display: flex;
+    justify-content: center;
+}
+
+.hide {
     display: none;
 }
 
-#gridDetails.show {
+.show {
     display: block;
 }
 
-#gridDetails.spaceleft {
-    background-color: white;
-}
+.detailsDestination {}
 
-#gridDetails.detailsEndTime {
-    background-color: rgb(205, 240, 247);
-}
+.detailsFareTotal {}
 
-#gridDetails.detailsDestination {
-    background-color: rgb(205, 240, 247);
-}
+.detailsTotalTime {}
 
-#gridDetails.detailsFareTotal {
-    background-color: rgb(205, 240, 247);
-}
+.detailsDistance {}
 
-#gridDetails.detailsTotalTime {
-    background-color: rgb(205, 240, 247);
-}
+.detailsDollarsPerKm {}
 
-#gridDetails.detailsDistance {
-    background-color: rgb(205, 240, 247);
-}
+.detailsFareType {}
 
-#gridDetails.detailsDollarsPerKm {
-    background-color: rgb(205, 240, 247);
-}
-
-#gridDetails.detailsFareType {
-    background-color: rgb(205, 240, 247);
-}
-
-#gridDetails.detailsTips {
-    background-color: rgb(205, 240, 247);
-}
-
-#gridDetails.spaceright {
-    width: 3.3rem;
-}
+.detailsTips {}
