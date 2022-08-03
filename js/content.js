@@ -4,8 +4,10 @@ setContent = () => {
 }
 
 expand = () => {
-    const content = document.getElementById('gridDetails');
-    content.classList.toggle('show');
+    console.log(this);
+    /*
+    const content = document.getElementById(gridWrapper);
+    content.classList.toggle('show');*/
 }
 
 contract = () => {
@@ -13,145 +15,92 @@ contract = () => {
     content.classList.toggle('hide');
 }
 
+
 //Create an object for the html of the page
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
     idGridInfoLayout: `<div id="gridInfoLayout">`,
     clSpaceLeft: `<div class="space"></div>`,
-    clIndex: (index) => `<div id="${index}" class="infoStyle">${index}</div>`,
-    clExpCon: (index) => `<div id="expcon${index}" class="infoStyle" onClick="expand();">+</div>`,
-    clTime: (index) => `<div id="time${index}" class="infoStyle"></div>`,
-    clStartAdd: (index) => `<div id="startadd${index}" class="infoStyle"></div>`,
-    clRunTotal: (index) => `<div id=runtotal${index}" class="infoStyle"></div>`,
+    clIndex: (index) => `<div id="infoIndex${index}" class="infoStyle">${index}</div>`,
+    clExpCon: `<div id="infoExpCon" class="infoStyle" onClick="expand(this.id);">+</div>`,
+    clTime: `<div id="infoTime" class="infoStyle"></div>`,
+    clStartAdd: `<div id="infoStartAdd" class="infoStyle"></div>`,
+    clRunTotal: `<div id="infoRunTotal" class="infoStyle"></div>`,
     clSpaceRight: `<div class="space"></div>`,
     closeDiv: `</div></div>`
 }
 
 let newGridDetails = {
-    idGridDetails: `<div id="gridDetails" class="gridDetailsStyle">`,
+    idGridWrapper: (index) => `<div id="gridWrapper${index}">`,
+    idGridDetails: `<div id="gridDetails">`,
     idGridDetailsLayout:`<div id="gridDetailsLayout">`,
     clSpaceA1: `<div class="space"></div>`,
     clSpaceA2: `<div class="space"></div>`,
     clSpaceA3: `<div class="space"></div>`,
-    clDetailsEndTime: (index) => `<div id= detailsEndTime${index}" class="detailsStyle">Arrival Time:</div>`,
-    clDetailsDestination: (index) => `<div id="detailsDestination${index}" class="detailsStyle">Destination Address:</div>`,
-    clDetailsFareTotal: (index) => `<div id="detailsFareTotal${index}" class="detailsStyle">Fare Total:</div>`,
+    clDetailsEndTime: `<div id= detailsEndTime" class="detailsStyle">Arrival Time:</div>`,
+    clDetailsDestination: `<div id="detailsDestination" class="detailsStyle">Destination Address:</div>`,
+    clDetailsFareTotal: `<div id="detailsFareTotal" class="detailsStyle">Fare Total:</div>`,
     clSpaceB1: `<div class="space"></div>`,
     clSpaceB2: `<div class="space"></div>`,
     clSpaceB3: `<div class="space"></div>`,
     clSpaceB4: `<div class="space"></div>`,
-    clDetailsTotalTime: (index) => `<div id="detailsTotalTime${index}" class="detailsStyle">Total Time:</div>`,
-    clDetailsDistance: (index) => `<div id="detailsDistance${index}" class="detailsStyle">Distance (km):</div>`,
-    clDetailDollarsPerKm: (index) => `<div id="detailsDollarsPerKm${index}" class="detailsStyle">$/km:</div>`,
+    clDetailsTotalTime: `<div id="detailsTotalTime" class="detailsStyle">Total Time:</div>`,
+    clDetailsDistance: `<div id="detailsDistance" class="detailsStyle">Distance (km):</div>`,
+    clDetailDollarsPerKm: `<div id="detailsDollarsPerKm" class="detailsStyle">$/km:</div>`,
     clSpaceC1: `<div class="space"></div>`,
     clSpaceC2: `<div class="space"></div>`,
     clSpaceC3: `<div class="space"></div>`,
     clSpaceC4: `<div class="space"></div>`,
     clSpaceC5: `<div class="space"></div>`,
-    clDetailsFareType: (index) => `<div id="detailsFareType${index}" class="detailsStyle">FareType:</div>`,
-    clDetailsTip: (index) => `<div id="detailsTip${index}" class="detailsStyle">Tip:</div>`,
+    clDetailsFareType: `<div id="detailsFareType" class="detailsStyle">FareType:</div>`,
+    clDetailsTip: `<div id="detailsTip" class="detailsStyle">Tip:</div>`,
     clspaceD1: `<div class="space"></div>`,
-    closeDiv: `</div><div>`
+    closeDiv: `</div><div></div>`
 }
-
-    /* old object
-    idGridInfo: `<div id="">`,
-    // Call function clIndex() with index parameter passed to it
-    clIndex: (index) =>  `<div class="index" id="${index}">${index}</div>`,
-    // Call expand(); onClick event to expand and current row
-    clExpCon: `<div class="expCon" onclick="expand()">+</div>`,
-    clTime: `<div class="startTime">2:00PM</div>`,
-    clStartingAdd: `<div class="startAdd">11 Fennellys Rd</div>`,
-    clEndingAdd: `<div class="endAdd">15 Mt. Pleasant Avenue, St. John's</div>`,
-    clFare: `<div class="fare">$ 25.00</div>`,
-    clRunningTotal: `<div class="runningTotal">$ 25.00</div>`,
-    idContent: `<div id="content">`,
-    clContentGridWrapper: `<div id="contentGridWrapper">`,
-    clContentTotalTime: `<div class="conTotalTime">Total Time:</div>`,
-    clContentDistance: `<div class="conDistance">Distance(km):</div>`,
-    clContentFareType: `<div class="conFareType">Type of Fare:</div>`,
-    clContentDollarPerKm: `<div class="conDolPerKm">$/km:</div>`,
-    clContentFareTotal: `<div class="conFareTotal">Total Fare:</div>`,
-    clContentTip: `<div class="conTip">Tip:</div>`,
-    endingDiv: `</div>`
-}
-End of old Object */
 
 function addNewFareTable() {
     const fareTableElement = document.getElementById("fareTable");
-    const fareTableCount = fareTableElement.childElementCount;
+    const fareTableCount = fareTableElement.childElementCount; 
     const addFare = elementFromHtml (
         // gridInfo Section
         newGridInfo.idGridIndfo +
         newGridInfo.idGridInfoLayout +
         newGridInfo.clSpaceLeft +
         newGridInfo.clIndex(fareTableCount) +
-        newGridInfo.clExpCon(fareTableCount) +
-        newGridInfo.clTime(fareTableCount) +
-        newGridInfo.clStartAdd(fareTableCount) +
-        newGridInfo.clRunTotal(fareTableCount) +
+        newGridInfo.clExpCon +
+        newGridInfo.clTime +
+        newGridInfo.clStartAdd +
+        newGridInfo.clRunTotal +
         newGridInfo.clSpaceRight +
         newGridInfo.closeDiv +
         // gridDetails section
+        newGridDetails.idGridWrapper(fareTableCount) +
         newGridDetails.idGridDetails +
         newGridDetails.idGridDetailsLayout +
         newGridDetails.clSpaceA1 +
         newGridDetails.clSpaceA2 +
         newGridDetails.clSpaceA3 +
-        newGridDetails.clDetailsEndTime(fareTableCount) +
-        newGridDetails.clDetailsDestination(fareTableCount) +
-        newGridDetails.clDetailsFareTotal(fareTableCount) +
+        newGridDetails.clDetailsEndTime +
+        newGridDetails.clDetailsDestination +
+        newGridDetails.clDetailsFareTotal +
         newGridDetails.clSpaceB1 +
         newGridDetails.clSpaceB2 +
         newGridDetails.clSpaceB3 +
         newGridDetails.clSpaceB4 +
-        newGridDetails.clDetailsTotalTime(fareTableCount) +
-        newGridDetails.clDetailsDistance(fareTableCount) +
-        newGridDetails.clDetailDollarsPerKm(fareTableCount) +
+        newGridDetails.clDetailsTotalTime +
+        newGridDetails.clDetailsDistance +
+        newGridDetails.clDetailDollarsPerKm +
         newGridDetails.clSpaceC1 +
         newGridDetails.clSpaceC2 +
         newGridDetails.clSpaceC3 +
         newGridDetails.clSpaceC4 +
-        newGridDetails.clDetailsFareType(fareTableCount) +
-        newGridDetails.clDetailsTip(fareTableCount) +
+        newGridDetails.clDetailsFareType +
+        newGridDetails.clDetailsTip +
         newGridDetails.clSpaceC5
     );
 
     fareTableElement.appendChild(addFare);
 }
-
-/* old function 
-/*Adding a row
-function addRow() {
-    // Return the elements of the fareTable div
-    const fareTableElement = document.getElementById("fareTable");
-    // Count the elements of the fareTable div and return the current element count
-    const fareTableCount = fareTableElement.childElementCount;
-
-    const rowAdd =  elementFromHtml(
-        elementConstruct.clGridWrapper +
-        // Use the element count in fareTable from fareTableCount and fareTableElement to return proper index
-        elementConstruct.clIndex(fareTableCount) +
-        elementConstruct.clExpCon +
-        elementConstruct.clTime +
-        elementConstruct.clStartingAdd +
-        elementConstruct.clEndingAdd +
-        elementConstruct.clFare +
-        elementConstruct.clRunningTotal +
-        elementConstruct.idContent +
-        elementConstruct.clContentGridWrapper +
-        elementConstruct.clContentTotalTime +
-        elementConstruct.clContentDistance +
-        elementConstruct.clContentFareType +
-        elementConstruct.clContentDollarPerKm +
-        elementConstruct.clContentFareTotal +
-        elementConstruct.clContentTip +
-        elementConstruct.endingDiv
-    );
-
-    fareTableElement.appendChild(rowAdd);
-}
-*/
 
 function elementFromHtml(html) {
     const template = document.createElement("template");

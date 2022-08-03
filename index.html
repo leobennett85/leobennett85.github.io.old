@@ -11,106 +11,108 @@
     <script src="js/menu.js"></script>
     <script src="js/content.js"></script>
   </head>
-  <body onload="setContent(); setMenus();">
+  <body onload="setMenus();">
     <!--MENU SECTION---------------------------------------------------------------------------------------------->
-    <div id="sitewrap">
+    <div id="siteWrap">
       <div id="menuWrap">
-        <div id="add" class="menuAdd">
-          <div id="add" class="menuAddRun">Add Run</div>
-          <div id="add" class="menuAddExpense">Add Expense</div>
-          <div id="add" class="btnAdd" onclick="clickAdd();">
+        <div id="add" class="menuStyle">
+          <div class="halfMenu">Add Run</div>
+          <div class="halfMenu">Add Expense</div>
+          <div class="btnStyle zeroTop" onclick="clickAdd();">
             <span>&Delta;</span>
           </div>
         </div>
 
-        <div id="update" class="menuUpdate">
-          <div id="update" class="menuUpdateGas">Price of Gas</div>
-          <div id="update" class="menuUpdateKmPer">L/100km</div>
-          <div id="update" class="btnUpdate" onclick="clickUpdate();">
-            <span>&Theta;</span>
+          <div id="update" class="menuStyle">
+            <div class="halfMenu">Price of Gas</div>
+            <div class="halfMenu">L/100km</div>
+            <div class="btnStyle" onclick="clickUpdate();">
+              <span>&Theta;</span>
+            </div>
+          </div>
+
+          <div id="edit" class="menuStyle">
+            <div class="oneMenu">Edit</div>
+            <div class="btnStyle" onclick="clickEdit();">
+              <span>&Rho;</span>
+            </div>
+          </div>
+
+
+          <div id="eod" class="menuStyle">
+            <div class="oneMenu">End Of Day</div>
+            <div class="btnStyle" onclick="clickEod();">
+              <span>&Omega;</span>
+            </div>
           </div>
         </div>
 
-        <div id="edit" class="menuEdit">
-          <div id="edit" class="menuEditRuns">Edit Menu</div>
-          <div id="edit" class="btnEdit" onclick="clickEdit();">
-            <span>&Rho;</span>
-          </div>
-        </div>
-
-        <div id="eod" class="menuEod">
-          <div id="eod" class="menuEodClose">End Of Day</div>
-          <div id="eod" class="btnEod" onclick="clickEod();">
-            <span>&Omega;</span>
+        <div id="totalsWrap">
+          <div id="totals" class="totalsStyle">
+            <div class="btnTotals" onclick="clickTotals();">
+              <span>&Sigma;</span>
+            </div>
           </div>
         </div>
       </div>
+      <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
 
-      <div id="totalsWrap">
-        <div id="totals" class="menuTotals">
-          <div id="totals" class="btnTotals" onclick="clickTotals();">
-            <span>&Sigma;</span>
+      <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
+      <div id="fareTable">
+        <div id="gridHeader">
+          <div id="gridHeaderLayout">
+            <div class="space"></div>
+            <div class="headerStyle headerIndex">Run</div>
+            <div class="headerStyle headerExpCon">+/-</div>
+            <div class="headerStyle headerTime">Time</div>
+            <div class="headerStyle headerSartAdd">Starting Address</div>
+            <div class="headerStyle headerRunTotal">Total</div>
+            <div class="space"></div>
           </div>
         </div>
+        <!--
+        <div id="gridInfo">
+          <div id="gridInfoLayout">
+            <div class="space"></div>
+            <div class="infoStyle index">1</div>
+            <div class="infoStyle expcon" onClick="expand();">+</div>
+            <div class="infoStyle time">4:00PM</div>
+            <div class="infoStyle startadd">15 Mt. Pleasant Avenue</div>
+            <div class="infoStyle runtotal">25</div>
+            <div class="space"></div>
+          </div>
+        </div>
+        <div id="gridDetails">
+          <div id="gridDetailsLayout">
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="detailsStyle detailsEndTime">Arrival Time:</div>
+            <div class="detailsStyle detailsDestination">
+              Destination Address:
+            </div>
+            <div class="detailsStyle detailsFareTotal">Fare Total:</div>
+            <div class="space"></div>
+
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="detailsStyle detailsTotalTime">Total Time:</div>
+            <div class="detailsStyle detailsDistance">Distance (km):</div>
+            <div class="detailsStyle detailsDollarsPerKm">$/km:</div>
+            <div class="space"></div>
+
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="detailsStyle detailsFareType">FareType:</div>
+            <div class="detailsStyle detailsTip">Tip:</div>
+            <div class="space"></div>
+          </div>
+        </div>-->
       </div>
     </div>
-    <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
-
-    <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
-    <div id="fareTable">
-      <div id="gridHeader">
-        <div id="gridHeaderLayout">
-          <div class="space"></div>
-          <div class="headerStyle index">Run</div>
-          <div class="headerStyle expcon">+/-</div>
-          <div class="headerStyle time">Time</div>
-          <div class="headerStyle tartadd">Starting Address</div>
-          <div class="headerStyle runtotal">Total</div>
-          <div class="space"></div>
-        </div>
-      </div>
-      <!--
-      <div id="gridInfo">
-        <div id="gridInfoLayout">
-          <div class="space"></div>
-          <div class="infoStyle index">1</div>
-          <div class="infoStyle expcon" onClick="expand();">+</div>
-          <div class="infoStyle time">4:00PM</div>
-          <div class="infoStyle startadd">15 Mt. Pleasant Avenue</div>
-          <div class="infoStyle runtotal">25</div>
-          <div class="space"></div>
-        </div>
-      </div>
-      <div id="gridDetails">
-        <div id="gridDetailsLayout">
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="detailsStyle detailsEndTime">Arrival Time:</div>
-          <div class="detailsStyle detailsDestination">
-            Destination Address:
-          </div>
-          <div class="detailsStyle detailsFareTotal">Fare Total:</div>
-          <div class="space"></div>
-
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="detailsStyle detailsTotalTime">Total Time:</div>
-          <div class="detailsStyle detailsDistance">Distance (km):</div>
-          <div class="detailsStyle detailsDollarsPerKm">$/km:</div>
-          <div class="space"></div>
-
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="space"></div>
-          <div class="detailsStyle detailsFareType">FareType:</div>
-          <div class="detailsStyle detailsTip">Tip:</div>
-          <div class="space"></div>
-        </div>
-      </div>
-    --></div>
 
     <a href="" onClick="addNewFareTable(); return false"
       >Click here to add a new row</a

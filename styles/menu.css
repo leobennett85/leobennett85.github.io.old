@@ -1,208 +1,10 @@
-#add.menuAdd {
-    /* Menu Add postioning */
+.span {
+    top: 0;
+}
+
+.btnStyle {
     position: absolute;
-    width: 150px;
-    left: -150px;
-    height: 70px;
-
-    /* Menu Effect */
-    transition: 0.5s;
-
-    /* Background Style */
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for entire menu */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: rgb(150, 150, 150);
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for whole menu */
-    box-shadow: 2px 2px 5px rgb(150, 150, 150);
-}
-
-#add.menuAddRun {
-    height: 50%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#add.menuAddRun:hover {
-    box-shadow: 2px 2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-#add.menuAddExpense {
-    height: 50%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#add.menuAddExpense:hover {
-    box-shadow: -2px -2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-/*-- Button --*/
-#add.btnAdd {
-    /* Add button postioning */
-    position: absolute;
-    top: -1px;
-    width: 50px;
-    left: 150px;
-    height: 70px;
-    cursor: pointer;
-
-    /* Background Style*/
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for add button */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: rgb(230, 230, 230);
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for add button */
-    box-shadow: 2px 2px 7px rgb(150, 150, 150);
-
-    /* Font for Add Symbol */
-    text-align: center;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px rgb(168, 168, 168), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 55px;
-    font-weight: normal;
-}
-
-/*-- Hide --*/
-#add.hideAdd {
-    left: -150px;
-}
-
-/*-- Show --*/
-#add.showAdd {
-    left: 0;
-}
-
-/*------------------------------------------------------------------------------------------------------------------*/
-
-/* Update menu ID and classes */
-/* -- Menu --*/
-#update.menuUpdate {
-    /* Menu Add postioning */
-    position: absolute;
-    top: 70px;
-    width: 150px;
-    left: -150px;
-    height: 70px;
-
-    /* Menu Effect */
-    transition: 0.5s;
-
-    /* Background Style */
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for entire menu */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: #000;
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for whole menu */
-    box-shadow: 2px 2px 5px rgb(150, 150, 150);
-}
-
-
-#update.menuUpdateGas {
-    height: 50%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#update.menuUpdateGas:hover {
-    box-shadow: 2px 2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-#update.menuUpdateKmPer {
-    height: 50%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#update.menuUpdateKmPer:hover {
-    box-shadow: -2px -2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-
-/*-- Button --*/
-#update.btnUpdate {
-    /* Update button postioning */
-    position: absolute;
-    top: -1px;
+    top: 0;
     width: 50px;
     left: 150px;
     height: 70px;
@@ -231,217 +33,135 @@
     font-weight: normal;
 }
 
-/*-- Hide --*/
-#update.hideUpdate {
-    left: -150px;
-}
-
-/*-- Show --*/
-#update.showUpdate {
-    left: 0;
-}
-
-/*------------------------------------------------------------------------------------------------------------------*/
-
-/* Edit menu ID and classes */
-/* -- Menu --*/
-#edit.menuEdit {
-    /* Menu postioning */
+.menuStyle {
     position: absolute;
+    width: 150px;
+    left: -150px;
+    height: 70px;
+
+    /* Menu Effect */
+    transition: 0.5s;
+
+    /* Background Style */
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
+
+    /* Border for entire menu */
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: rgb(230, 230, 230);
+    border-left-color: rgb(150, 150, 150);
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+
+    /* Shadow for whole menu */
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
+}
+
+.halfMenu {
+    height: 50%;
+    outline: rgb(150, 150, 150) inset 1px;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.halfMenu:hover {
+    box-shadow: 2px 2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.oneMenu {
+    height: 100%;
+    outline: rgb(150, 150, 150) inset 1px;
+
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.oneMenu:hover {
+    box-shadow: 2px 2px 7px rgb(150, 150, 150);
+    text-shadow: none;
+    cursor: pointer;
+}
+
+#add {
+    top: -1px;
+}
+
+#update {
+    top: 71px;
+}
+
+#edit {
     top: 140px;
-    width: 150px;
-    left: -150px;
-    height: 70px;
-
-    /* Menu Effect */
-    transition: 0.5s;
-
-    /* Background Style */
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for entire menu */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: #000;
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for whole menu */
-    box-shadow: 2px 2px 5px rgb(150, 150, 150);
 }
 
-#edit.menuEditRuns {
-    height: 100%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#edit.menuEditRuns:hover {
-    box-shadow: -2px -2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-/*-- Button --*/
-#edit.btnEdit {
-    /* Button postioning */
-    position: absolute;
-    top: -1px;
-    width: 50px;
-    left: 150px;
-    height: 70px;
-    cursor: pointer;
-
-    /* Background Style*/
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for button */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: rgb(230, 230, 230);
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for button */
-    box-shadow: 2px 2px 7px rgb(150, 150, 150);
-
-    /* Font for Symbol */
-    text-align: center;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px rgb(168, 168, 168), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 55px;
-    font-weight: normal;
-}
-
-/*-- Hide --*/
-#edit.hideEdit {
-    left: -150px;
-}
-
-/*-- Show --*/
-#edit.showEdit {
-    left: 0;
-}
-
-/*------------------------------------------------------------------------------------------------------------------*/
-
-/* EOD menu ID and classes */
-/* -- Menu --*/
-#eod.menuEod {
-    /* Menu postioning */
-    position: absolute;
+#eod {
     top: 210px;
-    width: 150px;
-    left: -150px;
-    height: 70px;
-
-    /* Menu Effect */
-    transition: 0.5s;
-
-    /* Background Style */
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for entire menu */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: #000;
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for whole menu */
-    box-shadow: 2px 2px 5px rgb(150, 150, 150);
-}
-
-#eod.menuEodClose {
-    height: 100%;
-    outline: rgb(150, 150, 150) inset 1px;
-    display: flex;
-    justify-content: center;
-
-    text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: normal;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#eod.menuEodClose:hover {
-    box-shadow: -2px -2px 7px rgb(150, 150, 150);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-/*-- Button --*/
-#eod.btnEod {
-    /* Button postioning */
-    position: absolute;
-    top: -1px;
-    width: 50px;
-    left: 150px;
-    height: 70px;
-    cursor: pointer;
-
-    /* Background Style*/
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
-
-    /* Border for button */
-    border-width: 1px;
-    border-style: solid;
-    border-top-color: rgb(230, 230, 230);
-    border-left-color: rgb(230, 230, 230);
-    border-right-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-
-    /* Shadow for button */
-    box-shadow: 2px 2px 7px rgb(150, 150, 150);
-
-    /* Font for Symbol */
-    text-align: center;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px rgb(168, 168, 168), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 55px;
-    font-weight: normal;
 }
 
 /*-- Hide --*/
-#eod.hideEod {
+.hideAdd {
     left: -150px;
 }
 
 /*-- Show --*/
-#eod.showEod {
+.showAdd {
     left: 0;
 }
 
-/*------------------------------------------------------------------------------------------------------------------*/
+/*-- Hide --*/
+.hideUpdate {
+    left: -150px;
+}
 
-/* Totals menu ID and classes */
-/* -- Menu --*/
-#totals.menuTotals {
+/*-- Show --*/
+.showUpdate {
+    left: 0;
+}
+
+/*-- Hide --*/
+.hideEdit {
+    left: -150px;
+}
+
+/*-- Show --*/
+.showEdit {
+    left: 0;
+}
+
+/*-- Hide --*/
+.hideEod {
+    left: -150px;
+}
+
+/*-- Show --*/
+.showEod {
+    left: 0;
+}
+
+#totals {}
+
+.totalsStyle {
     /* Menu Totals positioning */
     position: fixed;
     right: -300px;
@@ -466,7 +186,7 @@
     box-shadow: 2px 2px 5px rgb(150, 150, 150);
 }
 
-#totals.btnTotals {
+.btnTotals {
     /* Totals button Positioning */
     position: absolute;
     top: -1px;
@@ -498,10 +218,10 @@
     font-weight: normal;
 }
 
-#totals.showTotals {
+.showTotals {
     right: 0;
 }
 
-#totals.hideTotals {
+.hideTotals {
     right: -300px;
 }
