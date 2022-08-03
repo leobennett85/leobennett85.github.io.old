@@ -109,7 +109,7 @@
 .detailsStyle {
     background-color: rgb(153, 223, 245);
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 #detailsDestination {}
@@ -125,3 +125,20 @@
 #detailsFareType {}
 
 #detailsTips {}
+
+#formWrapper {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+        'space      contentTime                     contentStartingAdd      contentDetailsArrivalTime       space'
+        'space      contentDetailsDestinationAdd    contentDetailsDistance  contentDetailsFareTotal         space'
+        'space      contentDetailsDolPerKm          contentDetailsFareType  contentDetailsTip               space';
+    grid-template-columns:
+        3.3rem 1fr 1fr 1fr 3.3rem;
+    grid-template-rows: auto auto auto;
+}
