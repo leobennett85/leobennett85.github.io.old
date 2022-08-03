@@ -2,6 +2,27 @@
     top: 0;
 }
 
+a:link,
+a:visited,
+a:active {
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(150, 150, 150);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 .btnStyle {
     position: absolute;
     top: 0;
@@ -62,11 +83,6 @@
     outline: rgb(150, 150, 150) inset 1px;
 
     text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
-    font-weight: normal;
 
     display: flex;
     justify-content: center;
@@ -85,12 +101,6 @@
     outline: rgb(150, 150, 150) inset 1px;
 
     text-align: center;
-    color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
-    font-weight: normal;
-
     display: flex;
     justify-content: center;
     align-content: center;
