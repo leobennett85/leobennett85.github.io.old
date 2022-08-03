@@ -17,7 +17,7 @@
       <div id="menuWrap">
         <div id="add" class="menuStyle">
           <div class="halfMenu">
-            <a href="" onClick="addNewFareTable(); return false">Add Run</a>
+            <a href="">Add Run</a>
           </div>
           <div class="halfMenu"><a href="">Add Expense</a></div>
           <div class="btnStyle zeroTop" onclick="clickAdd();">
@@ -28,51 +28,75 @@
         <div id="update" class="menuStyle">
           <div class="halfMenu"><a href="">Price of Gas</a></div>
           <div class="halfMenu"><a href="">L/100km</a></div>
-            <div class="btnStyle" onclick="clickUpdate();">
-              <span>&Theta;</span>
-            </div>
-          </div>
-
-          <div id="edit" class="menuStyle">
-            <div class="oneMenu"><a href="">Edit</a></div>
-            <div class="btnStyle" onclick="clickEdit();">
-              <span>&Rho;</span>
-            </div>
-          </div>
-
-          <div id="eod" class="menuStyle">
-            <div class="oneMenu"><a href="">End Of Day</a></div>
-            <div class="btnStyle" onclick="clickEod();">
-              <span>&Omega;</span>
-            </div>
+          <div class="btnStyle" onclick="clickUpdate();">
+            <span>&Theta;</span>
           </div>
         </div>
 
-        <div id="totalsWrap">
-          <div id="totals" class="totalsStyle">
-            <div class="btnTotals" onclick="clickTotals();">
-              <span>&Sigma;</span>
-            </div>
+        <div id="edit" class="menuStyle">
+          <div class="oneMenu"><a href="">Edit</a></div>
+          <div class="btnStyle" onclick="clickEdit();">
+            <span>&Rho;</span>
+          </div>
+        </div>
+
+        <div id="eod" class="menuStyle">
+          <div class="oneMenu"><a href="">End Of Day</a></div>
+          <div class="btnStyle" onclick="clickEod();">
+            <span>&Omega;</span>
           </div>
         </div>
       </div>
-      <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
 
-      <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
-      <div id="fareTable">
-        <div id="gridHeader">
-          <div id="gridHeaderLayout">
-            <div class="space"></div>
-            <div class="headerStyle headerIndex">Run</div>
-            <div class="headerStyle headerExpCon">+/-</div>
-            <div class="headerStyle headerTime">Time</div>
-            <div class="headerStyle headerSartAdd">Starting Address</div>
-            <div class="headerStyle headerRunTotal">Total</div>
-            <div class="space"></div>
+      <div id="totalsWrap">
+        <div id="totals" class="totalsStyle">
+          <div class="btnTotals" onclick="clickTotals();">
+            <span>&Sigma;</span>
           </div>
         </div>
       </div>
     </div>
+    <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
+
+    <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
+    <div id="fareTable">
+      <div id="gridHeader">
+        <div id="gridHeaderLayout">
+          <div class="space"></div>
+          <div class="headerStyle headerIndex">Run</div>
+          <div class="headerStyle headerExpCon">+/-</div>
+          <div class="headerStyle headerTime">Time</div>
+          <div class="headerStyle headerSartAdd">Starting Address</div>
+          <div class="headerStyle headerRunTotal">Total</div>
+          <div class="space"></div>
+        </div>
+      </div>
+    </div>
+
     <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
+
+    <!--FORM SECTION------------------------------------------------------------------------------------------------->
+    <form id="formWrapper" name="content">
+      <div class="space"></div>
+      <input id="contentTime" value="Curent Time" />
+      <input id="contentStartingAdd" value="Starting Address" />
+      <input id="contentDetailsArrivalTime" value="Time of Arrival" />
+      <div class="space"></div>
+      <div class="space"></div>
+      <input id="contentDetailsDestinationAdd" value="Destination Address" />
+      <input id="contentDetailsDistance" value="Distance" />
+      <input id="contentDetailsFareTotal" value="Total Fare" />
+      <div class="space"></div>
+      <div class="space"></div>
+      <input id="contentDetailsDolPerKm" value="$/km" />
+      <input id="contentDetailsFareType" value="Type of Fare" />
+      <input id="contentDetailsTip" value="Tip" />
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button type="button" onClick="addNewFareTable();">Add Run Info</button>
+      <div class="space"></div>
+    </form>
   </body>
 </html>
