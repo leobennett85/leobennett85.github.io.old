@@ -235,3 +235,82 @@ a:hover {
 .hideTotals {
     right: -300px;
 }
+
+#totalsWrapper {}
+
+.totalsHeader {
+    margin-top: 0.5rem;
+    height: 1.5rem;
+    outline: rgb(150, 150, 150) inset 1px;
+    background-color: aliceblue;
+
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: rgb(230, 230, 230);
+    border-left-color: rgb(150, 150, 150);
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+
+    /* Shadow for whole menu */
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
+
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-decoration: none;
+
+    text-align: left;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.totalsContent {
+    height: 1.5rem;
+    outline: rgb(0, 0, 0, ) inset 1px;
+
+    color: rgb(150, 150, 150);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-decoration: none;
+
+    text-align: left;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.totalsFooter {
+    height: 1.5rem;
+    outline: rgb(150, 150, 150) inset 1px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: rgb(230, 230, 230);
+    border-left-color: rgb(150, 150, 150);
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+
+    /* Shadow for whole menu */
+    box-shadow: 2px 2px 5px rgb(150, 150, 150);
+
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-decoration: none;
+
+    text-align: left;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
