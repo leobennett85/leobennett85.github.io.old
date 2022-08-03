@@ -4,11 +4,11 @@
     padding: 0;
 }
 
-#gridWrapper.show {
+.show {
     display: block;
 }
 
-#gridWrapper.hide {
+.hide {
     display: none;
 }
 

@@ -1,20 +1,45 @@
-setContent = () => {
-    const content = document.getElementById('gridDetails');
+setContent = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
     content.classList.toggle('hide');
 }
 
-expand = () => {
-    console.log(this);
-    /*
-    const content = document.getElementById(gridWrapper);
-    content.classList.toggle('show');*/
+showContent = (gridWrapperIndex, index) => {
+    const content = document.getElementById(gridWrapperIndex);
+    content.classList.replace('hide', 'show');
+    const getExpIndex = 'infoExpCon' + index;
+    document.getElementById(getExpIndex).innerHTML = "-";
 }
 
-contract = () => {
-    const content = document.getElementById('gridDetails');
+hideContent = (gridWrapperIndex, index) => {
+    const content = document.getElementById(gridWrapperIndex);
+    content.classList.replace('show', 'hide');
+    const getExpIndex = 'infoExpCon' + index;
+    document.getElementById(getExpIndex).innerHTML = "+";
+}
+
+expand = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    
+    if (content.classList.contains('hide')) {
+        showContent(getGridWrapperIndex, index);
+    } else if (content.classList.contains('show')) {
+        hideContent(getGridWrapperIndex, index);
+    }
+}
+
+contractFirst = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
     content.classList.toggle('hide');
 }
 
+contract = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    content.classList.replace('show', 'hide');
+}
 
 //Create an object for the html of the page
 let newGridInfo = {
@@ -22,15 +47,12 @@ let newGridInfo = {
     idGridInfoLayout: `<div id="gridInfoLayout">`,
     clSpaceLeft: `<div class="space"></div>`,
     clIndex: (index) => `<div id="infoIndex${index}" class="infoStyle">${index}</div>`,
-    clExpCon: `<div id="infoExpCon" class="infoStyle" onClick="expand(this.id);">+</div>`,
+    clExpCon: (index) => `<div id="infoExpCon${index}" class="infoStyle" onClick="expand(${index});">+</div>`,
     clTime: `<div id="infoTime" class="infoStyle"></div>`,
     clStartAdd: `<div id="infoStartAdd" class="infoStyle"></div>`,
     clRunTotal: `<div id="infoRunTotal" class="infoStyle"></div>`,
     clSpaceRight: `<div class="space"></div>`,
-    closeDiv: `</div></div>`
-}
-
-let newGridDetails = {
+    closeDiv: `</div></div>`,
     idGridWrapper: (index) => `<div id="gridWrapper${index}">`,
     idGridDetails: `<div id="gridDetails">`,
     idGridDetailsLayout:`<div id="gridDetailsLayout">`,
@@ -67,39 +89,40 @@ function addNewFareTable() {
         newGridInfo.idGridInfoLayout +
         newGridInfo.clSpaceLeft +
         newGridInfo.clIndex(fareTableCount) +
-        newGridInfo.clExpCon +
+        newGridInfo.clExpCon(fareTableCount) +
         newGridInfo.clTime +
         newGridInfo.clStartAdd +
         newGridInfo.clRunTotal +
         newGridInfo.clSpaceRight +
         newGridInfo.closeDiv +
         // gridDetails section
-        newGridDetails.idGridWrapper(fareTableCount) +
-        newGridDetails.idGridDetails +
-        newGridDetails.idGridDetailsLayout +
-        newGridDetails.clSpaceA1 +
-        newGridDetails.clSpaceA2 +
-        newGridDetails.clSpaceA3 +
-        newGridDetails.clDetailsEndTime +
-        newGridDetails.clDetailsDestination +
-        newGridDetails.clDetailsFareTotal +
-        newGridDetails.clSpaceB1 +
-        newGridDetails.clSpaceB2 +
-        newGridDetails.clSpaceB3 +
-        newGridDetails.clSpaceB4 +
-        newGridDetails.clDetailsTotalTime +
-        newGridDetails.clDetailsDistance +
-        newGridDetails.clDetailDollarsPerKm +
-        newGridDetails.clSpaceC1 +
-        newGridDetails.clSpaceC2 +
-        newGridDetails.clSpaceC3 +
-        newGridDetails.clSpaceC4 +
-        newGridDetails.clDetailsFareType +
-        newGridDetails.clDetailsTip +
-        newGridDetails.clSpaceC5
+        newGridInfo.idGridWrapper(fareTableCount) +
+        newGridInfo.idGridDetails +
+        newGridInfo.idGridDetailsLayout +
+        newGridInfo.clSpaceA1 +
+        newGridInfo.clSpaceA2 +
+        newGridInfo.clSpaceA3 +
+        newGridInfo.clDetailsEndTime +
+        newGridInfo.clDetailsDestination +
+        newGridInfo.clDetailsFareTotal +
+        newGridInfo.clSpaceB1 +
+        newGridInfo.clSpaceB2 +
+        newGridInfo.clSpaceB3 +
+        newGridInfo.clSpaceB4 +
+        newGridInfo.clDetailsTotalTime +
+        newGridInfo.clDetailsDistance +
+        newGridInfo.clDetailDollarsPerKm +
+        newGridInfo.clSpaceC1 +
+        newGridInfo.clSpaceC2 +
+        newGridInfo.clSpaceC3 +
+        newGridInfo.clSpaceC4 +
+        newGridInfo.clDetailsFareType +
+        newGridInfo.clDetailsTip +
+        newGridInfo.clSpaceC5
     );
 
     fareTableElement.appendChild(addFare);
+    setContent(fareTableCount);
 }
 
 function elementFromHtml(html) {
