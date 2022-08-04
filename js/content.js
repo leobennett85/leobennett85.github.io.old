@@ -84,15 +84,15 @@ function addNewFareTable() {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapper"];
-    const time = contentForm.contentTime.value;
-    const startAdd = contentForm.contentStartingAdd.value;
-    const detailsArrival = contentForm.contentDetailsArrivalTime.value;
-    const detailsDestination = contentForm.contentDetailsDestinationAdd.value;
-    const detailsDistance = contentForm.contentDetailsDistance.value;
-    const detailsFareTotal = contentForm.contentDetailsFareTotal.value;
-    const deatilsDolPerKm = contentForm.contentDetailsDolPerKm.value;
-    const detailsFareType = contentForm.contentDetailsFareType.value;
-    const detailsTip = contentForm.contentDetailsTip.value;
+    const time = contentForm.inputTime.value;
+    const startAdd = contentForm.inputStartingAdd.value;
+    const detailsArrival = contentForm.inputDetailsArrivalTime.value;
+    const detailsDestination = contentForm.inputDetailsDestinationAdd.value;
+    const detailsDistance = contentForm.inputDetailsDistance.value;
+    const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
+    const deatilsDolPerKm = contentForm.inputDetailsDolPerKm.value;
+    const detailsFareType = contentForm.inputDetailsFareType.value;
+    const detailsTip = contentForm.inputDetailsTip.value;
     const addFare = elementFromHtml (
         // gridInfo Section
         newGridInfo.idGridIndfo +
