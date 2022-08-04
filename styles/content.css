@@ -128,17 +128,33 @@
 
 #formWrapper {
     position: absolute;
-    width: 100%;
     left: 0;
+    right: 0;
     bottom: 0;
     background-color: white;
     display: grid;
     gap: 5px;
     grid-template-areas:
-        'space      contentTime                     contentStartingAdd      contentDetailsArrivalTime       space'
-        'space      contentDetailsDestinationAdd    contentDetailsDistance  contentDetailsFareTotal         space'
-        'space      contentDetailsDolPerKm          contentDetailsFareType  contentDetailsTip               space';
+        'label  inputTime'
+        'label  inputStartingAdd'
+        'label  inputDetailsArrivalTime'
+        'label  inputDetailsDestinationAdd'
+        'label  inputDetailsDistance'
+        'label  inputDetailsFareTotal'
+        'label  inputDetailsDolPerKm'
+        'label  inputDetailsFareType'
+        'label  inputDetailsTip';
     grid-template-columns:
-        3.3rem 1fr 1fr 1fr 3.3rem;
-    grid-template-rows: auto auto auto;
+        1fr 1fr;
+    grid-template-rows: auto;
 }
+
+.label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.5rem;
+    padding-top: 1px;
+    display: flex;
+    justify-content: right;
+}
+
+#contentTime {}

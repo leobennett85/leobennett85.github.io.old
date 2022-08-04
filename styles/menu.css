@@ -236,7 +236,9 @@ a:hover {
     right: -300px;
 }
 
-#totalsWrapper {}
+#totalsWrapper {
+    position: fixed;
+}
 
 .totalsHeader {
     margin-top: 0.5rem;
