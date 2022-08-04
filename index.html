@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <div id="totalsWrapper">
+      <div id="TotalsWrapper">
         <div id="totals" class="totalsStyle">
           <div class="totalsHeader">Shift Report</div>
           <div class="totalsContent">Meter:</div>
@@ -78,20 +78,20 @@
           </div>
         </div>
       </div>
-    </div>
-    <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
+      <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
 
-    <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
-    <div id="fareTable">
-      <div id="gridHeader">
-        <div id="gridHeaderLayout">
-          <div class="space"></div>
-          <div class="headerStyle headerIndex">Run</div>
-          <div class="headerStyle headerExpCon">+/-</div>
-          <div class="headerStyle headerTime">Time</div>
-          <div class="headerStyle headerSartAdd">Starting Address</div>
-          <div class="headerStyle headerRunTotal">Total</div>
-          <div class="space"></div>
+      <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
+      <div id="fareTable">
+        <div id="gridHeader">
+          <div id="gridHeaderLayout">
+            <div class="space"></div>
+            <div class="headerStyle headerIndex">Run</div>
+            <div class="headerStyle headerExpCon">+/-</div>
+            <div class="headerStyle headerTime">Time</div>
+            <div class="headerStyle headerSartAdd">Starting Address</div>
+            <div class="headerStyle headerRunTotal">Total</div>
+            <div class="space"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -100,26 +100,26 @@
 
     <!--FORM SECTION------------------------------------------------------------------------------------------------->
     <form id="formWrapper" name="content">
-      <div class="space"></div>
-      <input id="contentTime" value="Curent Time" />
-      <input id="contentStartingAdd" value="Starting Address" />
-      <input id="contentDetailsArrivalTime" value="Time of Arrival" />
-      <div class="space"></div>
-      <div class="space"></div>
-      <input id="contentDetailsDestinationAdd" value="Destination Address" />
-      <input id="contentDetailsDistance" value="Distance" />
-      <input id="contentDetailsFareTotal" value="Total Fare" />
-      <div class="space"></div>
-      <div class="space"></div>
-      <input id="contentDetailsDolPerKm" value="$/km" />
-      <input id="contentDetailsFareType" value="Type of Fare" />
-      <input id="contentDetailsTip" value="Tip" />
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
+      <div class="label">Current Time</div>
+      <input id="inputTime" value="" />
+      <div class="label">Starting Address</div>
+      <input id="inputStartingAdd" value="" />
+      <div class="label">Time of Arrival</div>
+      <input id="inputDetailsArrivalTime" value="" />
+      <div class="label">Destination Address</div>
+      <input id="inputDetailsDestinationAdd" value="" />
+      <div class="label">Distance</div>
+      <input id="inputDetailsDistance" value="" />
+      <div class="label">Total Fare</div>
+      <input id="inputDetailsFareTotal" value="" />
+      <div class="label">$/km</div>
+      <input id="inputDetailsDolPerKm" value="$/km" />
+      <div class="label">Type of Fare</div>
+      <input id="inputDetailsFareType" value="" />
+      <div class="label">Tip</div>
+      <input id="inputDetailsTip" value="Tip" />
+      <div></div>
       <button type="button" onClick="addNewFareTable();">Add Run Info</button>
-      <div class="space"></div>
     </form>
   </body>
 </html>
