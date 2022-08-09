@@ -50,6 +50,9 @@
 
       <div id="TotalsWrapper">
         <div id="totals" class="totalsStyle">
+          <div class="btnTotals" onclick="clickTotals();">
+            <span>&Sigma;</span>
+          </div>
           <div class="totalsHeader">Shift Report</div>
           <div id="totalsShiftMeter" class="totalsContent">Meter:</div>
           <div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>
@@ -74,10 +77,6 @@
           <div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>
           <div id="totalsExp" class="totalsFooter">Total Expenses:</div>
           <div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>
-
-          <div class="btnTotals" onclick="clickTotals();">
-            <span>&Sigma;</span>
-          </div>
         </div>
       </div>
       <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
@@ -96,34 +95,34 @@
           </div>
         </div>
       </div>
+
+      <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
+
+      <!--FORM SECTION------------------------------------------------------------------------------------------------->
+      <form id="formWrapper" name="content">
+        <div class="label">Current Time</div>
+        <input id="inputTime" value="" />
+        <div class="label">Starting Address</div>
+        <input id="inputStartingAdd" value="" />
+        <div class="label">Time of Arrival</div>
+        <input id="inputDetailsArrivalTime" value="" />
+        <div class="label">Destination Address</div>
+        <input id="inputDetailsDestinationAdd" value="" />
+        <div class="label">Distance</div>
+        <input id="inputDetailsDistance" value="" />
+        <div class="label">Total Fare</div>
+        <input id="inputDetailsFareTotal" value="" />
+        <div class="label">$/km</div>
+        <input id="inputDetailsDolPerKm" value="$/km" />
+        <div class="label">Type of Fare</div>
+        <input id="inputDetailsFareType" value="" />
+        <div class="label">Tip</div>
+        <input id="inputDetailsTip" value="Tip" />
+        <div></div>
+        <button type="button" onClick="updateTotals();addNewFareTable();">
+          Add Run Info
+        </button>
+      </form>
     </div>
-
-    <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
-
-    <!--FORM SECTION------------------------------------------------------------------------------------------------->
-    <form id="formWrapper" name="content">
-      <div class="label">Current Time</div>
-      <input id="inputTime" value="" />
-      <div class="label">Starting Address</div>
-      <input id="inputStartingAdd" value="" />
-      <div class="label">Time of Arrival</div>
-      <input id="inputDetailsArrivalTime" value="" />
-      <div class="label">Destination Address</div>
-      <input id="inputDetailsDestinationAdd" value="" />
-      <div class="label">Distance</div>
-      <input id="inputDetailsDistance" value="" />
-      <div class="label">Total Fare</div>
-      <input id="inputDetailsFareTotal" value="" />
-      <div class="label">$/km</div>
-      <input id="inputDetailsDolPerKm" value="$/km" />
-      <div class="label">Type of Fare</div>
-      <input id="inputDetailsFareType" value="" />
-      <div class="label">Tip</div>
-      <input id="inputDetailsTip" value="Tip" />
-      <div></div>
-      <button type="button" onClick="addNewFareTable(); updateTotals();">
-        Add Run Info
-      </button>
-    </form>
   </body>
 </html>

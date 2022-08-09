@@ -77,7 +77,7 @@ let newGridInfo = {
     idDetailsFareType: (index, detailsFareType) => `<div id="detailsFareType${index}" class="detailsStyle">FareType: ${detailsFareType}</div>`,
     idDetailsTip: (index, detailsTip) => `<div id="detailsTip${index}" class="detailsStyle">Tip: ${detailsTip}</div>`,
     clspaceD1: `<div class="space"></div>`,
-    closeDiv: `</div><div></div>`
+    closeDiv: `</div>`
 }
 
 function addNewFareTable() {
@@ -133,7 +133,8 @@ function addNewFareTable() {
         newGridInfo.clSpaceC4 +
         newGridInfo.idDetailsFareType(fareTableCount, detailsFareType) +
         newGridInfo.idDetailsTip(fareTableCount, detailsTip) +
-        newGridInfo.clSpaceC5
+        newGridInfo.clSpaceC5 +
+        newGridInfo.closeDiv
     );
 
     fareTableElement.appendChild(addFare);
@@ -143,7 +144,10 @@ function addNewFareTable() {
 /*TODO: Make a function and object to fill the totals menu*/
 
 let newTotals = {
-    idTotals: `<div id="totals" class="totalsStyle">`,
+    idTotals: `<div id="totals" class="totalsStyle hideTotals">`,
+    idBtnTotals: `<div class="btnTotals" onclick="clickTotals();">
+    <span>&Sigma;</span>
+</div>`,
     cltotalsShiftHeader: `<div class="totalsHeader">Shift Report</div>`,
     idTotalsShiftMeter: `<div id="totalsShiftMeter" class="totalsContent">Meter:</div>`,
     idTotalsShiftFlat: `<div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>`,
@@ -166,12 +170,15 @@ let newTotals = {
     idTotalsExpTaxi: `<div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>`,
     idTotalsExp: `<div id="totalsExp" class="totalsFooter">Total Expenses:</div>`,
     idTotalsEstGas: `<div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>`,
+    closeDiv: `</div>`
 }
 
 function updateTotals() {
-    const totalsTableElement = document.getElementById("totals");
+    const totalsTableElement = document.getElementById("TotalsWrapper");
+
     const updateTotals = elementFromHtml(
         newTotals.idTotals +
+        newTotals.idBtnTotals +
         newTotals.cltotalsShiftHeader +
         newTotals.idTotalsShiftMeter +
         newTotals.idTotalsShiftFlat +
@@ -193,11 +200,12 @@ function updateTotals() {
         newTotals.idTotalsExpPersonal +
         newTotals.idTotalsExpTaxi +
         newTotals.idTotalsExp +
-        newTotals.idTotalsEstGas +
-        newTotals.closeDiv
+        newTotals.idTotalsEstGas 
     );
-
-    totalsTableElement.replaceChild(updateTotals);
+    child = document.getElementById("totals")
+    totalsTableElement.removeChild(child);
+    
+    totalsTableElement.appendChild(updateTotals);
 
 }
 
