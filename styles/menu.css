@@ -233,12 +233,10 @@ a:hover {
 }
 
 .hideTotals {
-    right: -303px;
+    right: -300px;
 }
 
-#totalsWrapper {
-    position: fixed;
-}
+#totalsWrapper {}
 
 .totalsHeader {
     margin-top: 0.5rem;
