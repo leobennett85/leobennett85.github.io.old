@@ -84,6 +84,7 @@ function addNewFareTable() {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapper"];
+    /* Input Variables */
     const time = contentForm.inputTime.value;
     const startAdd = contentForm.inputStartingAdd.value;
     const detailsArrival = contentForm.inputDetailsArrivalTime.value;
@@ -93,6 +94,10 @@ function addNewFareTable() {
     const deatilsDolPerKm = contentForm.inputDetailsDolPerKm.value;
     const detailsFareType = contentForm.inputDetailsFareType.value;
     const detailsTip = contentForm.inputDetailsTip.value;
+    /* Calculated Variables */
+    const d = new Date();
+    const currentTime = d.toLocaleTimeString();
+
     const addFare = elementFromHtml (
         // gridInfo Section
         newGridInfo.idGridIndfo +
@@ -100,7 +105,7 @@ function addNewFareTable() {
         newGridInfo.clSpaceLeft +
         newGridInfo.idIndex(fareTableCount) +
         newGridInfo.idExpCon(fareTableCount) +
-        newGridInfo.idTime(fareTableCount, time) +
+        newGridInfo.idTime(fareTableCount, currentTime) +
         newGridInfo.idStartAdd(fareTableCount, startAdd) +
         newGridInfo.idRunTotal +
         newGridInfo.clSpaceRight +
@@ -134,6 +139,10 @@ function addNewFareTable() {
     fareTableElement.appendChild(addFare);
     setContent(fareTableCount);
 }
+
+/*TODO: Make a function and object to fill the totals menu*/
+
+function updateTotals() {}
 
 function elementFromHtml(html) {
     const template = document.createElement("template");
