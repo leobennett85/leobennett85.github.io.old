@@ -142,7 +142,64 @@ function addNewFareTable() {
 
 /*TODO: Make a function and object to fill the totals menu*/
 
-function updateTotals() {}
+let newTotals = {
+    idTotals: `<div id="totals" class="totalsStyle">`,
+    cltotalsShiftHeader: `<div class="totalsHeader">Shift Report</div>`,
+    idTotalsShiftMeter: `<div id="totalsShiftMeter" class="totalsContent">Meter:</div>`,
+    idTotalsShiftFlat: `<div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>`,
+    idTotalsShift: `<div id="totalsShift" class="totalsFooter">Total Shift:</div>`,
+    clTotalsProfHeader: `<div class="totalsHeader">Profit Report</div>`,
+    idTotalsProfitBroker: `<div id="totalProfitBroker" class="totalsContent">Broker Profit:</div>`,
+    idTotalsProfitDriver: `<div id="totalsProfitDriver" class="totalsContent">Driver Profit</div>`,
+    idTotalsProfit: `<div id="totalsProfit" class="totalsFooter">Total Taxi Profit:</div>`,
+    clTotalsPayHeader: `<div class="totalsHeader">Payment Type Report</div>`,
+    idTotalsPayCash: `<div id="totalsPayCash" class="totalsContent">Cash:</div>`,
+    idTotalsPaydebit: `<div id="totalsPayDebit" class="totalsContent">Debit/Credit:</div>`,
+    idTotalsPayOther: `<div id="totalsPayOther" class="totalsContent">Other:</div>`,
+    idTotalsPay: `<div id="totalsPay" class="totalsFooter">Total Gross Paid:</div>`,
+    clTotalsKmHeader: `<div class="totalsHeader">KM Report</div>`,
+    idTotalsKmTraveled: `<div id="totalsKmTraveled" class="totalsContent">Km Traveled:</div>`,
+    idTotalsKmMetered: `<div id="totalsKmMetered" class="totalsContent">Metered Km:</div>`,
+    idTotalsKmDolPerKm: `<div id="totalsKmDolPerKm" class="totalsContent">$/km:</div>`,
+    clTotalsHeader: `<div class="totalsHeader">Expense Report</div>`,
+    idTotalsExpPersonal: `<div id="totalsExpPersonal" class="totalsContent">Personal Expenses:</div>`,
+    idTotalsExpTaxi: `<div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>`,
+    idTotalsExp: `<div id="totalsExp" class="totalsFooter">Total Expenses:</div>`,
+    idTotalsEstGas: `<div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>`,
+}
+
+function updateTotals() {
+    const totalsTableElement = document.getElementById("totals");
+    const updateTotals = elementFromHtml(
+        newTotals.idTotals +
+        newTotals.cltotalsShiftHeader +
+        newTotals.idTotalsShiftMeter +
+        newTotals.idTotalsShiftFlat +
+        newTotals.idTotalsShift +
+        newTotals.clTotalsProfHeader +
+        newTotals.idTotalsProfitBroker +
+        newTotals.idTotalsProfitDriver +
+        newTotals.idTotalsProfit +
+        newTotals.clTotalsPayHeader +
+        newTotals.idTotalsPayCash +
+        newTotals.idTotalsPaydebit +
+        newTotals.idTotalsPayOther +
+        newTotals.idTotalsPay +
+        newTotals.clTotalsKmHeader +
+        newTotals.idTotalsKmTraveled +
+        newTotals.idTotalsKmMetered +
+        newTotals.idTotalsKmDolPerKm +
+        newTotals.clTotalsHeader +
+        newTotals.idTotalsExpPersonal +
+        newTotals.idTotalsExpTaxi +
+        newTotals.idTotalsExp +
+        newTotals.idTotalsEstGas +
+        newTotals.closeDiv
+    );
+
+    totalsTableElement.replaceChild(updateTotals);
+
+}
 
 function elementFromHtml(html) {
     const template = document.createElement("template");
