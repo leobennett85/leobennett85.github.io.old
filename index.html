@@ -51,27 +51,29 @@
       <div id="TotalsWrapper">
         <div id="totals" class="totalsStyle">
           <div class="totalsHeader">Shift Report</div>
-          <div class="totalsContent">Meter:</div>
-          <div class="totalsContent">Flat Rates:</div>
-          <div class="totalsFooter">Total Shift:</div>
+          <div id="totalsShiftMeter" class="totalsContent">Meter:</div>
+          <div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>
+          <div id="totalsShift" class="totalsFooter">Total Shift:</div>
           <div class="totalsHeader">Profit Report</div>
-          <div class="totalsContent">Broker Profit:</div>
-          <div class="totalsContent">Driver Profit</div>
-          <div class="totalsFooter">Total Taxi Profit:</div>
+          <div id="totalProfitBroker" class="totalsContent">Broker Profit:</div>
+          <div id="totalsProfitDriver" class="totalsContent">Driver Profit</div>
+          <div id="totalsProfit" class="totalsFooter">Total Taxi Profit:</div>
           <div class="totalsHeader">Payment Type Report</div>
-          <div class="totalsContent">Cash:</div>
-          <div class="totalsContent">Debit/Credit:</div>
-          <div class="totalsContent">Other:</div>
-          <div class="totalsFooter">Total Gross Paid:</div>
+          <div id="totalsPayCash" class="totalsContent">Cash:</div>
+          <div id="totalsPayDebit" class="totalsContent">Debit/Credit:</div>
+          <div id="totalsPayOther" class="totalsContent">Other:</div>
+          <div id="totalsPay" class="totalsFooter">Total Gross Paid:</div>
           <div class="totalsHeader">KM Report</div>
-          <div class="totalsContent">Km Traveled:</div>
-          <div class="totalsContent">Metered Km:</div>
-          <div class="totalsContent">$/km:</div>
+          <div id="totalsKmTraveled" class="totalsContent">Km Traveled:</div>
+          <div id="totalsKmMetered" class="totalsContent">Metered Km:</div>
+          <div id="totalsKmDolPerKm" class="totalsContent">$/km:</div>
           <div class="totalsHeader">Expense Report</div>
-          <div class="totalsContent">Personal Expenses:</div>
-          <div class="totalsContent">Taxi Expenses:</div>
-          <div class="totalsFooter">Total Expenses:</div>
-          <div class="totalsHeader">Estimated Gas Total:</div>
+          <div id="totalsExpPersonal" class="totalsContent">
+            Personal Expenses:
+          </div>
+          <div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>
+          <div id="totalsExp" class="totalsFooter">Total Expenses:</div>
+          <div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>
 
           <div class="btnTotals" onclick="clickTotals();">
             <span>&Sigma;</span>
@@ -119,7 +121,9 @@
       <div class="label">Tip</div>
       <input id="inputDetailsTip" value="Tip" />
       <div></div>
-      <button type="button" onClick="addNewFareTable();">Add Run Info</button>
+      <button type="button" onClick="addNewFareTable(); updateTotals();">
+        Add Run Info
+      </button>
     </form>
   </body>
 </html>
