@@ -91,16 +91,14 @@ addNewFareTable = () => {
     const contentForm = document.forms["formWrapperAddRun"];
     /* Input Variables */
     const startAdd = contentForm.inputStartingAdd.value;
-    const detailsArrival = contentForm.inputDetailsArrivalTime.value;
     const detailsDestination = contentForm.inputDetailsDestinationAdd.value;
     const detailsDistance = contentForm.inputDetailsDistance.value;
     const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
-    const deatilsDolPerKm = contentForm.inputDetailsDolPerKm.value;
     const detailsFareType = contentForm.inputDetailsFareType.value;
     const detailsTip = contentForm.inputDetailsTip.value;
     /* Calculated Variables */
     const d = new Date();
-    const currentTime = d.toLocaleTimeString();
+    const pickupTime = d.toLocaleTimeString();
 
     const addFare = elementFromHtml (
         // gridInfo Section
@@ -109,19 +107,18 @@ addNewFareTable = () => {
         newGridInfo.clSpaceLeft +
         newGridInfo.idIndex(fareTableCount) +
         newGridInfo.idExpCon(fareTableCount) +
-        newGridInfo.idTime(fareTableCount, currentTime) +
+        newGridInfo.idTime(fareTableCount, pickupTime) +
         newGridInfo.idStartAdd(fareTableCount, startAdd) +
         newGridInfo.idRunTotal +
         newGridInfo.clSpaceRight +
         newGridInfo.closeDiv +
-        // gridDetails section
         newGridInfo.idGridWrapper(fareTableCount) +
         newGridInfo.idGridDetails +
         newGridInfo.idGridDetailsLayout +
         newGridInfo.clSpaceA1 +
         newGridInfo.clSpaceA2 +
         newGridInfo.clSpaceA3 +
-        newGridInfo.idDetailsEndTime(fareTableCount, detailsArrival) +
+        newGridInfo.idDetailsEndTime(fareTableCount) +
         newGridInfo.idDetailsDestination(fareTableCount, detailsDestination) +
         newGridInfo.idDetailsFareTotal(fareTableCount, detailsFareTotal) +
         newGridInfo.clSpaceB1 +
@@ -130,7 +127,7 @@ addNewFareTable = () => {
         newGridInfo.clSpaceB4 +
         newGridInfo.idDetailsTotalTime(fareTableCount) +
         newGridInfo.idDetailsDistance(fareTableCount, detailsDistance)  +
-        newGridInfo.idDetailDollarsPerKm(fareTableCount, deatilsDolPerKm) +
+        newGridInfo.idDetailDollarsPerKm(fareTableCount) +
         newGridInfo.clSpaceC1 +
         newGridInfo.clSpaceC2 +
         newGridInfo.clSpaceC3 +
@@ -144,9 +141,6 @@ addNewFareTable = () => {
     fareTableElement.appendChild(addFare);
     setContent(fareTableCount);
 }
-
-//TODO write a function to figure out the type of fare
-//         and apply it to the right total
 
 updateTotals = () => {
     let updateShiftMeter = 0;
@@ -166,15 +160,11 @@ updateTotals = () => {
     let updateExpTaxi = 0;
     let updateExpTotal = 0;
     let updateEstGas = 0;
-
-    console.log(typeof(updateShiftMeter));
     
     const totalsTableElement = document.getElementById("TotalsWrapper");
     const contentForm = document.forms["formWrapperAddRun"];
     
     updateShiftMeter = +contentForm.inputDetailsFareTotal.value;
-
-    console.log(typeof(updateShiftMeter));
     
     shiftMeter = +updateShiftMeter + +shiftMeter;
     shiftFlat = 0;
@@ -301,14 +291,15 @@ formatTip = (tipTotal) => {
 
 checkFareType = (fareType) => {
     const invalidEntry = "Fare Type must be Metered or Flate";
-    if (fareType = "Metered or Flat Rate") {
+
+    if (fareType == "Metered or Flat Rate") {
         alert(invalidEntry);
     }
 }
 
 checkPayType = (payType) => {
     const invalidEntry = "Payment Type must be Cash, Debit/Credit, or Charge";
-    if (payType = "Cash, Debit/Credit or Charge") {
+    if (payType == "Cash, Debit/Credit or Charge") {
         alert(invalidEntry);
     }
 }
