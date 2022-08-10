@@ -1,47 +1,3 @@
-setContent = (index) => {
-    const getGridWrapperIndex = "gridWrapper" + index;
-    const content = document.getElementById(getGridWrapperIndex);
-    content.classList.toggle('hide');
-}
-
-showContent = (gridWrapperIndex, index) => {
-    const content = document.getElementById(gridWrapperIndex);
-    content.classList.replace('hide', 'show');
-    const getExpIndex = 'infoExpCon' + index;
-    document.getElementById(getExpIndex).innerHTML = "-";
-}
-
-hideContent = (gridWrapperIndex, index) => {
-    const content = document.getElementById(gridWrapperIndex);
-    content.classList.replace('show', 'hide');
-    const getExpIndex = 'infoExpCon' + index;
-    document.getElementById(getExpIndex).innerHTML = "+";
-}
-
-expand = (index) => {
-    const getGridWrapperIndex = 'gridWrapper' + index;
-    const content = document.getElementById(getGridWrapperIndex);
-    
-    if (content.classList.contains('hide')) {
-        showContent(getGridWrapperIndex, index);
-    } else if (content.classList.contains('show')) {
-        hideContent(getGridWrapperIndex, index);
-    }
-}
-
-contractFirst = (index) => {
-    const getGridWrapperIndex = 'gridWrapper' + index;
-    const content = document.getElementById(getGridWrapperIndex);
-    content.classList.toggle('hide');
-}
-
-contract = (index) => {
-    const getGridWrapperIndex = 'gridWrapper' + index;
-    const content = document.getElementById(getGridWrapperIndex);
-    content.classList.replace('show', 'hide');
-}
-
-//Create an object for the html of the page
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
     idGridInfoLayout: `<div id="gridInfoLayout">`,
@@ -80,7 +36,37 @@ let newGridInfo = {
     closeDiv: `</div>`
 }
 
-function addNewFareTable() {
+let newTotals = {
+    idTotals: `<div id="totals" class="totalsStyle hideTotals">`,
+    idBtnTotals: `<div class="btnTotals" onclick="clickTotals();">
+                 <span>&Sigma;</span>
+                 </div>`,
+    cltotalsShiftHeader: `<div class="totalsHeader">Shift Report</div>`,
+    idTotalsShiftMeter: (shiftMeter) => `<div id="totalsShiftMeter" class="totalsContent">Meter: ${shiftMeter}</div>`,
+    idTotalsShiftFlat: (shiftFlat) => `<div id="totalsShiftFlat" class="totalsContent">Flat Rates: ${shiftFlat}</div>`,
+    idTotalsShift: (shiftTotal) => `<div id="totalsShift" class="totalsFooter">Total Shift: ${shiftTotal}</div>`,
+    clTotalsProfHeader:  `<div class="totalsHeader">Profit Report</div>`,
+    idTotalsProfitBroker: (profitBroker) => `<div id="totalProfitBroker" class="totalsContent">Broker Profit: ${profitBroker}</div>`,
+    idTotalsProfitDriver: (profitDriver) => `<div id="totalsProfitDriver" class="totalsContent">Driver Profit ${profitDriver}</div>`,
+    idTotalsProfit: (profitTotal) => `<div id="totalsProfit" class="totalsFooter">Total Taxi Profit: ${profitTotal}</div>`,
+    clTotalsPayHeader: `<div class="totalsHeader">Payment Type Report</div>`,
+    idTotalsPayCash: (payCash) => `<div id="totalsPayCash" class="totalsContent">Cash: ${payCash}</div>`,
+    idTotalsPayDebit: (payDebit) => `<div id="totalsPayDebit" class="totalsContent">Debit/Credit: ${payDebit}</div>`,
+    idTotalsPayOther: (payOther) => `<div id="totalsPayOther" class="totalsContent">Other: ${payOther}</div>`,
+    idTotalsPay: (payTotal) => `<div id="totalsPay" class="totalsFooter">Total Gross Paid: ${payTotal}</div>`,
+    clTotalsKmHeader: `<div class="totalsHeader">KM Report</div>`,
+    idTotalsKmTraveled: (kmTraveled) => `<div id="totalsKmTraveled" class="totalsContent">Km Traveled: ${kmTraveled}</div>`,
+    idTotalsKmMetered: (kmMetered) => `<div id="totalsKmMetered" class="totalsContent">Metered Km: ${kmMetered}</div>`,
+    idTotalsKmDolPerKm: (kmPer) => `<div id="totalsKmDolPerKm" class="totalsContent">$/km: ${kmPer}</div>`,
+    clTotalsHeader: `<div class="totalsHeader">Expense Report</div>`,
+    idTotalsExpPersonal: (expPersonal) => `<div id="totalsExpPersonal" class="totalsContent">Personal Expenses: ${expPersonal}</div>`,
+    idTotalsExpTaxi: (expTaxi) => `<div id="totalsExpTaxi" class="totalsContent">Taxi Expenses: ${expTaxi}</div>`,
+    idTotalsExp: (expTotal) => `<div id="totalsExp" class="totalsFooter">Total Expenses: ${expTotal}</div>`,
+    idTotalsEstGas: (estGas) => `<div id="totalsEstGas" class="totalsHeader">Estimated Gas Total: ${estGas}</div>`,
+    closeDiv: `</div>`
+}
+
+addNewFareTable = () => {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapper"];
@@ -141,66 +127,93 @@ function addNewFareTable() {
     setContent(fareTableCount);
 }
 
-/*TODO: Make a function and object to fill the totals menu*/
+initTotals = () => {
+    const totalsTableElement = document.getElementById("TotalsWrapper");
 
-let newTotals = {
-    idTotals: `<div id="totals" class="totalsStyle hideTotals">`,
-    idBtnTotals: `<div class="btnTotals" onclick="clickTotals();">
-    <span>&Sigma;</span>
-</div>`,
-    cltotalsShiftHeader: `<div class="totalsHeader">Shift Report</div>`,
-    idTotalsShiftMeter: `<div id="totalsShiftMeter" class="totalsContent">Meter:</div>`,
-    idTotalsShiftFlat: `<div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>`,
-    idTotalsShift: `<div id="totalsShift" class="totalsFooter">Total Shift:</div>`,
-    clTotalsProfHeader: `<div class="totalsHeader">Profit Report</div>`,
-    idTotalsProfitBroker: `<div id="totalProfitBroker" class="totalsContent">Broker Profit:</div>`,
-    idTotalsProfitDriver: `<div id="totalsProfitDriver" class="totalsContent">Driver Profit</div>`,
-    idTotalsProfit: `<div id="totalsProfit" class="totalsFooter">Total Taxi Profit:</div>`,
-    clTotalsPayHeader: `<div class="totalsHeader">Payment Type Report</div>`,
-    idTotalsPayCash: `<div id="totalsPayCash" class="totalsContent">Cash:</div>`,
-    idTotalsPaydebit: `<div id="totalsPayDebit" class="totalsContent">Debit/Credit:</div>`,
-    idTotalsPayOther: `<div id="totalsPayOther" class="totalsContent">Other:</div>`,
-    idTotalsPay: `<div id="totalsPay" class="totalsFooter">Total Gross Paid:</div>`,
-    clTotalsKmHeader: `<div class="totalsHeader">KM Report</div>`,
-    idTotalsKmTraveled: `<div id="totalsKmTraveled" class="totalsContent">Km Traveled:</div>`,
-    idTotalsKmMetered: `<div id="totalsKmMetered" class="totalsContent">Metered Km:</div>`,
-    idTotalsKmDolPerKm: `<div id="totalsKmDolPerKm" class="totalsContent">$/km:</div>`,
-    clTotalsHeader: `<div class="totalsHeader">Expense Report</div>`,
-    idTotalsExpPersonal: `<div id="totalsExpPersonal" class="totalsContent">Personal Expenses:</div>`,
-    idTotalsExpTaxi: `<div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>`,
-    idTotalsExp: `<div id="totalsExp" class="totalsFooter">Total Expenses:</div>`,
-    idTotalsEstGas: `<div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>`,
-    closeDiv: `</div>`
+    const initTotals = elementFromHtml (
+        newTotals.idTotals +
+        newTotals.idBtnTotals +
+        newTotals.cltotalsShiftHeader +
+        newTotals.idTotalsShiftMeter(0) +
+        newTotals.idTotalsShiftFlat(0) +
+        newTotals.idTotalsShift(0) +
+        newTotals.clTotalsProfHeader +
+        newTotals.idTotalsProfitBroker(0) +
+        newTotals.idTotalsProfitDriver(0) +
+        newTotals.idTotalsProfit(0) +
+        newTotals.clTotalsPayHeader +
+        newTotals.idTotalsPayCash(0) +
+        newTotals.idTotalsPayDebit(0) +
+        newTotals.idTotalsPayOther(0) +
+        newTotals.idTotalsPay(0) +
+        newTotals.clTotalsKmHeader +
+        newTotals.idTotalsKmTraveled(0) +
+        newTotals.idTotalsKmMetered(0) +
+        newTotals.idTotalsKmDolPerKm(0) +
+        newTotals.clTotalsHeader +
+        newTotals.idTotalsExpPersonal(0) +
+        newTotals.idTotalsExpTaxi(0) +
+        newTotals.idTotalsExp(0) +
+        newTotals.idTotalsEstGas(0)
+    );
+    child = document.getElementById("totals")
+    totalsTableElement.removeChild(child);
+    
+    totalsTableElement.appendChild(initTotals);
+
 }
 
-function updateTotals() {
+//TODO write a function to figure out the type of fare
+//     and apply it to the right total
+
+updateTotals = () => {
     const totalsTableElement = document.getElementById("TotalsWrapper");
+    const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
+
+    const shiftMeter = shiftMeter + detailsFareTotal;
+    const shiftFlat = 0;
+    const shiftTotal = 0;
+    const profitBroker = 0;
+    const profitDriver = 0;
+    const profitTotal = 0;
+    const payCash = 0;
+    const payDebit = 0;
+    const payOther = 0;
+    const payTotal = 0;
+    const kmTraveled = 0;
+    const kmMetered = 0;
+    const kmPer = 0;
+    const expPersonal = 0;
+    const expTaxi = 0;
+    const expTotal = 0;
+    const estGas = 0;
+
 
     const updateTotals = elementFromHtml(
         newTotals.idTotals +
         newTotals.idBtnTotals +
         newTotals.cltotalsShiftHeader +
-        newTotals.idTotalsShiftMeter +
-        newTotals.idTotalsShiftFlat +
-        newTotals.idTotalsShift +
+        newTotals.idTotalsShiftMeter(shiftMeter) +
+        newTotals.idTotalsShiftFlat(shiftFlat) +
+        newTotals.idTotalsShift(shiftTotal) +
         newTotals.clTotalsProfHeader +
-        newTotals.idTotalsProfitBroker +
-        newTotals.idTotalsProfitDriver +
-        newTotals.idTotalsProfit +
+        newTotals.idTotalsProfitBroker(profitBroker) +
+        newTotals.idTotalsProfitDriver(profitDriver) +
+        newTotals.idTotalsProfit(profitTotal) +
         newTotals.clTotalsPayHeader +
-        newTotals.idTotalsPayCash +
-        newTotals.idTotalsPaydebit +
-        newTotals.idTotalsPayOther +
-        newTotals.idTotalsPay +
+        newTotals.idTotalsPayCash(payCash) +
+        newTotals.idTotalsPayDebit(payDebit) +
+        newTotals.idTotalsPayOther(payOther) +
+        newTotals.idTotalsPay(payTotal) +
         newTotals.clTotalsKmHeader +
-        newTotals.idTotalsKmTraveled +
-        newTotals.idTotalsKmMetered +
-        newTotals.idTotalsKmDolPerKm +
+        newTotals.idTotalsKmTraveled(kmTraveled) +
+        newTotals.idTotalsKmMetered(kmMetered) +
+        newTotals.idTotalsKmDolPerKm(kmPer) +
         newTotals.clTotalsHeader +
-        newTotals.idTotalsExpPersonal +
-        newTotals.idTotalsExpTaxi +
-        newTotals.idTotalsExp +
-        newTotals.idTotalsEstGas 
+        newTotals.idTotalsExpPersonal(expPersonal) +
+        newTotals.idTotalsExpTaxi(expTaxi) +
+        newTotals.idTotalsExp(expTotal) +
+        newTotals.idTotalsEstGas(estGas)
     );
     child = document.getElementById("totals")
     totalsTableElement.removeChild(child);
@@ -209,10 +222,53 @@ function updateTotals() {
 
 }
 
-function elementFromHtml(html) {
+elementFromHtml = (html) => {
     const template = document.createElement("template");
 
     template.innerHTML = html.trim();
 
     return template.content.firstElementChild;
+}
+
+setContent = (index) => {
+    const getGridWrapperIndex = "gridWrapper" + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    content.classList.toggle('hide');
+}
+
+showContent = (gridWrapperIndex, index) => {
+    const content = document.getElementById(gridWrapperIndex);
+    content.classList.replace('hide', 'show');
+    const getExpIndex = 'infoExpCon' + index;
+    document.getElementById(getExpIndex).innerHTML = "-";
+}
+
+hideContent = (gridWrapperIndex, index) => {
+    const content = document.getElementById(gridWrapperIndex);
+    content.classList.replace('show', 'hide');
+    const getExpIndex = 'infoExpCon' + index;
+    document.getElementById(getExpIndex).innerHTML = "+";
+}
+
+expand = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    
+    if (content.classList.contains('hide')) {
+        showContent(getGridWrapperIndex, index);
+    } else if (content.classList.contains('show')) {
+        hideContent(getGridWrapperIndex, index);
+    }
+}
+
+contractFirst = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    content.classList.toggle('hide');
+}
+
+contract = (index) => {
+    const getGridWrapperIndex = 'gridWrapper' + index;
+    const content = document.getElementById(getGridWrapperIndex);
+    content.classList.replace('show', 'hide');
 }
