@@ -126,7 +126,7 @@
 
 #detailsTips {}
 
-#formWrapper {
+#formWrapperAddRun {
     visibility: hidden;
     position: absolute;
     left: 0;
