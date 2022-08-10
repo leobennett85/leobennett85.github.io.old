@@ -17,31 +17,31 @@
       <div id="menuWrap">
         <div id="add" class="menuStyle">
           <div class="halfMenu">
-            <a href="">Add Run</a>
+            <div onclick="addRun(); hideAdd();">Add Run</div>
           </div>
-          <div class="halfMenu"><a href="">Add Expense</a></div>
+          <div class="halfMenu">Add Expense</div>
           <div class="btnStyle zeroTop" onclick="clickAdd();">
             <span>&Delta;</span>
           </div>
         </div>
 
         <div id="update" class="menuStyle">
-          <div class="halfMenu"><a href="">Price of Gas</a></div>
-          <div class="halfMenu"><a href="">L/100km</a></div>
+          <div class="halfMenu">Price of Gas</div>
+          <div class="halfMenu">L/100km</div>
           <div class="btnStyle" onclick="clickUpdate();">
             <span>&Theta;</span>
           </div>
         </div>
 
         <div id="edit" class="menuStyle">
-          <div class="oneMenu"><a href="">Edit</a></div>
+          <div class="oneMenu">Edit</div>
           <div class="btnStyle" onclick="clickEdit();">
             <span>&Rho;</span>
           </div>
         </div>
 
         <div id="eod" class="menuStyle">
-          <div class="oneMenu"><a href="">End Of Day</a></div>
+          <div class="oneMenu">End Of Day</div>
           <div class="btnStyle" onclick="clickEod();">
             <span>&Omega;</span>
           </div>
@@ -138,7 +138,15 @@
           onblur=""
         />
         <div class="label">Type of Fare</div>
-        <input id="inputDetailsFareType" type="" placeholder="" onblur="" />
+        <select
+          id="inputDetailsFareType"
+          type="text"
+          onblur="checkFareType(document.getElementById('inputDetailsFareType').value)"
+        >
+          <option>Metered or Flat Rate</option>
+          <option>Metered</option>
+          <option>Flat</option>
+        </select>
         <div class="label">Tip</div>
         <input
           id="inputDetailsTip"

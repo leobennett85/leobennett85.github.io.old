@@ -29,6 +29,14 @@ formatTip = (tipTotal) => {
     input.value = newTipTotal;
 }
 
+checkFareType = (fareType) => {
+    console.log(fareType);
+    const invalidEntry = "Fare Type must be Metered or Flate";
+    if (fareType = "Metered or Flat Rate") {
+        alert(invalidEntry);
+    }
+}
+
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
     idGridInfoLayout: `<div id="gridInfoLayout">`,
@@ -237,6 +245,7 @@ updateTotals = () => {
     totalsTableElement.removeChild(child);
     
     totalsTableElement.appendChild(updateTotals);
+    document.getElementById("formWrapper").style.visibility = "hidden";
 
 }
 
@@ -289,4 +298,8 @@ contract = (index) => {
     const getGridWrapperIndex = 'gridWrapper' + index;
     const content = document.getElementById(getGridWrapperIndex);
     content.classList.replace('show', 'hide');
+}
+
+addRun = () => {
+    document.getElementById("formWrapper").style.visibility = "visible";
 }
