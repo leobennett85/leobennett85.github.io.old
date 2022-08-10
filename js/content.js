@@ -1,3 +1,34 @@
+//GLOBAL VARIABLES FOR TOTALS
+let shiftMeter = 0;
+let shiftFlat = 0;
+let shiftTotal = 0;
+let profitBroker = 0;
+let profitDriver = 0;
+let profitTotal = 0;
+let payCash = 0;
+let payDebit = 0;
+let payOther = 0;
+let payTotal = 0;
+let kmTraveled = 0;
+let kmMetered = 0;
+let kmPer = 0;
+let expPersonal = 0;
+let expTaxi = 0;
+let expTotal = 0;
+let estGas = 0;
+
+formatFare = (fareTotal) => {
+    const newFareTotal= Math.round((fareTotal * 100)/100).toFixed(2);
+    let input = document.getElementById('inputDetailsFareTotal');
+    input.value = newFareTotal;
+}
+
+formatTip = (tipTotal) => {
+    const newTipTotal= Math.round((tipTotal * 100)/100).toFixed(2);
+    let input = document.getElementById('inputDetailsTip');
+    input.value = newTipTotal;
+}
+
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
     idGridInfoLayout: `<div id="gridInfoLayout">`,
@@ -71,7 +102,6 @@ addNewFareTable = () => {
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapper"];
     /* Input Variables */
-    const time = contentForm.inputTime.value;
     const startAdd = contentForm.inputStartingAdd.value;
     const detailsArrival = contentForm.inputDetailsArrivalTime.value;
     const detailsDestination = contentForm.inputDetailsDestinationAdd.value;
@@ -127,67 +157,55 @@ addNewFareTable = () => {
     setContent(fareTableCount);
 }
 
-initTotals = () => {
-    const totalsTableElement = document.getElementById("TotalsWrapper");
-
-    const initTotals = elementFromHtml (
-        newTotals.idTotals +
-        newTotals.idBtnTotals +
-        newTotals.cltotalsShiftHeader +
-        newTotals.idTotalsShiftMeter(0) +
-        newTotals.idTotalsShiftFlat(0) +
-        newTotals.idTotalsShift(0) +
-        newTotals.clTotalsProfHeader +
-        newTotals.idTotalsProfitBroker(0) +
-        newTotals.idTotalsProfitDriver(0) +
-        newTotals.idTotalsProfit(0) +
-        newTotals.clTotalsPayHeader +
-        newTotals.idTotalsPayCash(0) +
-        newTotals.idTotalsPayDebit(0) +
-        newTotals.idTotalsPayOther(0) +
-        newTotals.idTotalsPay(0) +
-        newTotals.clTotalsKmHeader +
-        newTotals.idTotalsKmTraveled(0) +
-        newTotals.idTotalsKmMetered(0) +
-        newTotals.idTotalsKmDolPerKm(0) +
-        newTotals.clTotalsHeader +
-        newTotals.idTotalsExpPersonal(0) +
-        newTotals.idTotalsExpTaxi(0) +
-        newTotals.idTotalsExp(0) +
-        newTotals.idTotalsEstGas(0)
-    );
-    child = document.getElementById("totals")
-    totalsTableElement.removeChild(child);
-    
-    totalsTableElement.appendChild(initTotals);
-
-}
-
 //TODO write a function to figure out the type of fare
-//     and apply it to the right total
+//         and apply it to the right total
 
 updateTotals = () => {
+    let updateShiftMeter = 0;
+    let updateShiftFlat = 0;
+    let updateShiftTotal = 0;
+    let updateProfitBroker = 0;
+    let updateProfitDriver = 0;
+    let updateProfitTotal = 0;
+    let updatePayCash = 0;
+    let updatePayDebit = 0;
+    let updatePayOther = 0;
+    let updatePayTotal = 0;
+    let updateKmTraveled = 0;
+    let updateKmMetered = 0;
+    let updateKmPer = 0;
+    let updateExpPersonal = 0;
+    let updateExpTaxi = 0;
+    let updateExpTotal = 0;
+    let updateEstGas = 0;
+
+    console.log(typeof(updateShiftMeter));
+    
     const totalsTableElement = document.getElementById("TotalsWrapper");
-    const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
+    const contentForm = document.forms["formWrapper"];
+    
+    updateShiftMeter = +contentForm.inputDetailsFareTotal.value;
 
-    const shiftMeter = shiftMeter + detailsFareTotal;
-    const shiftFlat = 0;
-    const shiftTotal = 0;
-    const profitBroker = 0;
-    const profitDriver = 0;
-    const profitTotal = 0;
-    const payCash = 0;
-    const payDebit = 0;
-    const payOther = 0;
-    const payTotal = 0;
-    const kmTraveled = 0;
-    const kmMetered = 0;
-    const kmPer = 0;
-    const expPersonal = 0;
-    const expTaxi = 0;
-    const expTotal = 0;
-    const estGas = 0;
-
+    console.log(typeof(updateShiftMeter));
+    
+    shiftMeter = +updateShiftMeter + +shiftMeter;
+    shiftFlat = 0;
+    shiftTotal = 0;
+    profitBroker = 0;
+    profitDriver = 0;
+    profitTotal = 0;
+    payCash = 0;
+    payDebit = 0;
+    payOther = 0;
+    payTotal = 0;
+    kmTraveled = 0;
+    kmMetered = 0;
+    kmPer = 0;
+    expPersonal = 0;
+    expTaxi = 0;
+    expTotal = 0;
+    estGas = 0;
+    
 
     const updateTotals = elementFromHtml(
         newTotals.idTotals +
