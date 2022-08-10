@@ -100,24 +100,52 @@
 
       <!--FORM SECTION------------------------------------------------------------------------------------------------->
       <form id="formWrapper" name="content">
-        <div class="label">Current Time</div>
-        <input id="inputTime" value="" />
         <div class="label">Starting Address</div>
-        <input id="inputStartingAdd" value="" />
+        <input id="inputStartingAdd" type="text" placeholder="" onblur="" />
         <div class="label">Time of Arrival</div>
-        <input id="inputDetailsArrivalTime" value="" />
+        <input
+          id="inputDetailsArrivalTime"
+          type="time"
+          placeholder=""
+          onblur=""
+        />
         <div class="label">Destination Address</div>
-        <input id="inputDetailsDestinationAdd" value="" />
+        <input
+          id="inputDetailsDestinationAdd"
+          type="text"
+          placeholder=""
+          onblur=""
+        />
         <div class="label">Distance</div>
-        <input id="inputDetailsDistance" value="" />
+        <input
+          id="inputDetailsDistance"
+          type="number"
+          placeholder=""
+          onblur=""
+        />
         <div class="label">Total Fare</div>
-        <input id="inputDetailsFareTotal" value="" />
+        <input
+          id="inputDetailsFareTotal"
+          type="number"
+          placeholder="$$.$$"
+          onblur="formatFare(document.getElementById('inputDetailsFareTotal').value)"
+        />
         <div class="label">$/km</div>
-        <input id="inputDetailsDolPerKm" value="$/km" />
+        <input
+          id="inputDetailsDolPerKm"
+          type="number"
+          placeholder=""
+          onblur=""
+        />
         <div class="label">Type of Fare</div>
-        <input id="inputDetailsFareType" value="" />
+        <input id="inputDetailsFareType" type="" placeholder="" onblur="" />
         <div class="label">Tip</div>
-        <input id="inputDetailsTip" value="Tip" />
+        <input
+          id="inputDetailsTip"
+          type="number"
+          placeholder=""
+          onblur="formatTip(document.getElementById('inputDetailsTip').value)"
+        />
         <div></div>
         <button type="button" onClick="updateTotals();addNewFareTable();">
           Add Run Info
