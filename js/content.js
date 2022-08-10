@@ -17,26 +17,6 @@ let expTaxi = 0;
 let expTotal = 0;
 let estGas = 0;
 
-formatFare = (fareTotal) => {
-    const newFareTotal= Math.round((fareTotal * 100)/100).toFixed(2);
-    let input = document.getElementById('inputDetailsFareTotal');
-    input.value = newFareTotal;
-}
-
-formatTip = (tipTotal) => {
-    const newTipTotal= Math.round((tipTotal * 100)/100).toFixed(2);
-    let input = document.getElementById('inputDetailsTip');
-    input.value = newTipTotal;
-}
-
-checkFareType = (fareType) => {
-    console.log(fareType);
-    const invalidEntry = "Fare Type must be Metered or Flate";
-    if (fareType = "Metered or Flat Rate") {
-        alert(invalidEntry);
-    }
-}
-
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
     idGridInfoLayout: `<div id="gridInfoLayout">`,
@@ -108,7 +88,7 @@ let newTotals = {
 addNewFareTable = () => {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
-    const contentForm = document.forms["formWrapper"];
+    const contentForm = document.forms["formWrapperAddRun"];
     /* Input Variables */
     const startAdd = contentForm.inputStartingAdd.value;
     const detailsArrival = contentForm.inputDetailsArrivalTime.value;
@@ -190,7 +170,7 @@ updateTotals = () => {
     console.log(typeof(updateShiftMeter));
     
     const totalsTableElement = document.getElementById("TotalsWrapper");
-    const contentForm = document.forms["formWrapper"];
+    const contentForm = document.forms["formWrapperAddRun"];
     
     updateShiftMeter = +contentForm.inputDetailsFareTotal.value;
 
@@ -245,7 +225,7 @@ updateTotals = () => {
     totalsTableElement.removeChild(child);
     
     totalsTableElement.appendChild(updateTotals);
-    document.getElementById("formWrapper").style.visibility = "hidden";
+    document.getElementById("formWrapperAddRun").style.visibility = "hidden";
 
 }
 
@@ -301,5 +281,34 @@ contract = (index) => {
 }
 
 addRun = () => {
-    document.getElementById("formWrapper").style.visibility = "visible";
+    document.getElementById("formWrapperAddRun").style.visibility = "visible";
+}
+
+
+//FORMATTING AND PREVENTATIVE ERRORNEOUS DATE FUNCTIONS
+
+formatFare = (fareTotal) => {
+    const newFareTotal= Math.round((fareTotal * 100)/100).toFixed(2);
+    let input = document.getElementById('inputDetailsFareTotal');
+    input.value = newFareTotal;
+}
+
+formatTip = (tipTotal) => {
+    const newTipTotal= Math.round((tipTotal * 100)/100).toFixed(2);
+    let input = document.getElementById('inputDetailsTip');
+    input.value = newTipTotal;
+}
+
+checkFareType = (fareType) => {
+    const invalidEntry = "Fare Type must be Metered or Flate";
+    if (fareType = "Metered or Flat Rate") {
+        alert(invalidEntry);
+    }
+}
+
+checkPayType = (payType) => {
+    const invalidEntry = "Payment Type must be Cash, Debit/Credit, or Charge";
+    if (payType = "Cash, Debit/Credit or Charge") {
+        alert(invalidEntry);
+    }
 }

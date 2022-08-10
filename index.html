@@ -99,16 +99,9 @@
       <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
 
       <!--FORM SECTION------------------------------------------------------------------------------------------------->
-      <form id="formWrapper" name="content">
+      <form id="formWrapperAddRun" name="content">
         <div class="label">Starting Address</div>
         <input id="inputStartingAdd" type="text" placeholder="" onblur="" />
-        <div class="label">Time of Arrival</div>
-        <input
-          id="inputDetailsArrivalTime"
-          type="time"
-          placeholder=""
-          onblur=""
-        />
         <div class="label">Destination Address</div>
         <input
           id="inputDetailsDestinationAdd"
@@ -130,13 +123,6 @@
           placeholder="$$.$$"
           onblur="formatFare(document.getElementById('inputDetailsFareTotal').value)"
         />
-        <div class="label">$/km</div>
-        <input
-          id="inputDetailsDolPerKm"
-          type="number"
-          placeholder=""
-          onblur=""
-        />
         <div class="label">Type of Fare</div>
         <select
           id="inputDetailsFareType"
@@ -146,6 +132,17 @@
           <option>Metered or Flat Rate</option>
           <option>Metered</option>
           <option>Flat</option>
+        </select>
+        <div class="label">Type of Payment</div>
+        <select
+          id="inputDetailsPayType"
+          type="text"
+          onblur="checkPayType(document.getElementById('inputDetailsPayType').value)"
+        >
+          <option>Cash, Debit/Credit or Charge</option>
+          <option>Cash</option>
+          <option>Debit/Credit</option>
+          <option>Charge</option>
         </select>
         <div class="label">Tip</div>
         <input
