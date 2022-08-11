@@ -16,6 +16,7 @@ let expPersonal = 0;
 let expTaxi = 0;
 let expTotal = 0;
 let estGas = 0;
+let pickupTime;
 
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
@@ -85,7 +86,21 @@ let newTotals = {
     closeDiv: `</div>`
 }
 
-addNewFareTable = () => {
+beginRun = () => {
+    const d = new Date();
+    pickupTime = d.toLocaleTimeString();
+    console.log(pickupTime);
+    document.getElementById('btnEndRun').style.visibility = "visible";
+}
+
+endRun = () => {
+    const d = new Date();
+    const dropTime = d.toLocaleTimeString();
+
+    addNewFareTable(dropTime);
+}
+
+addNewFareTable = (dropTime) => {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapperAddRun"];
@@ -97,8 +112,7 @@ addNewFareTable = () => {
     const detailsFareType = contentForm.inputDetailsFareType.value;
     const detailsTip = contentForm.inputDetailsTip.value;
     /* Calculated Variables */
-    const d = new Date();
-    const pickupTime = d.toLocaleTimeString();
+    
 
     const addFare = elementFromHtml (
         // gridInfo Section
@@ -118,7 +132,7 @@ addNewFareTable = () => {
         newGridInfo.clSpaceA1 +
         newGridInfo.clSpaceA2 +
         newGridInfo.clSpaceA3 +
-        newGridInfo.idDetailsEndTime(fareTableCount) +
+        newGridInfo.idDetailsEndTime(fareTableCount, dropTime) +
         newGridInfo.idDetailsDestination(fareTableCount, detailsDestination) +
         newGridInfo.idDetailsFareTotal(fareTableCount, detailsFareTotal) +
         newGridInfo.clSpaceB1 +

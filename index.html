@@ -152,8 +152,12 @@
           onblur="formatTip(document.getElementById('inputDetailsTip').value)"
         />
         <div></div>
-        <button type="button" onClick="updateTotals();addNewFareTable();">
+        <button id="btnBeginRun" type="button" onClick="beginRun();">
           Add Run Info
+        </button>
+        <div></div>
+        <button id="btnEndRun" type="button" onClick="endRun();">
+          Click here when Run Complete
         </button>
       </form>
     </div>
