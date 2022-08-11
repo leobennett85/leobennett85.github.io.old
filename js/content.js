@@ -16,6 +16,7 @@ let expPersonal = 0;
 let expTaxi = 0;
 let expTotal = 0;
 let estGas = 0;
+let runningTotal = 0;
 let pickupTime;
 
 let newGridInfo = {
@@ -26,7 +27,7 @@ let newGridInfo = {
     idExpCon: (index) => `<div id="infoExpCon${index}" class="infoStyle" onClick="expand(${index});">+</div>`,
     idTime: (index, time) => `<div id="infoTime${index}" class="infoStyle">${time}</div>`,
     idStartAdd: (index, startAdd) => `<div id="infoStartAdd${index}" class="infoStyle">${startAdd}</div>`,
-    idRunTotal: `<div id="infoRunTotal" class="infoStyle"></div>`,
+    idRunTotal: (runTotal) => `<div id="infoRunTotal" class="infoStyle">${runTotal}</div>`,
     clSpaceRight: `<div class="space"></div>`,
     closeDiv: `</div></div>`,
     idGridWrapper: (index) => `<div id="gridWrapper${index}">`,
@@ -42,7 +43,7 @@ let newGridInfo = {
     clSpaceB2: `<div class="space"></div>`,
     clSpaceB3: `<div class="space"></div>`,
     clSpaceB4: `<div class="space"></div>`,
-    idDetailsTotalTime: (index) => `<div id="detailsTotalTime${index}" class="detailsStyle">Total Time:</div>`,
+    idDetailsTotalTime: (index, totalTime) => `<div id="detailsTotalTime${index}" class="detailsStyle">Total Time: ${totalTime}</div>`,
     idDetailsDistance: (index, detailsDistance) => `<div id="detailsDistance${index}" class="detailsStyle">Distance (km): ${detailsDistance}</div>`,
     idDetailDollarsPerKm: (index, detailsDolPerKm) => `<div id="detailsDollarsPerKm${index}" class="detailsStyle">$/km: ${detailsDolPerKm}</div>`,
     clSpaceC1: `<div class="space"></div>`,
@@ -98,6 +99,8 @@ endRun = () => {
     const dropTime = d.toLocaleTimeString();
 
     addNewFareTable(dropTime);
+    updateTotals();
+    document.getElementById('btnEndRun').style.visibility = "hidden";
 }
 
 addNewFareTable = (dropTime) => {
@@ -111,6 +114,12 @@ addNewFareTable = (dropTime) => {
     const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
     const detailsFareType = contentForm.inputDetailsFareType.value;
     const detailsTip = contentForm.inputDetailsTip.value;
+    const runTotal = +detailsFareTotal + +detailsTip;
+    console.log(pickupTime, dropTime);
+    const totalTime = pickupTime - dropTime;
+    console.log(totalTime);
+    runningTotal = runningTotal + runTotal;
+
     /* Calculated Variables */
     
 
@@ -123,7 +132,7 @@ addNewFareTable = (dropTime) => {
         newGridInfo.idExpCon(fareTableCount) +
         newGridInfo.idTime(fareTableCount, pickupTime) +
         newGridInfo.idStartAdd(fareTableCount, startAdd) +
-        newGridInfo.idRunTotal +
+        newGridInfo.idRunTotal(runningTotal) +
         newGridInfo.clSpaceRight +
         newGridInfo.closeDiv +
         newGridInfo.idGridWrapper(fareTableCount) +
@@ -139,7 +148,7 @@ addNewFareTable = (dropTime) => {
         newGridInfo.clSpaceB2 +
         newGridInfo.clSpaceB3 +
         newGridInfo.clSpaceB4 +
-        newGridInfo.idDetailsTotalTime(fareTableCount) +
+        newGridInfo.idDetailsTotalTime(fareTableCount, totalTime) +
         newGridInfo.idDetailsDistance(fareTableCount, detailsDistance)  +
         newGridInfo.idDetailDollarsPerKm(fareTableCount) +
         newGridInfo.clSpaceC1 +
@@ -151,7 +160,6 @@ addNewFareTable = (dropTime) => {
         newGridInfo.clSpaceC5 +
         newGridInfo.closeDiv
     );
-
     fareTableElement.appendChild(addFare);
     setContent(fareTableCount);
 }
@@ -178,11 +186,11 @@ updateTotals = () => {
     const totalsTableElement = document.getElementById("TotalsWrapper");
     const contentForm = document.forms["formWrapperAddRun"];
     
-    updateShiftMeter = +contentForm.inputDetailsFareTotal.value;
+    updateShiftTotal = +contentForm.inputDetailsFareTotal.value;
     
-    shiftMeter = +updateShiftMeter + +shiftMeter;
+    shiftMeter = 0;
     shiftFlat = 0;
-    shiftTotal = 0;
+    shiftTotal = runningTotal;
     profitBroker = 0;
     profitDriver = 0;
     profitTotal = 0;
@@ -199,7 +207,7 @@ updateTotals = () => {
     estGas = 0;
     
 
-    const updateTotals = elementFromHtml(
+    let updateTotals = elementFromHtml(
         newTotals.idTotals +
         newTotals.idBtnTotals +
         newTotals.cltotalsShiftHeader +
