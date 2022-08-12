@@ -297,7 +297,7 @@ addRun = () => {
 }
 
 
-//FORMATTING AND PREVENTATIVE ERRORNEOUS DATE FUNCTIONS
+//FORMATTING AND PREVENTATIVE ERRORNEOUS-DATA FUNCTIONS
 
 formatFare = (fareTotal) => {
     const newFareTotal= Math.round((fareTotal * 100)/100).toFixed(2);
