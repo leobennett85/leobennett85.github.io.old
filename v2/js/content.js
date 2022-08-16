@@ -1,6 +1,7 @@
 //GLOBAL VARIABLES FOR TOTALS
 let shiftMeter = 0;
 let shiftFlat = 0;
+let shiftTips = 0;
 let shiftTotal = 0;
 let profitBroker = 0;
 let profitDriver = 0;
@@ -17,7 +18,37 @@ let expTaxi = 0;
 let expTotal = 0;
 let estGas = 0;
 let runningTotal = 0;
+let priceOfGas = 0;
+let litresPer = 0;
 let pickupTime;
+
+logGlobals = () => {
+    console.log(
+        "Log Globals: ", '\n',
+        "shiftMeter = ", shiftMeter, '\n',
+        "shiftFlat = ", shiftFlat, '\n',
+        "shiftTips =", shiftTips, '\n',
+        "shiftTotal = ", shiftTotal, '\n',
+        "profitBroker = ", profitBroker, '\n',
+        "profitDriver = ", profitDriver, '\n',
+        "profitTotal = ", profitTotal, '\n',
+        "payCash = ", payCash, '\n',
+        "payDebit = ", payDebit, '\n',
+        "payOther = ", payOther, '\n',
+        "payTotal = ", payTotal, '\n',
+        "kmTraveled = ", kmTraveled, '\n',
+        "kmMetered = ", kmMetered, '\n',
+        "kmPer = ", kmPer, '\n',
+        "expPersonal = ", expPersonal, '\n',
+        "expTaxi = ", expTaxi, '\n',
+        "expTotal = ", expTotal, '\n',
+        "estGas = ", estGas, '\n',
+        "runningTotal = ", runningTotal, '\n',
+        "priceOfGas = ", priceOfGas, '\n',
+        "litresPer = ", litresPer, '\n',
+        "pickupTime = ", pickupTime
+        );
+}
 
 let newGridInfo = {
     idGridIndfo: `<div id="gridInfo">`,
@@ -65,6 +96,7 @@ let newTotals = {
     cltotalsShiftHeader: `<div class="totalsHeader">Shift Report</div>`,
     idTotalsShiftMeter: (shiftMeter) => `<div id="totalsShiftMeter" class="totalsContent">Meter: ${shiftMeter}</div>`,
     idTotalsShiftFlat: (shiftFlat) => `<div id="totalsShiftFlat" class="totalsContent">Flat Rates: ${shiftFlat}</div>`,
+    idTotalsShiftTips: (shiftTips) => `<div id="totalsShiftTips" class="totalsContent">Tips: ${shiftTips}</div>`,
     idTotalsShift: (shiftTotal) => `<div id="totalsShift" class="totalsFooter">Total Shift: ${shiftTotal}</div>`,
     clTotalsProfHeader:  `<div class="totalsHeader">Profit Report</div>`,
     idTotalsProfitBroker: (profitBroker) => `<div id="totalProfitBroker" class="totalsContent">Broker Profit: ${profitBroker}</div>`,
@@ -167,6 +199,7 @@ addNewFareTable = (dropTime) => {
 updateTotals = () => {
     let updateShiftMeter = 0;
     let updateShiftFlat = 0;
+    let updateShiftTips = 0;
     let updateShiftTotal = 0;
     let updateProfitBroker = 0;
     let updateProfitDriver = 0;
@@ -182,44 +215,47 @@ updateTotals = () => {
     let updateExpTaxi = 0;
     let updateExpTotal = 0;
     let updateEstGas = 0;
+    let typeOfFare;
     
     const totalsTableElement = document.getElementById("TotalsWrapper");
     const contentForm = document.forms["formWrapperAddRun"];
-    
-    updateShiftTotal = +contentForm.inputDetailsFareTotal.value;
-    
-    shiftMeter = 0;
-    shiftFlat = 0;
-    shiftTotal = runningTotal;
-    profitBroker = 0;
-    profitDriver = 0;
-    profitTotal = 0;
-    payCash = 0;
-    payDebit = 0;
-    payOther = 0;
-    payTotal = 0;
-    kmTraveled = 0;
-    kmMetered = 0;
-    kmPer = 0;
-    expPersonal = 0;
-    expTaxi = 0;
-    expTotal = 0;
-    estGas = 0;
-    
 
+    // Used to accumulate according to Metered or Flat Fares
+    typeOfFare = contentForm.inputDetailsFareType.value;
+
+    // Shift Report
+    if (typeOfFare == "Flat") {
+        updateShiftFlat =  +contentForm.inputDetailsFareTotal.value
+        updateShiftMeter = 0;
+    } else if (typeOfFare == "Metered") {
+        updateShiftMeter = +contentForm.inputDetailsFareTotal.value;
+        updateShiftFlat = 0;
+    }
+
+    updateShiftTips = +contentForm.inputDetailsTip.value;
+    updateShiftTotal = +contentForm.inputDetailsFareTotal.value;
+
+    shiftMeter = updateShiftMeter + shiftMeter;
+    shiftFlat = updateShiftFlat + shiftFlat;
+    shiftTips = updateShiftTips +  shiftTips;
+    shiftTotal = updateShiftTotal + shiftTotal;
+    
+    logGlobals();
     let updateTotals = elementFromHtml(
+        
         newTotals.idTotals +
         newTotals.idBtnTotals +
         newTotals.cltotalsShiftHeader +
         newTotals.idTotalsShiftMeter(shiftMeter) +
         newTotals.idTotalsShiftFlat(shiftFlat) +
+        newTotals.idTotalsShiftTips(shiftTips) +
         newTotals.idTotalsShift(shiftTotal) +
         newTotals.clTotalsProfHeader +
         newTotals.idTotalsProfitBroker(profitBroker) +
         newTotals.idTotalsProfitDriver(profitDriver) +
         newTotals.idTotalsProfit(profitTotal) +
         newTotals.clTotalsPayHeader +
-        newTotals.idTotalsPayCash(payCash) +
+        newTotals.idTotalsPayCash(payCash) + 
         newTotals.idTotalsPayDebit(payDebit) +
         newTotals.idTotalsPayOther(payOther) +
         newTotals.idTotalsPay(payTotal) +
