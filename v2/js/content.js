@@ -20,7 +20,8 @@ let estGas = 0;
 let runningTotal = 0;
 let priceOfGas = 0;
 let litresPer = 0;
-let pickupTime;
+let pickupTime, formattedPickupTime;
+let dropTime, formattedDropTime;
 
 logGlobals = () => {
     console.log(
@@ -46,7 +47,10 @@ logGlobals = () => {
         "runningTotal = ", runningTotal, '\n',
         "priceOfGas = ", priceOfGas, '\n',
         "litresPer = ", litresPer, '\n',
-        "pickupTime = ", pickupTime
+        "pickupTime = ", pickupTime, '\n',
+        "formattedPickupTime = ", formattedPickupTime, '\n',
+        "dropTime = ", dropTime, '\n',
+        "formattedDropTime = ", formattedDropTime
         );
 }
 
@@ -119,37 +123,76 @@ let newTotals = {
     closeDiv: `</div>`
 }
 
+
+
 beginRun = () => {
     const d = new Date();
-    pickupTime = d.toLocaleTimeString();
-    console.log(pickupTime);
+    pickupTime = d.getTime();
+    formattedPickupTime = d.toLocaleTimeString(pickupTime);
+    logGlobals();
+    // Enable Km Inputs 
+    document.getElementById('inputDetailsDistance').disabled = false;
+    document.getElementById('inputDetailsOdometer').disabled = false;
+    // Disable Fare Inputs
+    document.getElementById('inputDetailsStartingAdd').disabled = true;
+    document.getElementById('inputDetailsDestinationAdd').disabled = true;
+    document.getElementById('inputDetailsFareTotal').disabled = true;
+    document.getElementById('inputDetailsFareType').disbaled = true;
+    document.getElementById('inputDetailsPayType').disabled = true;
+    document.getElementById('inputDetailsTip').disabled = true;
+    // Enable End Run Button
     document.getElementById('btnEndRun').style.visibility = "visible";
+
 }
 
 endRun = () => {
     const d = new Date();
-    const dropTime = d.toLocaleTimeString();
+    dropTime = d.getTime();
+    formattedDropTime = d.toLocaleTimeString(dropTime);
 
-    addNewFareTable(dropTime);
+    addNewFareTable(dropTime, formattedDropTime);
     updateTotals();
+    // Disable km Inputs
+    document.getElementById('inputDetailsDistance').disabled = true;
+    document.getElementById('inputDetailsOdometer').disabled = true;
+    // Enable Fare Inputs
+    document.getElementById('inputDetailsStartingAdd').disabled = false;
+    document.getElementById('inputDetailsDestinationAdd').disabled = false;
+    document.getElementById('inputDetailsFareTotal').disabled = false;
+    document.getElementById('inputDetailsFareType').disbaled = false;
+    document.getElementById('inputDetailsPayType').disabled = false;
+    document.getElementById('inputDetailsTip').disabled = false;
+    // Dsiable End Run Button
     document.getElementById('btnEndRun').style.visibility = "hidden";
 }
 
-addNewFareTable = (dropTime) => {
+addNewFareTable = (dropTime, formattedDropTime) => {
     const fareTableElement = document.getElementById("fareTable");
     const fareTableCount = fareTableElement.childElementCount;
     const contentForm = document.forms["formWrapperAddRun"];
     /* Input Variables */
-    const startAdd = contentForm.inputStartingAdd.value;
+    const startAdd = contentForm.inputDetailsStartingAdd.value;
     const detailsDestination = contentForm.inputDetailsDestinationAdd.value;
     const detailsDistance = contentForm.inputDetailsDistance.value;
     const detailsFareTotal = contentForm.inputDetailsFareTotal.value;
     const detailsFareType = contentForm.inputDetailsFareType.value;
     const detailsTip = contentForm.inputDetailsTip.value;
     const runTotal = +detailsFareTotal + +detailsTip;
-    console.log(pickupTime, dropTime);
-    const totalTime = pickupTime - dropTime;
-    console.log(totalTime);
+    returnTime = (pickupTime, dropTime) => {
+        let milliseconds = dropTime - pickupTime;
+        let seconds = Math.floor(milliseconds / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+      
+        seconds = seconds % 60;
+        minutes = minutes % 60;
+        hours = hours % 24;
+        console.log(hours + ":" + minutes + ":" + seconds);
+        let time = hours + ":" + minutes + ":" + seconds;
+        
+        return time;
+    }
+    let totalTime = returnTime(pickupTime, dropTime);
     runningTotal = runningTotal + runTotal;
 
     /* Calculated Variables */
@@ -162,7 +205,7 @@ addNewFareTable = (dropTime) => {
         newGridInfo.clSpaceLeft +
         newGridInfo.idIndex(fareTableCount) +
         newGridInfo.idExpCon(fareTableCount) +
-        newGridInfo.idTime(fareTableCount, pickupTime) +
+        newGridInfo.idTime(fareTableCount, formattedPickupTime) +
         newGridInfo.idStartAdd(fareTableCount, startAdd) +
         newGridInfo.idRunTotal(runningTotal) +
         newGridInfo.clSpaceRight +
@@ -173,7 +216,7 @@ addNewFareTable = (dropTime) => {
         newGridInfo.clSpaceA1 +
         newGridInfo.clSpaceA2 +
         newGridInfo.clSpaceA3 +
-        newGridInfo.idDetailsEndTime(fareTableCount, dropTime) +
+        newGridInfo.idDetailsEndTime(fareTableCount, formattedDropTime) +
         newGridInfo.idDetailsDestination(fareTableCount, detailsDestination) +
         newGridInfo.idDetailsFareTotal(fareTableCount, detailsFareTotal) +
         newGridInfo.clSpaceB1 +
@@ -201,19 +244,24 @@ updateTotals = () => {
     let updateShiftFlat = 0;
     let updateShiftTips = 0;
     let updateShiftTotal = 0;
+
     let updateProfitBroker = 0;
     let updateProfitDriver = 0;
     let updateProfitTotal = 0;
+
     let updatePayCash = 0;
     let updatePayDebit = 0;
     let updatePayOther = 0;
     let updatePayTotal = 0;
+
     let updateKmTraveled = 0;
     let updateKmMetered = 0;
     let updateKmPer = 0;
+
     let updateExpPersonal = 0;
     let updateExpTaxi = 0;
     let updateExpTotal = 0;
+
     let updateEstGas = 0;
     let typeOfFare;
     
@@ -239,7 +287,21 @@ updateTotals = () => {
     shiftFlat = updateShiftFlat + shiftFlat;
     shiftTips = updateShiftTips +  shiftTips;
     shiftTotal = updateShiftTotal + shiftTotal;
+
+    // KM Report
     
+
+    /*
+    // Profit Report
+    updateProfitBroker = 
+    updateProfitDriver =
+    updateProfitTotal =
+
+    profitBroker =  
+    profitDriver
+    profitTotal
+    */
+
     logGlobals();
     let updateTotals = elementFromHtml(
         
