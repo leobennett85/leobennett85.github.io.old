@@ -80,7 +80,7 @@ let newGridInfo = {
     clSpaceB4: `<div class="space"></div>`,
     idDetailsTotalTime: (index, totalTime) => `<div id="detailsTotalTime${index}" class="detailsStyle">Total Time: ${totalTime}</div>`,
     idDetailsDistance: (index, detailsDistance) => `<div id="detailsDistance${index}" class="detailsStyle">Distance (km): ${detailsDistance}</div>`,
-    idDetailDollarsPerKm: (index, detailsDolPerKm) => `<div id="detailsDollarsPerKm${index}" class="detailsStyle">$/km: ${detailsDolPerKm}</div>`,
+    idDetailDollarsPerKm: (index, detailsDolPerKm, detailsDistance) => `<div id="detailsDollarsPerKm${index}" class="detailsStyle">$/km: ${dollarsPerKm(detailsDolPerKm, detailsDistance)}</div>`,
     clSpaceC1: `<div class="space"></div>`,
     clSpaceC2: `<div class="space"></div>`,
     clSpaceC3: `<div class="space"></div>`,
@@ -130,19 +130,6 @@ beginRun = () => {
     pickupTime = d.getTime();
     formattedPickupTime = d.toLocaleTimeString(pickupTime);
     logGlobals();
-    // Enable Km Inputs 
-    document.getElementById('inputDetailsDistance').disabled = false;
-    document.getElementById('inputDetailsOdometer').disabled = false;
-    // Disable Fare Inputs
-    document.getElementById('inputDetailsStartingAdd').disabled = true;
-    document.getElementById('inputDetailsDestinationAdd').disabled = true;
-    document.getElementById('inputDetailsFareTotal').disabled = true;
-    document.getElementById('inputDetailsFareType').disbaled = true;
-    document.getElementById('inputDetailsPayType').disabled = true;
-    document.getElementById('inputDetailsTip').disabled = true;
-    // Enable End Run Button
-    document.getElementById('btnEndRun').style.visibility = "visible";
-
 }
 
 endRun = () => {
@@ -152,18 +139,7 @@ endRun = () => {
 
     addNewFareTable(dropTime, formattedDropTime);
     updateTotals();
-    // Disable km Inputs
-    document.getElementById('inputDetailsDistance').disabled = true;
-    document.getElementById('inputDetailsOdometer').disabled = true;
-    // Enable Fare Inputs
-    document.getElementById('inputDetailsStartingAdd').disabled = false;
-    document.getElementById('inputDetailsDestinationAdd').disabled = false;
-    document.getElementById('inputDetailsFareTotal').disabled = false;
-    document.getElementById('inputDetailsFareType').disbaled = false;
-    document.getElementById('inputDetailsPayType').disabled = false;
-    document.getElementById('inputDetailsTip').disabled = false;
-    // Dsiable End Run Button
-    document.getElementById('btnEndRun').style.visibility = "hidden";
+    
 }
 
 addNewFareTable = (dropTime, formattedDropTime) => {
@@ -225,7 +201,7 @@ addNewFareTable = (dropTime, formattedDropTime) => {
         newGridInfo.clSpaceB4 +
         newGridInfo.idDetailsTotalTime(fareTableCount, totalTime) +
         newGridInfo.idDetailsDistance(fareTableCount, detailsDistance)  +
-        newGridInfo.idDetailDollarsPerKm(fareTableCount) +
+        newGridInfo.idDetailDollarsPerKm(fareTableCount, detailsFareTotal, detailsDistance) +
         newGridInfo.clSpaceC1 +
         newGridInfo.clSpaceC2 +
         newGridInfo.clSpaceC3 +
@@ -392,6 +368,9 @@ contract = (index) => {
 
 addRun = () => {
     document.getElementById("formWrapperAddRun").style.visibility = "visible";
+    enableFareInputs();
+    disableKmInputs();
+    showBtnBeginRun();
 }
 
 
@@ -422,4 +401,71 @@ checkPayType = (payType) => {
     if (payType == "Cash, Debit/Credit or Charge") {
         alert(invalidEntry);
     }
+}
+
+dollarsPerKm = (detailsDolPerKm, detailsDistance) => {
+    let dolPerKm = detailsDolPerKm/detailsDistance;
+    dolPerKm = Math.round(dolPerKm).toFixed(2);
+    return `\$${dolPerKm}/km`;
+}
+
+disableAllInputs = () => {
+    // Disable Inputs
+    document.getElementById('inputDetailsStartingAdd').disabled = true;
+    document.getElementById('inputDetailsDestinationAdd').disabled = true;
+    document.getElementById('inputDetailsFareTotal').disabled = true;
+    document.getElementById('inputDetailsFareType').disabled = true;
+    document.getElementById('inputDetailsPayType').disabled = true;
+    document.getElementById('inputDetailsTip').disabled = true;
+    document.getElementById('inputDetailsDistance').disabled = true;
+    document.getElementById('inputDetailsOdometer').disabled = true;
+
+}
+
+disableFareInputs = () => {
+    document.getElementById('inputDetailsStartingAdd').disabled = true;
+    document.getElementById('inputDetailsDestinationAdd').disabled = true;
+    document.getElementById('inputDetailsFareTotal').disabled = true;
+    document.getElementById('inputDetailsFareType').disabled = true;
+    document.getElementById('inputDetailsPayType').disabled = true;
+    document.getElementById('inputDetailsTip').disabled = true;
+}
+
+enableFareInputs = () => {
+    document.getElementById('inputDetailsStartingAdd').disabled = false;
+    document.getElementById('inputDetailsDestinationAdd').disabled = false;
+    document.getElementById('inputDetailsFareTotal').disabled = false;
+    document.getElementById('inputDetailsFareType').disabled = false;
+    document.getElementById('inputDetailsPayType').disabled = false;
+    document.getElementById('inputDetailsTip').disabled = false;
+}
+
+disableKmInputs = () => {
+    document.getElementById('inputDetailsDistance').disabled = true;
+    document.getElementById('inputDetailsOdometer').disabled = true;
+}
+
+enableKmInputs = () => {
+    document.getElementById('inputDetailsDistance').disabled = false;
+    document.getElementById('inputDetailsOdometer').disabled = false;
+}
+hideAllButtons = () => {
+    document.getElementById('btnBeginRun').style.visibility = "hidden";
+    document.getElementById('btnEndRun').style.visibility = "hidden";
+}
+
+hideBtnBeginRun = () => {
+    document.getElementById('btnBeginRun').style.visibility = "hidden";
+}
+
+hideBtnEndRun = () => {
+    document.getElementById('btnEndRun').style.visibility = "hidden";
+}
+
+showBtnBeginRun = () => {
+    document.getElementById('btnBeginRun').style.visibility = "visible";
+}
+
+shwoBtnEndRun = () => {
+    document.getElementById('btnEndRun').style.visibility = "visible";
 }
