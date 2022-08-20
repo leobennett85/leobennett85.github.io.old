@@ -102,18 +102,16 @@
       <!--FORM SECTION------------------------------------------------------------------------------------------------->
       <form id="formWrapperAddRun" name="content">
         <div class="label">Starting Address</div>
-        <input id="inputStartingAdd" type="text" placeholder="" onblur="" />
-        <div class="label">Destination Address</div>
         <input
-          id="inputDetailsDestinationAdd"
+          id="inputDetailsStartingAdd"
           type="text"
           placeholder=""
           onblur=""
         />
-        <div class="label">Distance</div>
+        <div class="label">Destination Address</div>
         <input
-          id="inputDetailsDistance"
-          type="number"
+          id="inputDetailsDestinationAdd"
+          type="text"
           placeholder=""
           onblur=""
         />
@@ -151,6 +149,22 @@
           type="number"
           placeholder=""
           onblur="formatTip(document.getElementById('inputDetailsTip').value)"
+        />
+        <div class="label">Distance Traveled</div>
+        <input
+          id="inputDetailsDistance"
+          type="number"
+          placeholder=""
+          onblur=""
+          disabled="true"
+        />
+        <div class="label">Total Odometer</div>
+        <input
+          id="inputDetailsOdometer"
+          type="number"
+          placeholder=""
+          onblur=""
+          disabled="true"
         />
         <div></div>
         <button id="btnBeginRun" type="button" onClick="beginRun();">

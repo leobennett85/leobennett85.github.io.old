@@ -136,15 +136,16 @@
     display: grid;
     gap: 5px;
     grid-template-areas:
-        'label  inputTime'
-        'label  inputStartingAdd'
-        'label  inputDetailsArrivalTime'
-        'label  inputDetailsDestinationAdd'
-        'label  inputDetailsDistance'
-        'label  inputDetailsFareTotal'
-        'label  inputDetailsDolPerKm'
-        'label  inputDetailsFareType'
-        'label  inputDetailsTip';
+        'label          inputTime'
+        'label          inputStartingAdd'
+        'label          inputDetailsArrivalTime'
+        'label          inputDetailsDestinationAdd'
+        'label          inputDetailsFareTotal'
+        'label          inputDetailsDolPerKm'
+        'label          inputDetailsFareType'
+        'label          inputDetailsTip'
+        'label          inputDetailsDistance'
+        'label          inputDetailsOdometer';
     grid-template-columns:
         1fr 1fr;
     grid-template-rows: auto;
@@ -157,6 +158,26 @@
     display: flex;
     justify-content: right;
 }
+
+#inputTime {}
+
+#inputStartingAdd {}
+
+#inputDetailsArrivalTime {}
+
+#inputDetailsDestinationAdd {}
+
+#inputDetailsFareTotal {}
+
+#inputDetailsDolPerKm {}
+
+#inputDetailsFareType {}
+
+#inputDetailsTip {}
+
+#inputDetailsDistance {}
+
+#inputDetailsOdometer {}
 
 #contentTime {}
 
