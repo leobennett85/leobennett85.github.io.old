@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/menu.css" rel="stylesheet" />
+    <link href="styles/content.css" rel="stylesheet" />
+    <link href="styles/window.css" rel="stylesheet" />
+    <title>TaxiStats - Under Development</title>
+    <script src="js/menu.js"></script>
+    <script src="js/content.js"></script>
+  </head>
+  <body onload="setMenus();">
+    <!--MENU SECTION---------------------------------------------------------------------------------------------->
+    <div id="siteWrap">
+      <div id="menuWrap">
+        <div id="add" class="menuStyle">
+          <div class="halfMenu">
+            <div onclick="addRun(); hideAdd();">Add Run</div>
+          </div>
+          <div class="halfMenu">Add Expense</div>
+          <div class="btnStyle zeroTop" onclick="clickAdd();">
+            <span>&Delta;</span>
+          </div>
+        </div>
+
+        <div id="update" class="menuStyle">
+          <div class="halfMenu">Price of Gas</div>
+          <div class="halfMenu">L/100km</div>
+          <div class="btnStyle" onclick="clickUpdate();">
+            <span>&Theta;</span>
+          </div>
+        </div>
+
+        <div id="edit" class="menuStyle">
+          <div class="oneMenu">Edit</div>
+          <div class="btnStyle" onclick="clickEdit();">
+            <span>&Rho;</span>
+          </div>
+        </div>
+
+        <div id="eod" class="menuStyle">
+          <div class="oneMenu">End Of Day</div>
+          <div class="btnStyle" onclick="clickEod();">
+            <span>&Omega;</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="TotalsWrapper">
+        <div id="totals" class="totalsStyle">
+          <div class="btnTotals" onclick="clickTotals();">
+            <span>&Sigma;</span>
+          </div>
+          <div class="totalsHeader">Shift Report</div>
+          <div id="totalsShiftMeter" class="totalsContent">Meter:</div>
+          <div id="totalsShiftFlat" class="totalsContent">Flat Rates:</div>
+          <div id="totalsShiftTips" class="totalsContent">Tips:</div>
+          <div id="totalsShift" class="totalsFooter">Total Shift:</div>
+          <div class="totalsHeader">Profit Report</div>
+          <div id="totalProfitBroker" class="totalsContent">Broker Profit:</div>
+          <div id="totalsProfitDriver" class="totalsContent">Driver Profit</div>
+          <div id="totalsProfit" class="totalsFooter">Total Taxi Profit:</div>
+          <div class="totalsHeader">Payment Type Report</div>
+          <div id="totalsPayCash" class="totalsContent">Cash:</div>
+          <div id="totalsPayDebit" class="totalsContent">Debit/Credit:</div>
+          <div id="totalsPayOther" class="totalsContent">Other:</div>
+          <div id="totalsPay" class="totalsFooter">Total Gross Paid:</div>
+          <div class="totalsHeader">KM Report</div>
+          <div id="totalsKmTraveled" class="totalsContent">Km Traveled:</div>
+          <div id="totalsKmMetered" class="totalsContent">Metered Km:</div>
+          <div id="totalsKmDolPerKm" class="totalsContent">$/km:</div>
+          <div class="totalsHeader">Expense Report</div>
+          <div id="totalsExpPersonal" class="totalsContent">
+            Personal Expenses:
+          </div>
+          <div id="totalsExpTaxi" class="totalsContent">Taxi Expenses:</div>
+          <div id="totalsExp" class="totalsFooter">Total Expenses:</div>
+          <div id="totalsEstGas" class="totalsHeader">Estimated Gas Total:</div>
+        </div>
+      </div>
+      <!--//MENU SECTION END---------------------------------------------------------------------------------------------->
+
+      <!--CONTENT SECTION------------------------------------------------------------------------------------------------->
+      <div id="fareTable">
+        <div id="gridHeader">
+          <div id="gridHeaderLayout">
+            <div class="space"></div>
+            <div class="headerStyle headerIndex">Run</div>
+            <div class="headerStyle headerExpCon">+/-</div>
+            <div class="headerStyle headerTime">Time</div>
+            <div class="headerStyle headerSartAdd">Starting Address</div>
+            <div class="headerStyle headerRunTotal">Total</div>
+            <div class="space"></div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT SECTION END--------------------------------------------------------------------------------------------->
+
+      <!--FORM SECTION------------------------------------------------------------------------------------------------->
+      <form id="formWrapperAddRun" name="content">
+        <div class="label">Starting Address</div>
+        <input
+          id="inputDetailsStartingAdd"
+          type="text"
+          placeholder=""
+          onblur=""
+        />
+        <div class="label">Destination Address</div>
+        <input
+          id="inputDetailsDestinationAdd"
+          type="text"
+          placeholder=""
+          onblur=""
+        />
+        <div class="label">Total Fare</div>
+        <input
+          id="inputDetailsFareTotal"
+          type="number"
+          placeholder="00.00"
+          onblur="formatFare(document.getElementById('inputDetailsFareTotal').value)"
+        />
+        <div class="label">Type of Fare</div>
+        <select
+          id="inputDetailsFareType"
+          type="text"
+          onblur="checkFareType(document.getElementById('inputDetailsFareType').value)"
+        >
+          <option>Metered or Flat Rate</option>
+          <option>Metered</option>
+          <option>Flat</option>
+        </select>
+        <div class="label">Type of Payment</div>
+        <select
+          id="inputDetailsPayType"
+          type="text"
+          onblur="checkPayType(document.getElementById('inputDetailsPayType').value)"
+        >
+          <option>Cash, Debit/Credit or Charge</option>
+          <option>Cash</option>
+          <option>Debit/Credit</option>
+          <option>Charge</option>
+        </select>
+        <div class="label">Tip</div>
+        <input
+          id="inputDetailsTip"
+          type="number"
+          placeholder=""
+          onblur="formatTip(document.getElementById('inputDetailsTip').value)"
+        />
+        <div class="label">Distance Traveled</div>
+        <input
+          id="inputDetailsDistance"
+          type="number"
+          placeholder=""
+          onblur=""
+          disabled="true"
+        />
+        <div class="label">Total Odometer</div>
+        <input
+          id="inputDetailsOdometer"
+          type="number"
+          placeholder=""
+          onblur=""
+          disabled="true"
+        />
+        <div></div>
+        <button id="btnBeginRun" type="button" onClick="beginRun();">
+          Add Run Info
+        </button>
+        <div></div>
+        <button id="btnEndRun" type="button" onClick="endRun();">
+          Click here when Run Complete
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
