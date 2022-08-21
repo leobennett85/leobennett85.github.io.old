@@ -1,5 +1,16 @@
+input {
+    border: 1px solid #000;
+    background-color: rgb(155, 211, 233);
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: none;
+    background-color: #fff;
+}
+
 .modal {
-    display: block;
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -11,7 +22,7 @@
 }
 
 .modalContent {
-    visibility: visible;
+    visibility: hidden;
     position: fixed;
     z-index: 1;
     display: grid;
@@ -22,21 +33,50 @@
         'modalText      input'
         'btnEnter       empty';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 30px 1fr;
     background-color: #fff;
-    font-size: 1.2rem;
+    font-size: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
 .modalHeader {
+    padding-bottom: 3px;
+    color: rgb(175, 203, 228);
+    background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    font-weight: bold;
     grid-column: 1 / span 2;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+.modalText {
+    font-size: 1rem;
+    background-color: rgb(232, 232, 232);
+    text-shadow: 1px 1px 1px rgb(175, 203, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modalInput {}
+
+.modalInput:focus {}
+
 .btnModalEnter {
+    cursor: pointer;
+    padding-bottom: 3px;
+    color: rgb(175, 203, 228);
+    background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    font-weight: bold;
     grid-column: 1 / span 2;
     display: flex;
-    justify-content:
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
