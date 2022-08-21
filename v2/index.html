@@ -7,6 +7,7 @@
     <title>TaxiStats V2</title>
     <link href="styles/layout.css" rel="stylesheet" />
     <link href="styles/modal.css" rel="stylesheet" />
+    <script src="js/modal.js"></script>
   </head>
   <body>
     <div id="siteWrap">
@@ -26,7 +27,34 @@
 
       <!--Input Modals Section-->
       <!--Input Begin Shift-->
-      <div id="beginModal" class="modal">inputModal</div>
+      <div id="beginModal" class="modal">
+        <div id="modalDriver" class="modalContent">
+          <span class="modalHeader">Begin Shift</span>
+          <span class="modalText">Enter Driver Name:</span>
+          <input id="inDriverName" class="modalInput" />
+          <span class="btnModalEnter">Enter</span>
+        </div>
+        <div id="modalCarNum" class="modalContent">
+          <span class="modalHeader">Begin Shift</span>
+          <span class="modalText"> Enter Car Number:</span>
+          <input id="inCarNumber" class="modalInput" />
+          <span class="btnModalEnter">Enter</span>
+        </div>
+        <div id="modalBrokerName" class="modalContent">
+          <span class="modalHeader">Begin Shift</span>
+          <span class="modalText">Enter Broker Name:</span>
+          <input id="inBrokerName" class="modalInput" />
+          <span class="btnModalEnter">Enter</span>
+        </div>
+
+        <!--Notes
+                Record Now:
+                date
+                beginning time of shift
+                
+            -->
+      </div>
+
       <!--End of Begin Shift-->
 
       <!--Input fareModal-->
