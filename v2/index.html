@@ -9,7 +9,7 @@
     <link href="styles/modal.css" rel="stylesheet" />
     <script src="js/modal.js"></script>
   </head>
-  <body>
+  <body onload="welcomeModal();">
     <div id="siteWrap">
       <!--Header Section-->
       <div id="headerWrap">headerWrap</div>
@@ -20,10 +20,20 @@
       <!--End of menuWrap-->
       <div id="reportWrap">reportWrap</div>
       <!--End of reportWrap-->
-      <!--End of menuWrap-->
 
       <!--View Section-->
       <div id="viewWrap"><center>viewWrap</center></div>
+      <!--End of viewWrap-->
+
+      <!--Welcome Modal-->
+      <div id="welcomeModal" class="modal">
+        <div id="modalIntro">
+          <span id="taxiStatsBanner">TaxiStats</span>
+          <span id="taxiStatsDescription">
+            Live statistics and reports for taxi shifts
+          </span>
+        </div>
+      </div>
 
       <!--Input Modals Section-->
       <!--Input Begin Shift-->

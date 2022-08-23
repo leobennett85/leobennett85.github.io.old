@@ -9,6 +9,77 @@ input:focus {
     background-color: #fff;
 }
 
+#welcomeModal {
+    display: none;
+}
+
+#taxiStatsBanner {
+    color: #fff;
+    font-size: 3rem;
+    position: relative;
+    animation: banner 5s linear 2s infinite alternate;
+}
+
+#taxiStatsDescription {
+    color: #fff;
+    font-size: 2rem;
+    position: relative;
+    top: 4rem;
+    animation: desc 5s;
+    animation-timing-function: ease;
+
+}
+
+@keyframes banner {
+    from {
+        left 0;
+    }
+
+    to {
+        left: 200px;
+    }
+}
+
+#modalIntro {
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(0, 83, 115));
+    position: fixed;
+    z-index: 1;
+    inset: 10%;
+    font-size: 1.3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 0 100px rgb(148, 192, 230);
+}
+
+/*
+#modalIntroHeader {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid black;
+    font-size: 2rem;
+    background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
+    box-shadow: 0 0 3px black;
+
+}
+
+#modalIntroText {}
+
+#btnModalIntroStart {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid black;
+    font-size: 2rem;
+    background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
+    box-shadow: 0 0 3px black;
+}
+*/
+
+#beginModal {
+    display: none;
+}
+
+#modalDriver {}
+
 .modal {
     display: none;
     position: absolute;
@@ -18,11 +89,10 @@ input:focus {
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .modalContent {
-    visibility: hidden;
     position: fixed;
     z-index: 1;
     display: grid;

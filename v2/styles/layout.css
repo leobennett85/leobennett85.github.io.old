@@ -5,10 +5,12 @@ html body {
     padding: 0;
 }
 
+/*
 div {
     outline: 1px solid;
     outline-offset: -1px;
 }
+*/
 
 #siteWrap {
     position: fixed;
