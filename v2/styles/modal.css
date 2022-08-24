@@ -37,6 +37,31 @@ input:focus {
 
 .modal {
     position: absolute;
+    animation: fadeInAnimation ease 6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#idBeginShiftInfo {}
+
+#idBeginShiftTitle {}
+
+#idBeginShiftDesc {}
+
+#idBeginShiftInput {}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
