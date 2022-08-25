@@ -1,3 +1,10 @@
+let globalDriver = "";
+let globalBroker = "";
+let globalOdometer = 0;
+let globalGas = 0;
+let globalLitresPer = 0;
+let globalDispatcher = 0;
+
 elementFromHtml = (html) => {
   const template = document.createElement("template");
 
@@ -14,47 +21,111 @@ getFormattedDate = () => {
 };
 
 beginModal = () => {
-  /* Beggining Modal to capture:
-    Date and time of Shift
-    Name of Driver
-    Name of Broker
-    Odometer
-    Price of Gas
-    L/100 for Vehicle
-    Dispatcher
-    */
-  // Create Modal and set IDs
   const beginDate = getFormattedDate();
+  createDriverModal();
+};
+
+createDriverModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalDescription = "Enter Driver's Name:"; //Text
+  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
+  const modalDescription = "Enter Driver's Name:"; //Text
   const modalInput = "idBeginShiftInput";
+  const info = "Driver";
 
-  for (let i = 0; i < 7; i++) {
-    /* Pseudo Code
-      1. Create new Modal
-      2. Pull data from the current Input box
-      3. Move on to next Modal
-    */
-    let modalNameIndex = modalName + i;
-    let modalInfoIndex = modalInfo + i;
-    let modalTitleIndex = modalTitleId + i;
-    let modalDescIndex = modalDescId + i;
-    let modalInputIndex = modalInput + i;
-    addNewModal(
-      modalNameIndex,
-      modalInfoIndex,
-      modalTitleIndex,
-      modalTitle,
-      modalDescription,
-      modalDescIndex,
-      modalInputIndex
-    );
-    const showModal = document.getElementById(modalNameIndex);
-    showModal.style.display = "block";
+  let modalNameIndex = modalName + info;
+  let modalInfoIndex = modalInfo + info;
+  let modalTitleIndex = modalTitleId + info;
+  let modalDescIndex = modalDescId + info;
+  let modalInputIndex = modalInput + info;
+
+  // Create Driver Modal
+  addNewModal(
+    modalNameIndex,
+    modalInfoIndex,
+    modalTitleIndex,
+    modalTitle,
+    modalDescription,
+    modalDescIndex,
+    modalInputIndex
+  );
+
+  const showModal = document.getElementById(modalNameIndex);
+  showModal.style.display = "block";
+};
+
+createBrokerModal = () => {
+  const modalName = "idBeginShiftModal";
+  const modalInfo = "idBeginShiftInfo";
+  const modalTitleId = "idBeginShiftModalTitle"; //ID
+  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalDescId = "idBeginShiftModalDesc"; //ID
+  const modalDescription = "Enter Broker's Name:"; //Text
+  const modalInput = "idBeginShiftInput";
+  const info = "Broker";
+
+  let modalNameIndex = modalName + info;
+  let modalInfoIndex = modalInfo + info;
+  let modalTitleIndex = modalTitleId + info;
+  let modalDescIndex = modalDescId + info;
+  let modalInputIndex = modalInput + info;
+
+  // Create Driver Modal
+  addNewModal(
+    modalNameIndex,
+    modalInfoIndex,
+    modalTitleIndex,
+    modalTitle,
+    modalDescription,
+    modalDescIndex,
+    modalInputIndex
+  );
+
+  const showModal = document.getElementById(modalNameIndex);
+  showModal.style.display = "block";
+};
+removeModal = (modal) => {
+  const element = document.getElementById(modal);
+  element.remove;
+};
+createOdometerModal = () => {};
+
+createGasModal = () => {};
+
+createLitresPerModal = () => {};
+
+createDispatcherModal = () => {};
+
+storeBeginInput = (currentInput, currentModal) => {
+  currentInput = currentInput.id;
+  currentModal = currentModal.id;
+  const modalValue = document.getElementById(currentInput).value;
+  console.log(modalValue);
+  switch (currentInput) {
+    case "idBeginShiftInputDriver":
+      globalDriver = modalValue;
+      removeModal(currentModal);
+      createBrokerModal();
+      break;
+    case "idBeginShiftInputBroker":
+      globalBroker = modalValue;
+      removeModal(currentModal);
+      createOdometerModal();
+      break;
+    case "idBeginShiftInputOdometer":
+      console.log("Current Driver: " + modalValue);
+      break;
+    case "idBeginShiftInputGas":
+      console.log("Current Driver: " + modalValue);
+      break;
+    case "idBeginShiftInputLitresPer":
+      console.log("Current Driver: " + modalValue);
+      break;
+    case "idBeginShiftInputDispatcher:":
+      console.log("Current Driver: " + modalValue);
+      break;
   }
 };
 
@@ -62,18 +133,19 @@ let newModal = {
   modalHtml: (
     modalName,
     modalInfo,
-    modalTitleIndex,
     modalTitle,
-    modalDescIndex,
+    modalTitleIndex,
     modalDescription,
+    modalDescIndex,
     modalInput
   ) =>
     `<div id="${modalName}" class="modal">
       <div id="${modalInfo}" class="modalContent">
-      <span id="${modalTitleIndex}" class="modalHeader">${modalTitle}</span>
-      <span id="${modalDescIndex}" class="modalText">${modalDescription}</span>
-      <input id="${modalInput}" class="modalInput" />
-      <span class="btnModalEnter">Enter</span>
+        <span id="${modalTitleIndex}" class="modalHeader">${modalTitle}</span>
+        <span id="${modalDescIndex}" class="modalText">${modalDescription}</span>
+        <input id="${modalInput}" class="modalInput" />
+        <span class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</span>
+      </div>
     </div>`,
 };
 
@@ -98,5 +170,6 @@ addNewModal = (
       modalInput
     )
   );
+  console.log("current modal: " + modalInput);
   nodeBody.appendChild(modal);
 };

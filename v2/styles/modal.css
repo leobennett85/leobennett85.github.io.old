@@ -9,10 +9,10 @@ input:focus {
     background-color: #fff;
 }
 
-#idBeginShiftModal {
+#idBeginShiftModalDriver {
     display: none;
     position: absolute;
-    animation: fadeInAnimation ease 6s;
+    animation: fadeInAnimation ease 4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -35,11 +35,14 @@ input:focus {
     }
 }
 
-.modal {
-    position: absolute;
-    animation: fadeInAnimation ease 6s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+@keyframes swipeLeftAnimation {
+    from {
+        left: -300px;
+    }
+
+    to {
+        left: 0px;
+    }
 }
 
 #idBeginShiftInfo {}
@@ -49,16 +52,6 @@ input:focus {
 #idBeginShiftDesc {}
 
 #idBeginShiftInput {}
-
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
 
 .modal {
     position: absolute;
@@ -69,6 +62,7 @@ input:focus {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.1);
+
 }
 
 .modalContent {
@@ -86,7 +80,6 @@ input:focus {
     background-color: #fff;
     font-size: 1.3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 .modalHeader {
@@ -118,6 +111,7 @@ input:focus {
 .modalInput:focus {}
 
 .btnModalEnter {
+    position: relative;
     cursor: pointer;
     padding-bottom: 3px;
     padding-right: 10px;
