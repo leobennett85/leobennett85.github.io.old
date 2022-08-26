@@ -9,8 +9,51 @@ input:focus {
     background-color: #fff;
 }
 
-.modal {
+#idBeginShiftModalDriver {
     display: none;
+    position: absolute;
+    animation: fadeInAnimation ease 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#idBeginShiftInfo {}
+
+#idBeginShiftTitle {}
+
+#idBeginShiftDesc {}
+
+#idBeginShiftInput {}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes swipeLeftAnimation {
+    from {
+        left: -300px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+#idBeginShiftInfo {}
+
+#idBeginShiftTitle {}
+
+#idBeginShiftDesc {}
+
+#idBeginShiftInput {}
+
+.modal {
     position: absolute;
     left: 0;
     top: 0;
@@ -18,11 +61,11 @@ input:focus {
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+
 }
 
 .modalContent {
-    visibility: hidden;
     position: fixed;
     z-index: 1;
     display: grid;
@@ -35,31 +78,31 @@ input:focus {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 30px 1fr;
     background-color: #fff;
-    font-size: 3rem;
+    font-size: 1.3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 .modalHeader {
     padding-bottom: 3px;
-    color: rgb(175, 203, 228);
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
     background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-    font-weight: bold;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
     grid-column: 1 / span 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     flex-direction: column;
 }
 
 .modalText {
+    padding-left: 10px;
     font-size: 1rem;
     background-color: rgb(232, 232, 232);
     text-shadow: 1px 1px 1px rgb(175, 203, 228);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
 }
 
@@ -68,15 +111,16 @@ input:focus {
 .modalInput:focus {}
 
 .btnModalEnter {
+    position: relative;
     cursor: pointer;
     padding-bottom: 3px;
+    padding-right: 10px;
     color: rgb(175, 203, 228);
     background-image: linear-gradient(to bottom right, rgb(23, 33, 129), rgb(76, 158, 190));
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
     font-weight: bold;
     grid-column: 1 / span 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    justify-content: right;
+    align-items: right;
 }

@@ -80,7 +80,6 @@ a:hover {
 
 .halfMenu {
     color: rgb(150, 150, 150);
-    text-shadow: 1px 1px rgb(185, 185, 185), -1px -1px rgb(230, 230, 230);
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.2rem;
     font-weight: normal;
