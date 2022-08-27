@@ -141,10 +141,10 @@ let newModal = {
   ) =>
     `<div id="${modalName}" class="modal">
       <div id="${modalInfo}" class="modalContent">
-        <span id="${modalTitleIndex}" class="modalHeader">${modalTitle}</span>
-        <span id="${modalDescIndex}" class="modalText">${modalDescription}</span>
+        <div id="${modalTitleIndex}" class="modalHeader">${modalTitle}</div>
+        <div id="${modalDescIndex}" class="modalText">${modalDescription}</div>
         <input id="${modalInput}" class="modalInput" />
-        <span class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</span>
+        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</div>
       </div>
     </div>`,
 };
