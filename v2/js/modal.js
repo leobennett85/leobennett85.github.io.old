@@ -177,7 +177,7 @@ createDispatcherModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Dispatcher's Name:"; //Text
+  const modalDescription = "Dispatcher's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Dispatcher";
 

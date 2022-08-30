@@ -1,9 +1,13 @@
+//Modal Globals
 let globalDriver = "";
 let globalBroker = "";
 let globalOdometer = 0;
 let globalGas = 0;
 let globalLitresPer = 0;
 let globalDispatcher = "";
+
+//Calculated Globals
+let globalDate = new Date();
 
 checkModalGlobals = () => {
   console.log(
@@ -27,9 +31,14 @@ checkModalGlobals = () => {
   );
 };
 
+checkCalcGlobals = () => {
+  console.log("Date: " + globalDate + "\n");
+};
+
 getFormattedDate = () => {
   const d = new Date();
   let time = d.getTime();
   let formattedTime = d.toLocaleString(time);
-  return formattedTime;
+  globalDate = formattedTime;
+  checkCalcGlobals();
 };
