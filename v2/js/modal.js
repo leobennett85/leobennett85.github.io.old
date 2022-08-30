@@ -58,7 +58,7 @@ createDriverModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Driver's Name:"; //Text
+  const modalDescription = "Driver's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Driver";
 
@@ -89,7 +89,7 @@ createBrokerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Broker's Name:"; //Text
+  const modalDescription = "Broker's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Broker";
 
@@ -120,7 +120,7 @@ createOdometerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Current Odometer Reading:"; //Text
+  const modalDescription = "Current Odometer Reading:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Odometer";
 
@@ -151,7 +151,7 @@ createGasModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Price of Gas (can be updated):"; //Text
+  const modalDescription = "Price of Gas (can be updated):"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Gas";
 
@@ -182,8 +182,7 @@ createLitresPerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription =
-    "Enter Litres/100km driven (to estimate the total cost of gas): "; //Text
+  const modalDescription = "Litres/100km (estimate refill cost): "; //Text
   const modalInput = "idBeginShiftInput";
   const info = "LitresPer";
 
@@ -272,6 +271,7 @@ storeBeginInput = (currentInput, currentModal) => {
       break;
     case "idBeginShiftInputDispatcher":
       globalDispatcher = modalValue;
+      removeModal(currentModal);
       break;
   }
   checkModalGlobals();
