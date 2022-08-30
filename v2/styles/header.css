@@ -1,0 +1,36 @@
+#idDriverHeader {}
+
+#idBrokerHeader {}
+
+#idOdometerHeader {}
+
+#idGasHeader {}
+
+#idLitresPerHeader {}
+
+#idDispatcherHeader {}
+
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.headerContent {
+    position: absolute;
+    display: grid;
+    width: 100%;
+    top: 25%;
+    grid-template-areas:
+        'modalHeader'
+        'modalText'
+        'input'
+        'btnEnter';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 40px 1fr;
+    font-size: 1.3rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+}

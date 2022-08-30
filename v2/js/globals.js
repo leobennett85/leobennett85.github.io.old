@@ -8,7 +8,9 @@ let globalDispatcher = "";
 
 //Calculated Globals
 let globalDate = new Date();
+let estGasCost = 0;
 
+//Console Logs for Globals
 checkModalGlobals = () => {
   console.log(
     "Driver: " +
@@ -35,6 +37,16 @@ checkCalcGlobals = () => {
   console.log("Date: " + globalDate + "\n");
 };
 
+//Methods and Functions for Globals
+
+elementFromHtml = (html) => {
+  const template = document.createElement("template");
+
+  template.innerHTML = html.trim();
+
+  return template.content.firstElementChild;
+};
+
 getFormattedDate = () => {
   const d = new Date();
   let time = d.getTime();
@@ -42,3 +54,5 @@ getFormattedDate = () => {
   globalDate = formattedTime;
   checkCalcGlobals();
 };
+
+getEstGasCost = () => {};

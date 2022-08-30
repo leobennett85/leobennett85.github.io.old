@@ -1,18 +1,9 @@
-elementFromHtml = (html) => {
-  const template = document.createElement("template");
-
-  template.innerHTML = html.trim();
-
-  return template.content.firstElementChild;
-};
-
 removeModal = (modal) => {
   let element = document.getElementById(modal);
   element.remove();
 };
 
 beginModal = () => {
-  const beginDate = getFormattedDate();
   createDriverModal();
 };
 
@@ -209,7 +200,6 @@ storeBeginInput = (currentInput, currentModal) => {
   switch (currentInput) {
     case "idBeginShiftInputDriver":
       globalDriver = modalValue;
-      this.focus = true;
       removeModal(currentModal);
       createBrokerModal();
       break;
@@ -236,6 +226,14 @@ storeBeginInput = (currentInput, currentModal) => {
     case "idBeginShiftInputDispatcher":
       globalDispatcher = modalValue;
       removeModal(currentModal);
+      updateHeader(
+        globalDriver,
+        globalBroker,
+        globalOdometer,
+        globalGas,
+        globalLitresPer,
+        globalDispatcher
+      );
       break;
   }
   checkModalGlobals();
