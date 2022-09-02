@@ -75,9 +75,6 @@ input:focus {
     justify-content: left;
     align-items: left;
     flex-direction: column;
-    animation: swipeLeftAnimation ease 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 .modalText {
@@ -131,10 +128,20 @@ input:focus {
     animation-fill-mode: forwards;
 }
 
+@keyframes swipeLeftTitleAnimation {
+    from {
+        left: -3000px;
+    }
+
+    to {
+        left: 0
+    }
+}
+
 
 @keyframes swipeLeftAnimation {
     from {
-        left: -1500px;
+        left: -3000px;
     }
 
     to {
@@ -144,7 +151,7 @@ input:focus {
 
 @keyframes swipeRightAnimation {
     from {
-        right: -1500px;
+        right: -3000px;
     }
 
     to {
