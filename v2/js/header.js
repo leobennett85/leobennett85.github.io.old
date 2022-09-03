@@ -1,38 +1,16 @@
-let newHeader = {
-  headerHtml: (
-    headerDriver,
-    headerBroker,
-    headerOdometer,
-    headerGas,
-    headerLitresPer,
-    headerDispatcher
-  ) =>
-    `<div id="${headerDriver}" class="header"></div>
-    <div id="${headerBroker}" class="header"></div>
-    <div id="${headerOdometer}" class="header"></div>
-    <div id="${headerGas}" class="header"></div>
-    <div id="${headerLitresPer} class="header"></div>
-    <div id="${headerDispatcher} class="header"></div>`,
+//Set Date on Page onload();
+postDate = () => {
+  const headerDate = getFormattedDate();
+  const dateElement = document.getElementById("idHeaderDate");
+  dateElement.innerHTML = "Date: " + headerDate;
 };
 
-updateHeader = (
-  headerDriver,
-  headerBroker,
-  headerOdometer,
-  headerGas,
-  headerLitresPer,
-  headerDispatcher
-) => {
-  const nodeHeader = document.getElementById("headerWrap");
-  const header = elementFromHtml(
-    newHeader.headerHtml(
-      headerDriver,
-      headerBroker,
-      headerOdometer,
-      headerGas,
-      headerLitresPer,
-      headerDispatcher
-    )
-  );
-  nodeHeader.appendChild(header);
+updateHeader = (headerDriver, headerBroker, headerDispatcher) => {
+  const nodeDriver = document.getElementById("idHeaderDriver");
+  const nodeBroker = document.getElementById("idHeaderBroker");
+  const nodeDispatcher = document.getElementById("idHeaderDispatcher");
+
+  nodeDriver.innerHTML = "Taxi Driver: " + headerDriver;
+  nodeBroker.innerHTML = "Taxi Broker: " + headerBroker;
+  nodeDispatcher.innerHTML = "Dispatcher: " + headerDispatcher;
 };

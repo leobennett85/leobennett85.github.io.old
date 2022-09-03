@@ -8,20 +8,20 @@
     <link href="styles/layout.css" rel="stylesheet" />
     <link href="styles/modal.css" rel="stylesheet" />
     <link href="styles/header.css" rel="stylesheet" />
+    <link href="styles/footer.css" rel="stylesheet" />
     <script src="js/globals.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
   </head>
   <body id="nodeBody" onload="beginModal(); postDate();">
     <div id="siteWrap">
       <!--Header Section-->
       <div id="headerWrap" class="headerContent">
+        <div id="idHeaderTitle">TaxiStats</div>
         <div id="idHeaderDate" class="headerText">Date</div>
-        <div id="idHeaderOdometer" class="headerText">Starting Odometer:</div>
         <div id="idHeaderDriver" class="headerText">Driver:</div>
         <div id="idHeaderBroker" class="headerText">Broker:</div>
-        <div id="idHeaderGas" class="headerText">Price of Gas:</div>
-        <div id="idHeaderLitresPer" class="headerText">Litres/100km:</div>
         <div id="idHeaderDispatcher" class="headerText headerDispatch">
           Dispatcher:
         </div>
@@ -50,7 +50,11 @@
       <!--End of Begin Shift-->
 
       <!--Footer Section-->
-      <div id="footerWrap">footer wrap</div>
+      <div id="footerWrap" class="footerContent">
+        <div id="idFooterGas" class="footerText">Price of Gas:</div>
+        <div id="idFooterLitresPer" class="footerText">Litres/100km:</div>
+        <div id="idFooterOdometer" class="footerText">Starting Odometer:</div>
+      </div>
       <!--End of footerWrap-->
     </div>
     <!--end of siteWrap-->

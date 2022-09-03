@@ -226,14 +226,8 @@ storeBeginInput = (currentInput, currentModal) => {
     case "idBeginShiftInputDispatcher":
       globalDispatcher = modalValue;
       removeModal(currentModal);
-      updateHeader(
-        globalDriver,
-        globalBroker,
-        globalOdometer,
-        globalGas,
-        globalLitresPer,
-        globalDispatcher
-      );
+      updateHeader(globalDriver, globalBroker, globalDispatcher);
+      updateFooter(globalOdometer, globalGas, globalLitresPer);
       break;
   }
   checkModalGlobals();

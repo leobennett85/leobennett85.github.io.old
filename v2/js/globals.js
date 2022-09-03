@@ -13,13 +13,6 @@ let globalDispatcher = "";
 let globalDate = new Date();
 let estGasCost = 0;
 
-//Set Date on Page onload();
-postDate = () => {
-  const headerDate = getFormattedDate();
-  const dateElement = document.getElementById("idHeaderDate");
-  dateElement.innerHTML = "Shift Start:<br />" + headerDate;
-};
-
 //Console Logs for Globals
 checkModalGlobals = () => {
   console.log(
