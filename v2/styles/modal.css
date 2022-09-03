@@ -122,21 +122,12 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation-delay: s;
+    animation-delay: 1s;
     animation: swipeLeftAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-@keyframes swipeLeftTitleAnimation {
-    from {
-        left: -3000px;
-    }
-
-    to {
-        left: 0
-    }
-}
 
 
 @keyframes swipeLeftAnimation {

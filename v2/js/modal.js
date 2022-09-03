@@ -268,7 +268,6 @@ addNewModal = (
   modalDescription,
   modalInput
 ) => {
-  const nodeBody = document.getElementById("nodeBody");
   const modal = elementFromHtml(
     newModal.modalHtml(
       modalName,
@@ -280,5 +279,6 @@ addNewModal = (
       modalInput
     )
   );
+  const nodeBody = document.getElementById("nodeBody");
   nodeBody.appendChild(modal);
 };

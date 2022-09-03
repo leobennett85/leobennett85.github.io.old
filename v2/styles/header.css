@@ -1,36 +1,46 @@
-#idDriverHeader {}
+#idHeaderDate {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
 
-#idBrokerHeader {}
+#idHeaderOdometer {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
 
-#idOdometerHeader {}
+#idHeaderDriver {}
 
-#idGasHeader {}
+#idHeaderBroker {}
 
-#idLitresPerHeader {}
+#idHeaderGas {}
 
-#idDispatcherHeader {}
+#idHeaderLitresPer {}
 
-.header {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+#idHeaderDispatcher {}
+
+.headerDispatch {
+    grid-column: span 2;
+    border-bottom: 2px solid;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
 }
 
 .headerContent {
     position: absolute;
     display: grid;
     width: 100%;
-    top: 25%;
+    top: 0;
     grid-template-areas:
-        'modalHeader'
-        'modalText'
-        'input'
-        'btnEnter';
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 40px 1fr;
-    font-size: 1.3rem;
+        'headerDate         headerOdometer'
+        'headerDriver       headerBroker'
+        'headerGas          headerLitresPer'
+        'headerDispatch';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    font-size: 1rem;
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: bold;
 }

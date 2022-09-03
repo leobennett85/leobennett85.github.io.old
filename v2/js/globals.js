@@ -1,3 +1,6 @@
+//Node Constants
+const nodeHeader = document.getElementById("headerWrap");
+
 //Modal Globals
 let globalDriver = "";
 let globalBroker = "";
@@ -9,6 +12,13 @@ let globalDispatcher = "";
 //Calculated Globals
 let globalDate = new Date();
 let estGasCost = 0;
+
+//Set Date on Page onload();
+postDate = () => {
+  const headerDate = getFormattedDate();
+  const dateElement = document.getElementById("idHeaderDate");
+  dateElement.innerHTML = "Shift Start:<br />" + headerDate;
+};
 
 //Console Logs for Globals
 checkModalGlobals = () => {
@@ -53,6 +63,7 @@ getFormattedDate = () => {
   let formattedTime = d.toLocaleString(time);
   globalDate = formattedTime;
   checkCalcGlobals();
+  return formattedTime;
 };
 
 getEstGasCost = () => {};
