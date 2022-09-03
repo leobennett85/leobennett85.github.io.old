@@ -12,10 +12,20 @@
     <script src="js/modal.js"></script>
     <script src="js/header.js"></script>
   </head>
-  <body id="nodeBody" onload="getFormattedDate(); beginModal();">
+  <body id="nodeBody" onload="beginModal(); postDate();">
     <div id="siteWrap">
       <!--Header Section-->
-      <div id="headerWrap">headerWrap</div>
+      <div id="headerWrap" class="headerContent">
+        <div id="idHeaderDate" class="headerText">Date</div>
+        <div id="idHeaderOdometer" class="headerText">Starting Odometer:</div>
+        <div id="idHeaderDriver" class="headerText">Driver:</div>
+        <div id="idHeaderBroker" class="headerText">Broker:</div>
+        <div id="idHeaderGas" class="headerText">Price of Gas:</div>
+        <div id="idHeaderLitresPer" class="headerText">Litres/100km:</div>
+        <div id="idHeaderDispatcher" class="headerText headerDispatch">
+          Dispatcher:
+        </div>
+      </div>
       <!--End of headerWrap-->
 
       <!--Menu Section-->
