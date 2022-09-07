@@ -29,11 +29,19 @@ div {
 
 #menuWrap {
     position: absolute;
-    top: 7rem;
-    bottom: 3rem;
+    top: 7.1rem;
+    left: 0;
+    bottom: 3.05rem;
     width: 2.5rem;
-    /*TEMP*/
-    outline-color: pink;
+    display: grid;
+    grid-template-areas:
+        'menuAddIcon'
+        'menuUpdateIcon'
+        'menuEditIcon'
+        'menuEODIcon';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    font-size: 2rem;
 }
 
 #reportWrap {
