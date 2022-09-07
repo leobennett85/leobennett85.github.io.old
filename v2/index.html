@@ -15,11 +15,12 @@
       rel="stylesheet"
     />
     <script src="js/globals.js"></script>
+    <script src="js/menu.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
   </head>
-  <body id="nodeBody" onload="beginModal(); postDate();">
+  <body id="nodeBody" onload="beginModal(); postDate(); setMenus();">
     <div id="siteWrap">
       <!--Header Section-->
       <div id="headerWrap" class="headerContent">
@@ -34,27 +35,48 @@
       <!--Menu Section-->
       <div id="menuWrap" class="menuDisplay">
         <div id="idMenuAdd" class="menuItem">
-          <span class="material-icons md-dark" style="font-size: 35px"
-            >add_circle_outline</span
+          <div id="addWrap">
+            <div id="idMenuAddRun" class="doubleMenu">New Run</div>
+            <div id="idMenuAddExpense" class="doubleMenu">New Expense</div>
+          </div>
+          <span
+            class="material-icons md-dark"
+            style="font-size: 35px"
+            onclick="showWrap(getAddWrap())"
           >
+            add_circle_outline
+          </span>
         </div>
         <div id="idMenuUpdate" class="menuItem">
-          <span class="material-icons md-dark" style="font-size: 35px"
-            >update</span
-          >
+          <div id="updateWrap">
+            <div id="idMenuUpdateGas" class="doubleMenu">Price of Gas</div>
+            <div id="idMenuUpdateLitresPer" class="doubleMenu">L/100km</div>
+          </div>
+          <span class="material-icons md-dark" style="font-size: 35px">
+            update
+          </span>
         </div>
         <div id="idMenuEdit" class="menuItem">
-          <span class="material-icons md-dark" style="font-size: 35px"
-            >edit</span
-          >
+          <div id="editWrap">
+            <div class="singleMenu">Edit</div>
+          </div>
+          <span class="material-icons md-dark" style="font-size: 35px">
+            edit
+          </span>
         </div>
         <div id="idMenuEod" class="menuItem">
-          <span class="material-icons md-dark" style="font-size: 35px"
-            >power_settings_new</span
-          >
+          <div id="eodWrap">
+            <div class="singleMenu">End Of Day</div>
+          </div>
+          <span class="material-icons md-dark" style="font-size: 35px">
+            power_settings_new
+          </span>
         </div>
       </div>
+
       <!--End of menuWrap-->
+
+      <!--Report Section-->
       <div id="reportWrap">reportWrap</div>
       <!--End of reportWrap-->
 
