@@ -233,6 +233,15 @@ storeBeginInput = (currentInput, currentModal) => {
   checkModalGlobals();
 };
 
+isEnter = (input, name) => {
+  console.log("Input ele from Enter: " + input);
+  console.log("Name ele from Enter: " + name);
+
+  if (event.keyCode == 13) {
+    storeBeginInput(input, name);
+  }
+};
+
 let newModal = {
   modalHtml: (
     modalName,
@@ -247,7 +256,7 @@ let newModal = {
       <div id="${modalInfo}" class="modalContent">
         <div id="${modalTitleIndex}" class="modalHeader">${modalTitle}</div>
         <div id="${modalDescIndex}" class="modalText">${modalDescription}</div>
-        <input id="${modalInput}" class="modalInput" />
+        <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})">
         <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</div>
       </div>
     </div>`,
@@ -275,4 +284,6 @@ addNewModal = (
   );
   const nodeBody = document.getElementById("nodeBody");
   nodeBody.appendChild(modal);
+  console.log("Modal Input Element: " + modalInput);
+  document.getElementById(modalInput).focus();
 };
