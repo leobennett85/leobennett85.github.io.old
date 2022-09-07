@@ -8,8 +8,9 @@
 
 #addWrap {
     position: absolute;
-    width:
-        left: 1000px;
+    border: 1px solid blue;
+    width: 300px;
+    left: 500px;
     animation: swipeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
