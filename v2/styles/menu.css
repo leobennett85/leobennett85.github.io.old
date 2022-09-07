@@ -6,13 +6,25 @@
 
 #idMenuEod {}
 
-.menuDisplay {
+.menuDisplay {}
+
+.menuItem {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     align-content: center;
     justify-items: center;
-
-    border: 1px solid black;
+    height: 100%;
+    width: 100%;
 }
 
-.icons {}
+.material-icons.md-dark {
+    color: rgba (0, 0, 0, 0.1);
+}
+
+.material-icons.md-dark:hover {
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 10px rgb(255, 183, 0), -3px -3px 10px rgb(255, 183, 0), 3px -3px 10px rgb(255, 183, 0), -3px 3px 10px rgb(255, 183, 0);
+
+}
