@@ -1,0 +1,18 @@
+#idMenuAdd {}
+
+#idMenuUpdate {}
+
+#idMenuEdit {}
+
+#idMenuEod {}
+
+.menuDisplay {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+
+    border: 1px solid black;
+}
+
+.icons {}
