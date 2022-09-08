@@ -255,9 +255,9 @@ let newModal = {
         <div class="modalBanner2"></div>
         <div class="modalBanner3"></div>
         <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
-        <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
         <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
-        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</div>
+        <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
+        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})"><span class="material-icons" style="font-size: 100px">arrow_circle_right</span></div>
       </div>
     </div>`,
 };

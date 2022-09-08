@@ -5,11 +5,7 @@ input {
     text-align: center;
     font-size: 50px;
     color: white;
-    background-color: rgb(130, 104, 104);
-}
-
-input:focus {
-    border: none;
+    background-color: rgba(130, 104, 104, 0.5);
 }
 
 #idBeginShiftModalDriver {
@@ -64,6 +60,13 @@ input:focus {
     font-weight: bold;
 }
 
+.checkers {
+    background-color: rgb(250, 255, 103);
+    background-image: linear-gradient(45deg, #000000 25%, transparent 25%), linear-gradient(-45deg, #000000 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #000000 75%), linear-gradient(-45deg, transparent 75%, #000000 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
 .modalHeader1 {
     position: fixed;
     top: 2px;
@@ -84,12 +87,12 @@ input:focus {
 
 .modalHeader2 {
     position: fixed;
-    top: 80px;
+    top: 200px;
     right: 0;
     font-size: 20px;
     text-transform: uppercase;
     text-rendering: geometricPrecision;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
     text-shadow: -1px -1px 1px rgb(255 255 255), 1px 1px 1px rgb(255 255 255), -1px 1px 1px rgb(255 255 255), 1px -1px 1px rgb(255 255 255), 0px 0px 10px rgb(0, 0, 0);
     background-color: none;
     z-index: 2;
@@ -149,6 +152,7 @@ input:focus {
 
 .modalInput {
     position: relative;
+    top: -30px;
     z-index: 3;
     animation-delay: 3s;
     animation: swipeRightAnimation ease 1s;
@@ -162,19 +166,11 @@ input:focus {
     position: relative;
     cursor: pointer;
     z-index: 3;
-    height: 25px;
-    top: 3px;
     font-weight: bolder;
-    font-size: 1.5;
+    text-rendering: geometricPrecision;
     color: rgb(0, 0, 0);
-    text-shadow: -2px -2px 5px rgb(255, 255, 255), 2px 2px 5px rgb(255, 255, 255), -2px 2px 5px rgb(255, 255, 255), 2px -2px 5px rgb(255, 255, 255);
-    padding-bottom: 3px;
-    padding-right: 10px;
+    text-shadow: -1px -1px rgb(255 255 255), 1px 1px rgb(255 255 255), -1px 1px rgb(255 255 255), 1px -1px rgb(255 255 255), 0px 0px 10px rgb(0 0 0);
     outline-style: groove;
-    background-color: rgb(250, 255, 103);
-    background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
