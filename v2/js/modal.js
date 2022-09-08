@@ -11,9 +11,9 @@ createDriverModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Driver's Name:"; //Text
+  const modalDescription = "Enter Driver's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Driver";
 
@@ -42,7 +42,7 @@ createBrokerModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
   const modalDescription = "Broker's Name:"; //Text
   const modalInput = "idBeginShiftInput";
@@ -73,7 +73,7 @@ createOdometerModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
   const modalDescription = "Current Odometer Reading:"; //Text
   const modalInput = "idBeginShiftInput";
@@ -104,7 +104,7 @@ createGasModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
   const modalDescription = "Price of Gas (can be updated):"; //Text
   const modalInput = "idBeginShiftInput";
@@ -135,7 +135,7 @@ createLitresPerModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
   const modalDescription = "Litres/100km (estimate refill cost): "; //Text
   const modalInput = "idBeginShiftInput";
@@ -166,7 +166,7 @@ createDispatcherModal = () => {
   const modalName = "idBeginShiftModal";
   const modalInfo = "idBeginShiftInfo";
   const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats, Begin Your Shift:"; //Text
+  const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
   const modalDescription = "Dispatcher's Name:"; //Text
   const modalInput = "idBeginShiftInput";
@@ -251,8 +251,10 @@ let newModal = {
   ) =>
     `<div id="${modalName}" class="modal">
       <div id="${modalInfo}" class="modalContent">
-        <div id="${modalTitleIndex}" class="modalHeader">${modalTitle}</div>
-        <div id="${modalDescIndex}" class="modalText">${modalDescription}</div>
+        <div class="modalBanner1"></div>
+        <div class="modalBanner2"></div>
+        <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
+        <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
         <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
         <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})">Enter</div>
       </div>
