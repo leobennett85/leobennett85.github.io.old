@@ -253,6 +253,7 @@ let newModal = {
       <div id="${modalInfo}" class="modalContent">
         <div class="modalBanner1"></div>
         <div class="modalBanner2"></div>
+        <div class="modalBanner3"></div>
         <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
         <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
         <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
