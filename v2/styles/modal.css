@@ -1,14 +1,15 @@
 input {
-    border: 1px solid #000;
-    height: 40px;
-    background-image: linear-gradient(to bottom right, rgb(255, 183, 0), rgb(255, 243, 132));
-    box-sizing: border-box;
+    border: none;
+    height: 90px;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    background-color: rgb(130, 104, 104);
 }
 
 input:focus {
     border: none;
-    background-color: #fff;
-    background-image: none;
 }
 
 #idBeginShiftModalDriver {
@@ -50,7 +51,7 @@ input:focus {
     z-index: 0;
     display: grid;
     width: 100%;
-    top: 25%;
+    top: 15%;
     grid-template-areas:
         'modalHeader1'
         'modalHeader2'
@@ -83,8 +84,9 @@ input:focus {
 
 .modalHeader2 {
     position: fixed;
-    top: 100px;
-    font-size: 18px;
+    top: 80px;
+    right: 0;
+    font-size: 20px;
     text-transform: uppercase;
     text-rendering: geometricPrecision;
     color: rgb(0, 0, 0);
@@ -94,7 +96,7 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: swipeLeftAnimation ease 1s;
+    animation: swipeLeftAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 
@@ -110,7 +112,7 @@ input:focus {
     z-index: 1;
     transform: perspective(3px) rotateX(346deg) rotateY(16deg);
     /* box-shadow: 20px 20px; */
-    animation: swipeBanner1Animation ease 2s;
+    animation: swipeBanner1Animation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -125,7 +127,7 @@ input:focus {
     z-index: 1;
     /* box-shadow: 20px 20px; */
     transform: perspective(2px) rotateX(314deg) rotateY(354deg);
-    animation: swipeBanner2Animation ease 2s;
+    animation: swipeBanner2Animation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -139,27 +141,8 @@ input:focus {
     background-color: rgb(0, 0, 0);
     z-index: 1;
     /* box-shadow: 20px 20px; */
-    transform: perspective(3px) rotateX(149deg) rotateY(357deg);
-    animation: swipeBanner3Animation ease 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-
-
-.modalText {
-    position: relative;
-    padding-left: 10px;
-    z-index: 3;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 1px rgb(175, 203, 228);
-    background-image: linear-gradient(to bottom right, rgb(255, 183, 0), rgb(255, 183, 0), rgb(255, 243, 132), rgb(255, 243, 132));
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-    animation-delay: 3s;
-    animation: swipeLeftAnimation ease 1s;
+    transform: perspective(3px) rotateX(190deg) rotateY(357deg);
+    animation: swipeBanner3Animation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }

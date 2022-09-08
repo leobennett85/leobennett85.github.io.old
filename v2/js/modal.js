@@ -44,7 +44,7 @@ createBrokerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Broker's Name:"; //Text
+  const modalDescription = "Enter Broker's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Broker";
 
@@ -75,7 +75,7 @@ createOdometerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Current Odometer Reading:"; //Text
+  const modalDescription = "Record Current Odometer Reading:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Odometer";
 
@@ -106,7 +106,7 @@ createGasModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Price of Gas (can be updated):"; //Text
+  const modalDescription = "Enter Price of Gas:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Gas";
 
@@ -137,7 +137,7 @@ createLitresPerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Litres/100km (estimate refill cost): "; //Text
+  const modalDescription = "Record Litres/100km: "; //Text
   const modalInput = "idBeginShiftInput";
   const info = "LitresPer";
 
@@ -168,7 +168,7 @@ createDispatcherModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Dispatcher's Name:"; //Text
+  const modalDescription = "Enter Dispatcher's Name:"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Dispatcher";
 
