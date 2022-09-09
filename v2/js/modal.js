@@ -251,9 +251,8 @@ let newModal = {
   ) =>
     `<div id="${modalName}" class="modal">
       <div id="${modalInfo}" class="modalContent">
-        <div class="modalBanner1"></div>
-        <div class="modalBanner2"></div>
-        <div class="modalBanner3"></div>
+        <div class="modalBanner1 checkers"></div>
+        <div class="modalBanner2 checkers"></div>
         <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
         <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
         <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>

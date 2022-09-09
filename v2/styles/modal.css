@@ -5,6 +5,8 @@ input {
     text-align: center;
     font-size: 50px;
     color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: -4px 4px #808080;
     background-color: rgba(130, 104, 104, 0.5);
 }
 
@@ -39,7 +41,7 @@ input {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5)
 }
 
 .modalContent {
@@ -47,7 +49,7 @@ input {
     z-index: 0;
     display: grid;
     width: 100%;
-    top: 15%;
+    top: 400px;
     grid-template-areas:
         'modalHeader1'
         'modalHeader2'
@@ -69,21 +71,22 @@ input {
 
 .modalHeader1 {
     position: fixed;
-    top: 2px;
-    left: 45px;
+    top: 5px;
     width: 100%;
-    font-size: 70px;
     text-rendering: geometricPrecision;
     color: rgb(255, 0, 0);
-    text-shadow: -1px -1px rgb(255 255 255), 1px 1px rgb(255 255 255), -1px 1px rgb(255 255 255), 1px -1px rgb(255 255 255), 3px 3px 10px rgb(0 0 0);
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transform: perspective(75px) rotateX(0deg) rotateY(12deg);
+    font-size: 96px;
+    text-shadow: -1px -1px rgb(255 255 255), 1px 1px rgb(255 255 255), -1px 1px rgb(255 255 255), 1px -1px rgb(255 255 255), 0px 0px 10px rgb(0 0 0);
 
+
+    /*transform: perspective(75px) rotateX(0deg) rotateY(12deg);*/
 }
+
 
 .modalHeader2 {
     position: fixed;
@@ -92,8 +95,8 @@ input {
     font-size: 20px;
     text-transform: uppercase;
     text-rendering: geometricPrecision;
-    color: rgb(255, 0, 0);
-    text-shadow: -1px -1px 1px rgb(255 255 255), 1px 1px 1px rgb(255 255 255), -1px 1px 1px rgb(255 255 255), 1px -1px 1px rgb(255 255 255), 0px 0px 10px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: -1px -1px 1px rgb(255, 0, 0), 1px 1px 1px rgb(255, 0, 0), -1px 1px 1px rgb(255, 0, 0), 1px -1px 1px rgb(255, 0, 0), 0px 0px 10px rgb(0, 0, 0);
     background-color: none;
     z-index: 2;
     display: flex;
@@ -107,14 +110,11 @@ input {
 
 .modalBanner1 {
     position: fixed;
-    top: 5px;
-    border: 1px solid transparent;
-    right: -600px;
+    top: 0px;
+    height: 20px;
     width: 100%;
     background-color: rgb(0, 0, 0);
     z-index: 1;
-    transform: perspective(3px) rotateX(346deg) rotateY(16deg);
-    /* box-shadow: 20px 20px; */
     animation: swipeBanner1Animation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -122,33 +122,18 @@ input {
 
 .modalBanner2 {
     position: fixed;
-    top: 0px;
-    border: 1px solid transparent;
-    left: -600px;
+    top: 100px;
+    height: 20px;
     width: 100%;
     background-color: rgb(0, 0, 0);
     z-index: 1;
     /* box-shadow: 20px 20px; */
-    transform: perspective(2px) rotateX(314deg) rotateY(354deg);
+    /*transform: perspective(2px) rotateX(314deg) rotateY(354deg);*/
     animation: swipeBanner2Animation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-.modalBanner3 {
-    position: fixed;
-    top: 100px;
-    border: 1px solid transparent;
-    right: -600px;
-    width: 100%;
-    background-color: rgb(0, 0, 0);
-    z-index: 1;
-    /* box-shadow: 20px 20px; */
-    transform: perspective(3px) rotateX(190deg) rotateY(357deg);
-    animation: swipeBanner3Animation ease 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
 
 .modalInput {
     position: relative;
@@ -165,12 +150,12 @@ input {
 .btnModalEnter {
     position: relative;
     cursor: pointer;
+    border: none;
     z-index: 3;
     font-weight: bolder;
     text-rendering: geometricPrecision;
     color: rgb(0, 0, 0);
     text-shadow: -1px -1px rgb(255 255 255), 1px 1px rgb(255 255 255), -1px 1px rgb(255 255 255), 1px -1px rgb(255 255 255), 0px 0px 10px rgb(0 0 0);
-    outline-style: groove;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,8 +203,8 @@ input {
     }
 
     to {
-        right: -600px;
-        background-color: rgb(255, 0, 0);
+        right: 0px;
+        background-color: rgb(118, 0, 0);
     }
 }
 
@@ -229,18 +214,7 @@ input {
     }
 
     to {
-        left: -600px;
-        background-color: rgb(255, 255, 0);
-    }
-}
-
-@keyframes swipeBanner3Animation {
-    from {
-        right: 3000px;
-    }
-
-    to {
-        right: -600px;
-        background-color: rgb(255, 255, 0);
+        left: 0px;
+        background-color: rgb(255, 255, 179);
     }
 }
