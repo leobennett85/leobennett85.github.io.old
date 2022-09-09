@@ -1,10 +1,46 @@
-#idMenuAdd {}
+#idMenuAdd {
+    z-index: 0;
+    top: 2px;
+    background-color: white;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom,
+            white,
+            rgb(200, 200, 200),
+            rgba(0, 0, 0, 0)) 1 100%;
+}
 
-#idMenuUpdate {}
+#idMenuUpdate {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom,
+            white,
+            rgb(200, 200, 200),
+            rgba(0, 0, 0, 0)) 1 100%;
 
-#idMenuEdit {}
+}
 
-#idMenuEod {}
+#idMenuEdit {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom,
+            white,
+            rgb(200, 200, 200),
+            rgba(0, 0, 0, 0)) 1 100%;
+}
+
+#idMenuEod {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom,
+            white,
+            rgb(200, 200, 200),
+            rgba(0, 0, 0, 0)) 1 100%;
+}
 
 #addWrap {
     position: absolute;
@@ -21,6 +57,8 @@
 #editWrap {}
 
 #eodWrap {}
+
+.menuText {}
 
 .doubleMenu {
     font-size: 1rem;
