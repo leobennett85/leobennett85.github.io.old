@@ -1,5 +1,6 @@
 #idMenuAdd {
     position: absolute;
+    z-index: 2;
     top: 2px;
     background-color: white;
     position: relative;
