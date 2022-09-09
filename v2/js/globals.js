@@ -36,6 +36,25 @@ checkModalGlobals = () => {
   );
 };
 
+//localStorage functions
+
+addLocalStorageItem = (key, item) => {
+  localStorage.setItem(key, item);
+};
+
+getLocalStorageItem = (key) => {
+  const item = localStorage.getItem(key);
+  return item;
+};
+
+removeLocalStorageItem = (key) => {
+  localStorage.removeItem(key);
+};
+
+updateLocalStorageItem = (key, newItem) => {
+  localStorage.setItem(key, newItem);
+};
+
 checkCalcGlobals = () => {
   console.log("Date: " + globalDate + "\n");
 };
