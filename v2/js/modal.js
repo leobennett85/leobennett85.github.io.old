@@ -13,7 +13,7 @@ createDriverModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Driver's Name:"; //Text
+  const modalDescription = "Enter Driver's Name"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Driver";
 
@@ -44,7 +44,7 @@ createBrokerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Broker's Name:"; //Text
+  const modalDescription = "Enter Broker's Name"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Broker";
 
@@ -75,7 +75,7 @@ createOdometerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Record Current Odometer Reading:"; //Text
+  const modalDescription = "Record Current Odometer Reading"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Odometer";
 
@@ -137,7 +137,7 @@ createLitresPerModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Record Litres/100km: "; //Text
+  const modalDescription = "Record Litres/100km"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "LitresPer";
 
@@ -168,7 +168,7 @@ createDispatcherModal = () => {
   const modalTitleId = "idBeginShiftModalTitle"; //ID
   const modalTitle = "TaxiStats"; //Text
   const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Dispatcher's Name:"; //Text
+  const modalDescription = "Enter Dispatcher's Name"; //Text
   const modalInput = "idBeginShiftInput";
   const info = "Dispatcher";
 
@@ -256,7 +256,7 @@ let newModal = {
         <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
         <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
         <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
-        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})"><span class="material-icons" style="font-size: 100px">arrow_circle_right</span></div>
+        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})"><span class="material-icons" style="font-size: 62px">arrow_circle_right</span></div>
       </div>
     </div>`,
 };
