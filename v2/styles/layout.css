@@ -32,12 +32,11 @@ div {
 }
 
 #viewWrap {
-    position: fixed;
+    position: absolute;
     top: 8rem;
     bottom: 4rem;
     left: 2rem;
     right: 2rem;
-    z-index: 0;
 
     /*TEMP*/
     outline-color: crimson;

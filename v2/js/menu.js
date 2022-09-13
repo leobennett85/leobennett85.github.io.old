@@ -1,10 +1,14 @@
 checkAdd = () => {
   const menu = document.getElementById("addWrap");
   const leftState = getComputedStyle(menu).left;
-  if (leftState == "-176px") {
-    console.log("HIDDEN");
-  } else {
-    console.log("VISIBLE");
+  console.log(leftState);
+  switch (leftState) {
+    case "-176px":
+      showAdd();
+      break;
+    case "0px":
+      hideAdd();
+      break;
   }
 };
 
