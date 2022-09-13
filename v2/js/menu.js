@@ -3,7 +3,7 @@ checkAdd = () => {
   const leftState = getComputedStyle(menu).left;
   console.log(leftState);
   switch (leftState) {
-    case "-176px":
+    case "-160px":
       hideAll();
       showAdd();
       break;
@@ -18,7 +18,7 @@ checkUpdate = () => {
   const leftState = getComputedStyle(menu).left;
   console.log(leftState);
   switch (leftState) {
-    case "-176px":
+    case "-160px":
       hideAll();
       showUpdate();
       break;
@@ -33,7 +33,7 @@ checkEdit = () => {
   const leftState = getComputedStyle(menu).left;
   console.log(leftState);
   switch (leftState) {
-    case "-176px":
+    case "-160px":
       hideAll();
       showEdit();
       break;
@@ -48,7 +48,7 @@ checkEod = () => {
   const leftState = getComputedStyle(menu).left;
   console.log(leftState);
   switch (leftState) {
-    case "-176px":
+    case "-160px":
       hideAll();
       showEod();
       break;
@@ -67,7 +67,7 @@ showAdd = () => {
 hideAdd = () => {
   const menu = document.getElementById("addWrap");
   menu.style.transition = "0.5s";
-  menu.style.left = "-11rem";
+  menu.style.left = "-10rem";
 };
 
 showUpdate = () => {
@@ -79,7 +79,7 @@ showUpdate = () => {
 hideUpdate = () => {
   const menu = document.getElementById("updateWrap");
   menu.style.transition = "0.5s";
-  menu.style.left = "-11rem";
+  menu.style.left = "-10rem";
 };
 
 showEdit = () => {
@@ -91,7 +91,7 @@ showEdit = () => {
 hideEdit = () => {
   const menu = document.getElementById("editWrap");
   menu.style.transition = "0.5s";
-  menu.style.left = "-11rem";
+  menu.style.left = "-10rem";
 };
 
 showEod = () => {
@@ -103,7 +103,7 @@ showEod = () => {
 hideEod = () => {
   const menu = document.getElementById("eodWrap");
   menu.style.transition = "0.5s";
-  menu.style.left = "-11rem";
+  menu.style.left = "-10rem";
 };
 
 hideAll = () => {
@@ -112,8 +112,8 @@ hideAll = () => {
   const edit = document.getElementById("editWrap");
   const eod = document.getElementById("eodWrap");
 
-  add.style.left = "-11rem";
-  update.style.left = "-11rem";
-  edit.style.left = "-11rem";
-  eod.style.left = "-11rem";
+  add.style.left = "-10rem";
+  update.style.left = "-10rem";
+  edit.style.left = "-10rem";
+  eod.style.left = "-10rem";
 };

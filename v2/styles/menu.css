@@ -17,7 +17,7 @@
 
 #addWrap {
     position: relative;
-    left: -11rem;
+    left: -10rem;
     width: 15rem;
     display: grid;
     grid-template-areas:
@@ -42,6 +42,7 @@
 }
 
 #idBtnAdd {
+    width: 2rem;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -50,7 +51,7 @@
 
 #updateWrap {
     position: relative;
-    left: -11rem;
+    left: -10rem;
     width: 15rem;
     display: grid;
     grid-template-areas:
@@ -75,6 +76,7 @@
 }
 
 #idBtnUpdate {
+    width: 2rem;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -83,7 +85,7 @@
 
 #editWrap {
     position: relative;
-    left: -11rem;
+    left: -10rem;
     width: 15rem;
     display: grid;
     grid-template-areas:
@@ -94,11 +96,13 @@
 
 #idMenuEdit {}
 
-#idBtnEdit {}
+#idBtnEdit {
+    width: 2rem;
+}
 
 #eodWrap {
     position: relative;
-    left: -11rem;
+    left: -10rem;
     width: 15rem;
     display: grid;
     grid-template-areas:
@@ -109,7 +113,9 @@
 
 #idMenuEod {}
 
-#idBtnEod {}
+#idBtnEod {
+    width: 2rem;
+}
 
 .doubleMenu {
     display: flex;
@@ -150,6 +156,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(255, 0, 0);
+}
+
+.menuItem:hover {
+    outline: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 255, 0);
 }
 
 .material-icons.md-dark {
