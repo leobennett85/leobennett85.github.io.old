@@ -20,10 +20,10 @@
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
   </head>
-  <body id="nodeBody" onload="beginModal(); postDate(); setMenus();">
+  <body id="nodeBody" onload="beginModal(); postDate();">
     <div id="siteWrap">
       <!--Header Section-->
-      <div id="headerWrap" class="headerContent">
+      <div id="headerWrap">
         <div id="idHeaderTitle">TaxiStats</div>
         <div id="idHeaderDate" class="headerText">Date</div>
         <div id="idHeaderDriver" class="headerText">Driver:</div>
@@ -32,45 +32,48 @@
       </div>
       <!--End of headerWrap-->
 
+      <!--View Section-->
+      <div id="viewWrap"></div>
+      <!--End of viewWrap-->
+
       <!--Menu Section-->
-      <div id="menuWrap" class="menuDisplay">
-        <div id="idMenuAdd" class="menuItem">
-          <div id="addWrap">
-            <div id="idMenuAddRun" class="doubleMenu">New Run</div>
-            <div id="idMenuAddExpense" class="doubleMenu">New Expense</div>
+      <div id="menuWrap">
+        <div id="addWrap">
+          <div id="idMenuAddRun" class="doubleMenu">New Run</div>
+          <div id="idMenuAddExpense" class="doubleMenu">New Expense</div>
+          <div id="idBtnAdd" class="menuItem" onclick="checkAdd();">
+            <span class="material-icons md-dark" style="font-size: 35px">
+              add_circle_outline
+            </span>
           </div>
-          <span
-            class="material-icons md-dark"
-            style="font-size: 35px; z-index: 0"
-            onclick="showWrap(getAddWrap())"
-          >
-            add_circle_outline
-          </span>
         </div>
-        <div id="idMenuUpdate" class="menuItem">
-          <div id="updateWrap">
-            <div id="idMenuUpdateGas" class="doubleMenu">Price of Gas</div>
-            <div id="idMenuUpdateLitresPer" class="doubleMenu">L/100km</div>
+
+        <div id="updateWrap">
+          <div id="idMenuUpdateGas" class="doubleMenu">Price of Gas</div>
+          <div id="idMenuUpdateLitresPer" class="doubleMenu">L/100km</div>
+          <div id="idBtnUpdate" class="menuItem" onclick="checkUpdate();">
+            <span class="material-icons md-dark" style="font-size: 35px">
+              update
+            </span>
           </div>
-          <span class="material-icons md-dark" style="font-size: 35px">
-            update
-          </span>
         </div>
-        <div id="idMenuEdit" class="menuItem">
-          <div id="editWrap">
-            <div class="singleMenu">Edit</div>
+
+        <div id="editWrap">
+          <div id="idMenuEdit" class="singleMenu">Edit</div>
+          <div id="idBtnEdit" class="menuItem" onclick="checkEdit();">
+            <span class="material-icons md-dark" style="font-size: 35px">
+              edit
+            </span>
           </div>
-          <span class="material-icons md-dark" style="font-size: 35px">
-            edit
-          </span>
         </div>
-        <div id="idMenuEod" class="menuItem">
-          <div id="eodWrap">
-            <div class="singleMenu">End Of Day</div>
+
+        <div id="eodWrap">
+          <div id="idMenuEod" class="singleMenu">End Of Day</div>
+          <div id="idBtnEod" class="menuItem" onclick="checkEod();">
+            <span class="material-icons md-dark" style="font-size: 35px">
+              power_settings_new
+            </span>
           </div>
-          <span class="material-icons md-dark" style="font-size: 35px">
-            power_settings_new
-          </span>
         </div>
       </div>
 
@@ -80,16 +83,12 @@
       <div id="reportWrap"></div>
       <!--End of reportWrap-->
 
-      <!--View Section-->
-      <div id="viewWrap"></div>
-      <!--End of viewWrap-->
-
       <!--Input Modals Section-->
       <!--Input Begin Shift-->
       <!--End of Begin Shift-->
 
       <!--Footer Section-->
-      <div id="footerWrap" class="footerContent">
+      <div id="footerWrap">
         <div id="idFooterGas" class="footerText">Price of Gas:</div>
         <div id="idFooterLitresPer" class="footerText">Litres/100km:</div>
         <div id="idFooterOdometer" class="footerText">Starting Odometer:</div>

@@ -19,55 +19,25 @@ div {
     outline-color: indianred;
 }
 
-#headerWrap {
-    position: absolute;
-    inset: 0;
-    height: 7rem;
-    /*TEMP*/
-    outline-color: aqua;
-}
 
-#menuWrap {
-    position: absolute;
-    top: 7.1rem;
-    left: 0;
-    bottom: 3.05rem;
-    width: 2.5rem;
-    display: grid;
-    grid-template-areas:
-        'menuAddIcon'
-        'menuUpdateIcon'
-        'menuEditIcon'
-        'menuEODIcon';
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    font-size: 2rem;
-}
 
 #reportWrap {
     position: absolute;
-    top: 7rem;
-    bottom: 3rem;
+    top: 8rem;
+    bottom: 4rem;
     right: 0;
-    width: 2.5rem;
+    width: 2rem;
     /*TEMP*/
     outline-color: black;
 }
 
 #viewWrap {
-    position: fixed;
-    inset: 7rem 2.5rem 3rem 2.5rem;
+    position: absolute;
+    top: 8rem;
+    bottom: 4rem;
+    left: 2rem;
+    right: 2rem;
 
     /*TEMP*/
     outline-color: crimson;
-}
-
-#footerWrap {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 3rem;
-    /*TEMP*/
-    outline-color: blueviolet;
 }
