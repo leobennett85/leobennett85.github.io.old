@@ -1,24 +1,50 @@
-setMenus = () => {
-  const add = document.getElementById("addWrap");
-  const update = document.getElementById("updateWrap");
-  const edit = document.getElementById("editWrap");
-  const eod = document.getElementById("eodWrap");
-
-  add.style.display = "none";
-  update.style.display = "none";
-  edit.style.display = "none";
-  eod.style.display = "none";
+checkAdd = () => {
+  const menu = document.getElementById("addWrap");
+  const leftState = getComputedStyle(menu).left;
+  if (leftState == "-176px") {
+    console.log("HIDDEN");
+  } else {
+    console.log("VISIBLE");
+  }
 };
 
-getAddWrap = () => {
-  const addWrap = document.getElementById("addWrap");
-  return addWrap;
+showAdd = () => {
+  const menu = document.getElementById("addWrap");
+  menu.style.transition = "0.5s";
+  menu.style.left = "0";
 };
 
-showWrap = (wrap) => {
-  wrap.style.display = "block";
+hideAdd = () => {
+  const menu = document.getElementById("addWrap");
+  menu.style.left = "-11rem";
 };
 
-hideWrap = (wrap) => {
-  wrap.style.display = "none";
+showUpdate = () => {
+  const menu = document.getElementById("updateWrap");
+  menu.style.left = "0";
+};
+
+hideUpdate = () => {
+  const menu = document.getElementById("updateWrap");
+  menu.style.left = "-11rem";
+};
+
+showEdit = () => {
+  const menu = document.getElementById("editWrap");
+  menu.style.left = "0";
+};
+
+hideEdit = () => {
+  const menu = document.getElementById("editWrap");
+  menu.style.left = "-11rem";
+};
+
+showEod = () => {
+  const menu = document.getElementById("eodWrap");
+  menu.style.left = "0";
+};
+
+hideEod = () => {
+  const menu = document.getElementById("eodWrap");
+  menu.style.left = "-11rem";
 };
