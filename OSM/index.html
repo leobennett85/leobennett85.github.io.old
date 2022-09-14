@@ -71,6 +71,7 @@
 
         postVars(lat, long);
       }
+
       function postVars(lat, long) {
         const latElem = document.getElementById("idLat");
         const longElem = document.getElementById("idLong");
@@ -78,8 +79,8 @@
 
         coordIndex = coordIndex + 1;
 
-        const latString = `\n${coordIndex} Lattitude Coordinate: ${lat} \n`;
-        const longString = `\n${coordIndex} Longitude Coordinate: ${long} \n`;
+        const latString = `${coordIndex} Lattitude Coordinate: ${lat}`;
+        const longString = `${coordIndex} Longitude Coordinate: ${long}`;
         const fullString = latString + longString;
 
         wrapElem.append(fullString);
@@ -87,8 +88,7 @@
     </script>
     <div id="wrap">
       <div id="idLat"></div>
-      <div id="idLong"></div>
-      <br />
+      <div id="idLong"><br /></div>
     </div>
   </body>
 </html>
