@@ -26,6 +26,7 @@
     ></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script>
+      let coordIndex = 0;
       var map_init = L.map("map", {
         center: [47.5625, -52.70792],
         zoom: 8,
@@ -73,17 +74,21 @@
       function postVars(lat, long) {
         const latElem = document.getElementById("idLat");
         const longElem = document.getElementById("idLong");
+        const wrapElem = document.getElementById("wrap");
 
-        latElem.innerHTML = "Current Lattitude Recording: " + lat;
-        longElem.innerHTML = "Current Longitude Recording: " + long;
+        coordIndex = coordIndex + 1;
+
+        const latString = `\n${coordIndex} Lattitude Coordinate: ${lat} \n`;
+        const longString = `\n${coordIndex} Longitude Coordinate: ${long} \n`;
+        const fullString = latString + longString;
+
+        wrapElem.append(fullString);
       }
     </script>
-
-    <br />
-
     <div id="wrap">
-      <div id="idLat">BOO</div>
-      <div id="idLong">BOO</div>
+      <div id="idLat"></div>
+      <div id="idLong"></div>
+      <br />
     </div>
   </body>
 </html>
