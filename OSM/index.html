@@ -26,89 +26,69 @@
     ></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script>
-            let coordIndex = 0;
-            var map_init = L.map("map", {
-              center: [47.5625, -52.70792],
-              zoom: 8,
-            });
-            var osm = L.tileLayer(
-              "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-              {
-                attribution:
-                  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-              }
-            ).addTo(map_init);
-            L.Control.geocoder().addTo(map_init);
-            if (!navigator.geolocation) {
-              console.log("Your browser doesn't support geolocation feature!");
-            } else {
-              setInterval(() => {
-                navigator.geolocation.getCurrentPosition(getPosition);
-              }, 5000);
-            }
-            var marker, circle, lat, long, accuracy;
+      let coordIndex = 0;
+      var map_init = L.map("map", {
+        center: [47.5625, -52.70792],
+        zoom: 8,
+      });
+      var osm = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }
+      ).addTo(map_init);
+      L.Control.geocoder().addTo(map_init);
+      if (!navigator.geolocation) {
+        console.log("Your browser doesn't support geolocation feature!");
+      } else {
+        setInterval(() => {
+          navigator.geolocation.getCurrentPosition(getPosition);
+        }, 5000);
+      }
+      var marker, circle, lat, long, accuracy;
 
-            function getPosition(position) {
-              // console.log(position)
-              lat = position.coords.latitude;
-              long = position.coords.longitude;
-              accuracy = position.coords.accuracy;
+      function getPosition(position) {
+        // console.log(position)
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        accuracy = position.coords.accuracy;
 
-              if (marker) {
-                map_init.removeLayer(marker);
-              }
+        if (marker) {
+          map_init.removeLayer(marker);
+        }
 
-              if (circle) {
-                map_init.removeLayer(circle);
-              }
+        if (circle) {
+          map_init.removeLayer(circle);
+        }
 
-              marker = L.marker([lat, long]);
-              circle = L.circle([lat, long], { radius: accuracy });
+        marker = L.marker([lat, long]);
+        circle = L.circle([lat, long], { radius: accuracy });
 
-              var featureGroup = L.featureGroup([marker, circle]).addTo(map_init);
+        var featureGroup = L.featureGroup([marker, circle]).addTo(map_init);
 
-              map_init.fitBounds(featureGroup.getBounds());
+        map_init.fitBounds(featureGroup.getBounds());
 
-              postVars(lat, long);
-      <<<<<<< HEAD
-      =======
-            }
-            function postVars(lat, long) {
-              const latElem = document.getElementById("idLat");
-              const longElem = document.getElementById("idLong");
+        postVars(lat, long);
+      }
+      function postVars(lat, long) {
+        const latElem = document.getElementById("idLat");
+        const longElem = document.getElementById("idLong");
+        const wrapElem = document.getElementById("wrap");
 
-              latElem.innerHTML = "Current Lattitude Recording: " + lat;
-              longElem.innerHTML = "Current Longitude Recording: " + long;
-      >>>>>>> 062d08f009b4c07bec04dcc7f59d1b20e6834df3
-            }
-            function postVars(lat, long) {
-              const latElem = document.getElementById("idLat");
-              const longElem = document.getElementById("idLong");
-              const wrapElem = document.getElementById("wrap");
+        coordIndex = coordIndex + 1;
 
-              coordIndex = coordIndex + 1;
+        const latString = `\n${coordIndex} Lattitude Coordinate: ${lat} \n`;
+        const longString = `\n${coordIndex} Longitude Coordinate: ${long} \n`;
+        const fullString = latString + longString;
 
-              const latString = `${coordIndex} Lattitude Coordinate: ${lat} \n`;
-              const longString = `${coordIndex} Longitude Coordinate: ${long}`;
-              const space = `\n`;
-
-              latElem.append(latString);
-              longElem.append(longString);
-            }
-
-            const node = document.getElementById("wrap");
+        wrapElem.append(fullString);
+      }
     </script>
-
-    <br />
-
     <div id="wrap">
-      <<<<<<< HEAD
       <div id="idLat"></div>
       <div id="idLong"></div>
-      =======
-      <div id="idLat">BOO</div>
-      <div id="idLong">BOO</div>
-      >>>>>>> 062d08f009b4c07bec04dcc7f59d1b20e6834df3
+      <br />
     </div>
   </body>
 </html>
