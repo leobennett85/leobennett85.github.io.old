@@ -1,0 +1,34 @@
+body,
+html {
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#siteWrap {
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#mapWrap {
+    outline: 2px solid black;
+    outline-offset: -2px;
+    width: 60vw;
+    height: 100vh;
+}
+
+#dataTable {
+    outline: 2px solid black;
+    outline-offset: -2px;
+    width: 40vw;
+    height: 100vh;
+}
+
+#map {
+    border: 2px;
+    width: 100%;
+    height: 100%;
+}
