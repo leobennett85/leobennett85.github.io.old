@@ -112,14 +112,30 @@
 
     let marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
     let circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
+    let featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
-    console.log(
-      "Coordinates: \nLat: " +
-        lat +
-        "\nLong: " +
-        long +
-        "\nAccuracy: " +
-        accuracy
-    );
+    map.fitBounds(featureGroup.getBounds());
+
+    addCoords(lat, long, accuracy);
+  }
+
+  // Function to add datat to dashboard
+  function addCoords(lat, long, accuracy) {
+    let dataTable = document.getElementById("dataTable");
+
+    let newTitleHTML = `<div class="title">
+      Latitude: <br/>
+      Longitude: <br/>
+      Accuracy: <br />
+      </div>`;
+
+    let newCoordHTML = `<div class="coords">
+      ${lat} <br />
+      ${long} <br />
+      ${accuracy} <br />
+      </div>`;
+
+    dataTable.innerHTML += newTitleHTML;
+    dataTable.innerHTML += newCoordHTML;
   }
 </script>
