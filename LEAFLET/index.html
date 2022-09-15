@@ -89,7 +89,10 @@
 
   // PopUp
   let popUp = singleMarker
-    .bindPopup("Get Coding " + singleMarker.getLatLng())
+    .bindPopup(
+      '<center><b>GET <font color="navyblue">CODING</font></b></center> <br />' +
+        singleMarker.getLatLng()
+    )
     .openPopup();
   popUp.addTo(map);
 </script>
