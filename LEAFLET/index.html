@@ -37,7 +37,7 @@
 <!-- ADD MAP SCRIPT -->
 <script>
   // Map initializtion
-  var map = L.map("map").setView([47.5655, -52.706], 19);
+  var map = L.map("map").setView([47.5655, -52.706], 17);
 
   // OSM Layer
   let osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -90,9 +90,36 @@
   // PopUp
   let popUp = singleMarker
     .bindPopup(
-      '<center><b>GET <font color="navyblue">CODING</font></b></center> <br />' +
+      '<center><b>GET <font color="#87aade">CODING</font></b></center> <br />' +
         singleMarker.getLatLng()
     )
     .openPopup();
   popUp.addTo(map);
+
+  console.log(singleMarker.toGeoJSON());
+
+  if (!navigator.geolocation) {
+    console.log("Browser does not support GeoLocation");
+  } else {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
+  function getPosition(position) {
+    console.log(position);
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let accuracy = position.coords.accuracy;
+
+    let marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
+    let circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
+
+    console.log(
+      "Coordinates: \nLat: " +
+        lat +
+        "\nLong: " +
+        long +
+        "\nAccuracy: " +
+        accuracy
+    );
+  }
 </script>
