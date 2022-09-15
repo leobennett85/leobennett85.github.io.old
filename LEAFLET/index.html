@@ -111,7 +111,7 @@
     let accuracy = position.coords.accuracy;
 
     let marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
-    let circle = L.circle([lat, long], { radius: 45 }).addTo(map);
+    let circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
 
     console.log(
       "Coordinates: \nLat: " +
