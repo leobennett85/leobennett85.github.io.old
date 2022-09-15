@@ -68,4 +68,28 @@
   // osm.addTo(map);
   // OSMBright.addTo(map);
   googleStreets.addTo(map);
+
+  // Custom Icon
+  let myIcon = L.icon({
+    iconUrl: "icon.png",
+    iconSize: [50, 50],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+    //shadowUrl: "my-icon-shadow.png",
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94],
+  });
+
+  // Marker
+  let singleMarker = L.marker([47.56263613992803, -52.70831949094821], {
+    icon: myIcon,
+    draggable: true,
+    autoPan: true,
+  }).addTo(map);
+
+  // PopUp
+  let popUp = singleMarker
+    .bindPopup("Get Coding " + singleMarker.getLatLng())
+    .openPopup();
+  popUp.addTo(map);
 </script>
