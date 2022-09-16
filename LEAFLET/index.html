@@ -25,17 +25,9 @@
       <div id="dataTable">
         <div id="coordDisplay"></div>
         <div id="dataWrapRight">
-          <div id="varDisplay">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            alias incidunt, vel tempora porro cum fugit dolor sunt voluptatum
-            obcaecati repudiandae. Delectus quaerat reiciendis eos aspernatur
-            cumque facilis laudantium dicta.
-          </div>
+          <div id="varDisplay">The Data required to analiyze a run</div>
           <div id="routeDisplay">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-            molestiae odit minima, dicta incidunt voluptatem possimus reiciendis
-            eveniet impedit adipisci illo quasi iste ex aspernatur accusamus
-            provident magnam officiis error?
+            When a run is complete, index and display each run
           </div>
         </div>
       </div>
@@ -53,16 +45,16 @@
 <!-- ADD MAP SCRIPT -->
 <script>
   // Map initializtion
-  var map = L.map("map").setView([47.56263613992803, -52.70831949094821], 17);
+  const map = L.map("map").setView([47.56253, -52.707949], 17);
 
   // OSM Layer
-  let osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   });
 
   // GoogleStreets Layer
-  let googleStreets = L.tileLayer(
+  const googleStreets = L.tileLayer(
     "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
     {
       maxZoom: 20,
@@ -71,38 +63,44 @@
   );
 
   // Add Layers to map
-  googleStreets.addTo(map);
+  osm.addTo(map);
+
+  let markerStart = L.marker([47.56253, -52.707949]);
+  markerStart.addTo(map);
 
   if (!navigator.geolocation) {
     console.log("Your browser doesn't support geolocation feature!");
   } else {
-    setInterval(() => {
-      navigator.geolocation.getCurrentPosition(getPosition);
-    }, 5000);
+    {
+      setInterval(navCurrentLocation, 3000);
+    }
   }
 
-  var marker, circle;
+  function navCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
+  let markerTrack, circleTrack;
 
   function getPosition(position) {
-    // console.log(position)
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    var accuracy = position.coords.accuracy;
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let accuracy = position.coords.accuracy;
 
-    if (marker) {
-      map.removeLayer(marker);
+    if (markerTrack) {
+      map.removeLayer(markerTrack);
     }
 
-    if (circle) {
-      map.removeLayer(circle);
+    if (circleTrack) {
+      map.removeLayer(circleTrack);
     }
 
-    marker = L.marker([lat, long]);
-    circle = L.circle([lat, long], { radius: accuracy });
+    markerTrack = L.marker([lat, long]);
+    circleTrack = L.circle([lat, long], { radius: accuracy });
 
-    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+    let featureGroup = L.featureGroup([markerTrack, circleTrack]).addTo(map);
 
-    map.fitBounds(featureGroup.getBounds());
+    //map.fitBounds(featureGroup.getBounds());
 
     addCoords(lat, long, accuracy);
   }
