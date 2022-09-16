@@ -69,29 +69,30 @@
   markerStart.addTo(map);
 
   const options = {
-    enableHighAccuracy: true,
+    //enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0,
   };
-
-  function success(pos) {
-    let position = pos;
-    function log(position) {
-      const crd = pos.coords;
-
-      console.log("Your current position is:");
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
-      addCoords(crd.latitude, crd.longitude, crd.accuracy);
-    }
-    setInterval(log, 1500);
-  }
-
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
-  navigator.geolocation.getCurrentPosition(success, error, options);
+
+  function navCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+
+  function success(pos) {
+    let position = pos;
+    const crd = pos.coords;
+
+    console.log("Your current position is:");
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    addCoords(crd.latitude, crd.longitude, crd.accuracy);
+  }
+
+  setInterval(navCurrentLocation, 1500);
 
   /*
     if (!navigator.geolocation) {
