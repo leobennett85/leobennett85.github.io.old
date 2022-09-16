@@ -63,7 +63,7 @@
   );
 
   // Add Layers to map
-  osm.addTo(map);
+  googleStreets.addTo(map);
 
   let markerStart = L.marker([47.56253, -52.707949]);
   markerStart.addTo(map);
@@ -72,12 +72,14 @@
     console.log("Your browser doesn't support geolocation feature!");
   } else {
     {
-      setInterval(navCurrentLocation, 3000);
+      setInterval(navCurrentLocation, 10000);
     }
   }
 
+  const options = { enableHighAccuracy: true };
+
   function navCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(getPosition);
+    navigator.geolocation.getCurrentPosition(getPosition options);
   }
 
   let markerTrack, circleTrack;
