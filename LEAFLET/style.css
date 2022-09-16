@@ -37,6 +37,7 @@ html {
 
 #coordDisplay {
     padding: 5px;
+    overflow: scroll;
 }
 
 #dateWrapRight {
@@ -82,5 +83,5 @@ html {
 .coords {
     outline: 1px solid black;
     outline-offset: -1px;
-    font-style: italic;
+    font-weight: bold;
 }
