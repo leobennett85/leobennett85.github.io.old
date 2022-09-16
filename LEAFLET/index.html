@@ -53,7 +53,7 @@
 <!-- ADD MAP SCRIPT -->
 <script>
   // Map initializtion
-  var map = L.map("map").setView([47.5655, -52.706], 17);
+  var map = L.map("map").setView([47.56263613992803, -52.70831949094821], 17);
 
   // OSM Layer
   let osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -71,54 +71,39 @@
   );
 
   // Add Layers to map
-  osm.addTo(map);
-
-  // Custom Icon
-  let myIcon = L.icon({
-    iconUrl: "icon.png",
-    iconSize: [50, 50],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76],
-  });
-
-  // Marker
-  let singleMarker = L.marker([47.56263613992803, -52.70831949094821], {
-    icon: myIcon,
-    draggable: true,
-    autoPan: true,
-  }).addTo(map);
-
-  // PopUp
-  let popUp = singleMarker
-    .bindPopup(
-      '<center><b>GET <font color="#87aade">CODING</font></b></center> <br />' +
-        singleMarker.getLatLng()
-    )
-    .openPopup();
-  popUp.addTo(map);
-
-  console.log(singleMarker.toGeoJSON());
+  googleStreets.addTo(map);
 
   if (!navigator.geolocation) {
-    console.log("Browser does not support GeoLocation");
+    console.log("Your browser doesn't support geolocation feature!");
   } else {
-    setInterval = () => {
+    setInterval(() => {
       navigator.geolocation.getCurrentPosition(getPosition);
-    };
+    }, 5000);
   }
 
-  function getPosition(position) {
-    console.log(position);
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    let accuracy = position.coords.accuracy;
+  var marker, circle;
 
-    let marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
-    let circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
-    let featureGroup = L.featureGroup([marker, circle]).addTo(map);
+  function getPosition(position) {
+    // console.log(position)
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    var accuracy = position.coords.accuracy;
+
+    if (marker) {
+      map.removeLayer(marker);
+    }
+
+    if (circle) {
+      map.removeLayer(circle);
+    }
+
+    marker = L.marker([lat, long]);
+    circle = L.circle([lat, long], { radius: accuracy });
+
+    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
     map.fitBounds(featureGroup.getBounds());
-    console.log(lat, long, accuracy);
+
     addCoords(lat, long, accuracy);
   }
 
@@ -127,7 +112,7 @@
     let coordinateDisplay = document.getElementById("coordDisplay");
 
     let newCoordHTML = `<div class="coords">
-      Latitude: ${lat} | Longitude: ${long} | Accuracy: ${accuracy} <br />
+      Latitude: <i>${lat}</i>  Longitude: <i>${long}</i>  Accuracy: <i>${accuracy}</i> <br />
       </div>`;
     coordinateDisplay.innerHTML += newCoordHTML;
   }
