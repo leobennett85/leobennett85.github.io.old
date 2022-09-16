@@ -22,7 +22,23 @@
         <div id="map"></div>
         <!--MAP ENCLOSURE-->
       </div>
-      <div id="dataTable"></div>
+      <div id="dataTable">
+        <div id="coordDisplay"></div>
+        <div id="dataWrapRight">
+          <div id="varDisplay">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            alias incidunt, vel tempora porro cum fugit dolor sunt voluptatum
+            obcaecati repudiandae. Delectus quaerat reiciendis eos aspernatur
+            cumque facilis laudantium dicta.
+          </div>
+          <div id="routeDisplay">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            molestiae odit minima, dicta incidunt voluptatem possimus reiciendis
+            eveniet impedit adipisci illo quasi iste ex aspernatur accusamus
+            provident magnam officiis error?
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -45,16 +61,6 @@
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   });
 
-  // OSM-Bright layer
-  var OSMBright = L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png",
-    {
-      maxZoom: 20,
-      attribution:
-        '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    }
-  );
-
   // GoogleStreets Layer
   let googleStreets = L.tileLayer(
     "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
@@ -65,9 +71,7 @@
   );
 
   // Add Layers to map
-  // osm.addTo(map);
-  // OSMBright.addTo(map);
-  googleStreets.addTo(map);
+  osm.addTo(map);
 
   // Custom Icon
   let myIcon = L.icon({
@@ -75,9 +79,6 @@
     iconSize: [50, 50],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76],
-    //shadowUrl: "my-icon-shadow.png",
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94],
   });
 
   // Marker
@@ -101,7 +102,9 @@
   if (!navigator.geolocation) {
     console.log("Browser does not support GeoLocation");
   } else {
-    navigator.geolocation.getCurrentPosition(getPosition);
+    setInterval = () => {
+      navigator.geolocation.getCurrentPosition(getPosition);
+    };
   }
 
   function getPosition(position) {
@@ -112,14 +115,20 @@
 
     let marker = L.marker([lat, long], { icon: myIcon }).addTo(map);
     let circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
+    let featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
-    console.log(
-      "Coordinates: \nLat: " +
-        lat +
-        "\nLong: " +
-        long +
-        "\nAccuracy: " +
-        accuracy
-    );
+    map.fitBounds(featureGroup.getBounds());
+    console.log(lat, long, accuracy);
+    addCoords(lat, long, accuracy);
+  }
+
+  // Function to add datat to dashboard
+  function addCoords(lat, long, accuracy) {
+    let coordinateDisplay = document.getElementById("coordDisplay");
+
+    let newCoordHTML = `<div class="coords">
+      Latitude: ${lat} | Longitude: ${long} | Accuracy: ${accuracy} <br />
+      </div>`;
+    coordinateDisplay.innerHTML += newCoordHTML;
   }
 </script>
