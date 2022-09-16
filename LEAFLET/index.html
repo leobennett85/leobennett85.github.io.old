@@ -63,55 +63,83 @@
   );
 
   // Add Layers to map
-  osm.addTo(map);
+  googleStreets.addTo(map);
 
   let markerStart = L.marker([47.56253, -52.707949]);
   markerStart.addTo(map);
 
-  if (!navigator.geolocation) {
-    console.log("Your browser doesn't support geolocation feature!");
-  } else {
-    {
-      setInterval(navCurrentLocation, 3000);
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  function success(pos) {
+    let position = pos;
+    function log(position) {
+      const crd = pos.coords;
+
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+      addCoords(crd.latitude, crd.longitude, crd.accuracy);
     }
+    setInterval(log, 1500);
   }
 
-  function navCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(getPosition);
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
   }
+  navigator.geolocation.getCurrentPosition(success, error, options);
 
-  let markerTrack, circleTrack;
-
-  function getPosition(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    let accuracy = position.coords.accuracy;
-
-    if (markerTrack) {
-      map.removeLayer(markerTrack);
+  /*
+    if (!navigator.geolocation) {
+      console.log("Your browser doesn't support geolocation feature!");
+    } else {
+      {
+        setInterval(navCurrentLocation, 10000);
+      }
     }
 
-    if (circleTrack) {
-      map.removeLayer(circleTrack);
+    const options = { enableHighAccuracy: true };
+
+    function navCurrentLocation() {
+      navigator.geolocation.getCurrentPosition(getPosition options);
     }
 
-    markerTrack = L.marker([lat, long]);
-    circleTrack = L.circle([lat, long], { radius: accuracy });
+    let markerTrack, circleTrack;
 
-    let featureGroup = L.featureGroup([markerTrack, circleTrack]).addTo(map);
+    function getPosition(position) {
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      let accuracy = position.coords.accuracy;
 
-    //map.fitBounds(featureGroup.getBounds());
+      if (markerTrack) {
+        map.removeLayer(markerTrack);
+      }
 
-    addCoords(lat, long, accuracy);
-  }
+      if (circleTrack) {
+        map.removeLayer(circleTrack);
+      }
 
+      markerTrack = L.marker([lat, long]);
+      circleTrack = L.circle([lat, long], { radius: accuracy });
+
+      let featureGroup = L.featureGroup([markerTrack, circleTrack]).addTo(map);
+
+      //map.fitBounds(featureGroup.getBounds());
+
+      addCoords(lat, long, accuracy);
+    }
+  */
   // Function to add datat to dashboard
   function addCoords(lat, long, accuracy) {
     let coordinateDisplay = document.getElementById("coordDisplay");
 
     let newCoordHTML = `<div class="coords">
-      Latitude: <i>${lat}</i>  Longitude: <i>${long}</i>  Accuracy: <i>${accuracy}</i> <br />
-      </div>`;
+        Latitude: <i>${lat}</i>  Longitude: <i>${long}</i>  Accuracy: <i>${accuracy}</i> <br />
+        </div>`;
     coordinateDisplay.innerHTML += newCoordHTML;
   }
 </script>
