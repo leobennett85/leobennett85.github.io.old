@@ -38,6 +38,7 @@ html {
 #coordDisplay {
     padding: 5px;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 #dateWrapRight {
