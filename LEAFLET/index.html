@@ -70,7 +70,6 @@
 
   const options = {
     enableHighAccuracy: true,
-    timeout: 5000,
     maximumAge: 0,
   };
   function error(err) {
@@ -78,7 +77,11 @@
   }
 
   function navCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    const watchID = navigator.geolocation.watchPosition(
+      success,
+      error,
+      options
+    );
   }
 
   function success(pos) {
