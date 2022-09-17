@@ -66,6 +66,7 @@
   googleStreets.addTo(map);
 
   let markerStart = L.marker([47.56253, -52.707949]);
+  let centerMarker = L.marker([47.56253, -52.707949]);
   markerStart.addTo(map);
 
   const options = {
@@ -93,10 +94,13 @@
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
     addCoords(crd.latitude, crd.longitude, crd.accuracy);
+    if (centerMarker) {
+      centerMarker.coords([crd.latitude, crd.longitude]).addTo(map);
+    }
     map.setView([crd.latitude, crd.longitude], 18);
   }
 
-  setInterval(navCurrentLocation, 10000);
+  setInterval(navCurrentLocation, 1000);
 
   /*
     if (!navigator.geolocation) {
