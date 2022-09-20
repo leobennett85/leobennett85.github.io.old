@@ -25,7 +25,7 @@
       <div id="dataTable">
         <div id="coordDisplay"></div>
         <div id="dataWrapRight">
-          <div id="varDisplay">The Data required to analyze a run</div>
+          <div id="varDisplay"></div>
           <div id="routeDisplay">
             When a run is complete, index and display each run
           </div>
@@ -73,6 +73,7 @@
     enableHighAccuracy: true,
     maximumAge: 0,
   };
+
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
@@ -90,10 +91,11 @@
   let reqcount = 0;
 
   function success(pos) {
+    reqcount++;
     const crd = pos.coords;
 
-    addCoords(crd.latitude, crd.longitude, crd.accuracy);
-    //TODO: add a marker to follow position
+    addCoords(crd.latitude, crd.longitude);
+    updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
     centerMarker = L.marker([crd.latitude, crd.longitude]).addTo(map);
     map.setView([crd.latitude, crd.longitude], 18);
   }
@@ -109,5 +111,17 @@
         </div>`;
     coordinateDisplay.innerHTML += newCoordHTML;
     coordinateDisplay.scrollTo(0, coordinateDisplay.scrollHeight);
+  }
+
+  function updateAnalyzer(req, acc, head, speed) {
+    let varDisplay = document.getElementById("varDisplay");
+
+    let newVarDisplayHTML = `<div class="travelVariables">
+      <b>Number of Requests:</b> <i>${req}</i> <br>
+      <b>Accuracy:</b> <i>${acc}</i> <br>
+      <b>Heading:</b> <i>${head}</i> <br>
+      <b>Speed:</b> <i>${speed}</i>
+      </div>`;
+    varDisplay.innerHTML = newVarDisplayHTML;
   }
 </script>
