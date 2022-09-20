@@ -25,7 +25,7 @@
       <div id="dataTable">
         <div id="coordDisplay"></div>
         <div id="dataWrapRight">
-          <div id="varDisplay">The Data required to analiyze a run</div>
+          <div id="varDisplay">The Data required to analyze a run</div>
           <div id="routeDisplay">
             When a run is complete, index and display each run
           </div>
@@ -150,5 +150,6 @@
         Latitude: <i>${lat}</i>  Longitude: <i>${long}</i>  Accuracy: <i>${accuracy}</i> <br />
         </div>`;
     coordinateDisplay.innerHTML += newCoordHTML;
+    coordinateDisplay.scrollTo(0, coordinateDisplay.scrollHeight);
   }
 </script>
