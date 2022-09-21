@@ -25,12 +25,13 @@ function success(position) {
 
 function initMap() {
   var options = {
+    enableHighAccuracy: true,
     center: { lat: 47.56253, lng: -52.707949 },
     zoom: 16,
   };
 
   // New Google Map
-  map = new google.maps.Map(document.getElementById("map"), options);
+  let map = new google.maps.Map(document.getElementById("map"), options);
 
   function addMarker(location) {
     const marker = new google.maps.Marker({
@@ -38,6 +39,14 @@ function initMap() {
       map: map,
       icon: "icon.png",
     });
+  }
+
+  function centerUser(location) {
+    let options = {
+      center: location,
+      map: map,
+      icon: "icon.png",
+    };
   }
 
   addMarker({ lat: 47.56253, lng: -52.707949 });
@@ -56,19 +65,17 @@ function initMap() {
   function success(pos) {
     reqcount++;
     const crd = pos.coords;
-
+    centerUser(crd.latitude, crd.longitude);
     addCoords(crd.latitude, crd.longitude);
     updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
-    center: {
-      crd.latitude, crd.longitude;
-    }
   }
 
   function error() {
     console.log("Not supported, or possibly not enabled");
   }
 
-  setInterval(navCurrentLocation, 1000);
+  setInterval(navCurrentLocation, 5000);
+
   // Function to add data to the coordinate display dashboard
   function addCoords(lat, long) {
     let coordinateDisplay = document.getElementById("coordDisplay");
@@ -92,7 +99,6 @@ function initMap() {
     varDisplay.innerHTML = newVarDisplayHTML;
   }
 }
-
 /*
   // Create starting marker
   const marker = new google.maps.Marker({
