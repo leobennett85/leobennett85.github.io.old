@@ -65,7 +65,9 @@ function initMap() {
   function success(pos) {
     reqcount++;
     const crd = pos.coords;
+
     centerUser(crd.latitude, crd.longitude);
+    addMarker(crd.latitude, crd.longitude);
     addCoords(crd.latitude, crd.longitude);
     updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
   }
