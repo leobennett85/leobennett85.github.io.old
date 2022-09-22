@@ -97,6 +97,7 @@
 
       addCoords(crd.latitude, crd.longitude);
       updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
+      map.removeLayer(centerMarker);
       centerMarker = L.marker([crd.latitude, crd.longitude]).addTo(map);
       map.setView([crd.latitude, crd.longitude], 18);
     }
