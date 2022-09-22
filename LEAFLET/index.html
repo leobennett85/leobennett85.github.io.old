@@ -46,6 +46,7 @@
       </div>
     </div>
   </body>
+
   <script>
     // Map initializtion
     const map = L.map("map").setView([47.56253, -52.707949], 17);
@@ -102,7 +103,19 @@
       map.setView([crd.latitude, crd.longitude], 18);
     }
 
-    setInterval(navCurrentLocation, 1000);
+    let start = document.getElementById("start");
+    let end = document.getElementById("end");
+
+    start.addEventListener("click", beginRun);
+    end.addEventListener("click", endRun);
+
+    function beginRun() {
+      setInterval(navCurrentLocation, 1000);
+    }
+
+    function endRun() {
+      clearInterval(navCurrentLocation);
+    }
 
     // Function to add data to the coordinate display dashboard
     function addCoords(lat, long) {
