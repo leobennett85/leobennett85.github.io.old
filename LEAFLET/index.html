@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leafletjs Data Retrieval</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="siteWrap">
+      <div id="mapWrap">
+        <!--MAP ENCLOSURE-->
+        <div id="map"></div>
+
+        <!--MAP ENCLOSURE-->
+      </div>
+      <div id="dataTable">
+        <div id="buttonWrap">
+          <button id="start" class="buttons" type="button">Begin Run</button>
+          <button id="end" class="buttons" type="button">End Run</button>
+        </div>
+        <div id="coordDisplay"></div>
+        <div id="dataWrapRight">
+          <div id="varDisplay"></div>
+          <div id="routeDisplay">
+            When a run is complete, index and display each run
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Map initializtion
+    const map = L.map("map").setView([47.56253, -52.707949], 17);
+
+    // GoogleStreets Layer
+    const googleStreets = L.tileLayer(
+      "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      {
+        maxZoom: 20,
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+      }
+    );
+
+    // Add Layers to map
+    googleStreets.addTo(map);
+
+    let markerStart = L.marker([47.56253, -52.707949]);
+    let centerMarker = L.marker([47.56253, -52.707949]);
+    markerStart.addTo(map);
+
+    L.Routing.control({
+      waypoints: [L.latLng(47.55579, -52.73178), L.latLng(47.61617, -52.8371)],
+    }).addTo(map);
+
+    const options = {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+    };
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    // Function to begin tracking device
+    function navCurrentLocation() {
+      const watchID = navigator.geolocation.watchPosition(
+        success,
+        error,
+        options
+      );
+    }
+
+    // Variable to count the number of requests
+    let reqcount = 0;
+
+    function success(pos) {
+      reqcount++;
+      const crd = pos.coords;
+
+      addCoords(crd.latitude, crd.longitude);
+      updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
+      centerMarker = L.marker([crd.latitude, crd.longitude]).addTo(map);
+      map.setView([crd.latitude, crd.longitude], 18);
+    }
+
+    setInterval(navCurrentLocation, 1000);
+
+    // Function to add data to the coordinate display dashboard
+    function addCoords(lat, long) {
+      let coordinateDisplay = document.getElementById("coordDisplay");
+
+      let newCoordHTML = `<div class="coords">
+        Latitude: <i>${lat}</i> | Longitude: <i>${long}</i> <br />
+        </div>`;
+      coordinateDisplay.innerHTML += newCoordHTML;
+      coordinateDisplay.scrollTo(0, coordinateDisplay.scrollHeight);
+    }
+
+    function updateAnalyzer(req, acc, head, speed) {
+      let varDisplay = document.getElementById("varDisplay");
+
+      let newVarDisplayHTML = `<div class="travelVariables">
+      <b>Number of Requests:</b> <i>${req}</i> <br>
+      <b>Accuracy:</b> <i>${acc}</i> <br>
+      <b>Heading:</b> <i>${head}</i> <br>
+      <b>Speed:</b> <i>${speed}</i>
+      </div>`;
+      varDisplay.innerHTML = newVarDisplayHTML;
+    }
+  </script>
+</html>
