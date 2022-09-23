@@ -104,6 +104,7 @@
 
     let positionMarker = L.marker([0, 0]);
     let startMarker = L.marker([0, 0]);
+    let endMarker = L.marker([0, 0]);
 
     // Add Marker
     addPosMarker = (pos) => {
@@ -124,8 +125,8 @@
 
     // When Begin run is clicked
     function beginRun() {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      function showPosition(pos) {
+      navigator.geolocation.getCurrentPosition(showStartPosition);
+      function showStartPosition(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
         startMarker = L.marker([lat, lng]);
@@ -143,6 +144,13 @@
     }
     */
     function endRun() {
+      navigator.geolocation.getCurrentPosition(showEndPosition);
+      function showEndPosition(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        endMarker = L.marker([lat, lng]);
+        endMarker.addTo(map);
+      }
       // Draw a marker to mark Ending position
       navigator.geolocation.clearWatch(id);
     }
