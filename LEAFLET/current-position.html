@@ -90,19 +90,17 @@
       navigator.geolocation.clearWatch(id);
     }
 
+    let positionMarker = L.marker([0, 0]);
+
     // Add Marker
     addPosMarker = (pos) => {
+      map.removeLayer(positionMarker); // Remove old Marker
       const lat = pos.latitude;
       const lng = pos.longitude;
       console.log(`Lat: ${lat} Lng: ${lng}`);
       positionMarker = L.marker([lat, lng]);
       positionMarker.addTo(map);
       map.setView([lat, lng]);
-    };
-
-    // Clear Marker
-    remPosMarker = () => {
-      map.removeLayer();
     };
 
     let start = document.getElementById("start");
