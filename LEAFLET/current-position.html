@@ -63,44 +63,47 @@
     // Add Layers to map
     googleStreets.addTo(map);
 
-    let markerStart = L.marker([47.56253, -52.707949]);
-    let centerMarker = L.marker([47.56253, -52.707949]);
-    markerStart.addTo(map);
-
-    L.Routing.control({
-      waypoints: [L.latLng(47.55579, -52.73178), L.latLng(47.61617, -52.8371)],
-    }).addTo(map);
-
-    const options = {
+    // Variables for scope of watch poisition
+    let options = {
       enableHighAccuracy: true,
-      maximumAge: 0,
+      icon: "icon.png",
+    };
+    let id;
+    let reqCount = 0;
+
+    // GeoLocation error handler
+    function error(err) {
+      console.log(`Error(${err.code}): ${err.message}`);
+    }
+
+    // GeoLocation watch poisition
+    function success(pos) {
+      reqCount++;
+      console.log(reqCount);
+      const crd = pos.coords;
+      addPosMarker(crd);
+      addCoords(crd.latitude, crd.longitude);
+    }
+
+    // GeoLocation stop watch poisition
+    function stopWatch(id) {
+      navigator.geolocation.clearWatch(id);
+    }
+
+    // Add Marker
+    addPosMarker = (pos) => {
+      const lat = pos.latitude;
+      const lng = pos.longitude;
+      console.log(`Lat: ${lat} Lng: ${lng}`);
+      positionMarker = L.marker([lat, lng]);
+      positionMarker.addTo(map);
+      map.setView([lat, lng]);
     };
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
-
-    // Function to begin tracking device
-    function navCurrentLocation() {
-      const watchID = navigator.geolocation.watchPosition(
-        success,
-        error,
-        options
-      );
-    }
-
-    // Variable to count the number of requests
-    let reqcount = 0;
-
-    function success(pos) {
-      reqcount++;
-      const crd = pos.coords;
-      map.removeLayer(centerMarker);
-      centerMarker = L.marker([crd.latitude, crd.longitude]).addTo(map);
-      map.setView([crd.latitude, crd.longitude], 18);
-      addCoords(crd.latitude, crd.longitude);
-      updateAnalyzer(reqcount, crd.accuracy, crd.heading, crd.speed);
-    }
+    // Clear Marker
+    remPosMarker = () => {
+      map.removeLayer();
+    };
 
     let start = document.getElementById("start");
     let end = document.getElementById("end");
@@ -108,14 +111,12 @@
     start.addEventListener("click", beginRun);
     end.addEventListener("click", endRun);
 
-    const navInterval = () => setInterval(navCurrentLocation, 5000);
-
     function beginRun() {
-      navInterval();
+      id = navigator.geolocation.watchPosition(success, error, options);
     }
 
     function endRun() {
-      clearInterval(navInterval());
+      navigator.geolocation.clearWatch(id);
     }
 
     // Function to add data to the coordinate display dashboard
