@@ -66,7 +66,6 @@
     // Variables for scope of watch poisition
     let options = {
       enableHighAccuracy: true,
-      icon: "icon.png",
     };
     let id;
     let reqCount = 0;
@@ -77,7 +76,7 @@
     }
 
     // GeoLocation watch poisition
-    function success(pos) {
+    function beginSuccess(pos) {
       reqCount++;
       console.log(reqCount);
       const crd = pos.coords;
@@ -89,31 +88,62 @@
     function stopWatch(id) {
       navigator.geolocation.clearWatch(id);
     }
+    /*
+    // GeoLocation start run info
+    function startPosSuccess(pos) {
+      const lat = pos.latitude;
+      const lng = pos.longitude;
+      console.log(`Lat: ${lat} Lng: ${lng}`);
+      const startMarker = L.marker([lat, lng]);
+      startMarker.addTo(map);
+    }
+
+    // GeoLocation end run info
+    function endPosSuccess(pos) {}
+    */
 
     let positionMarker = L.marker([0, 0]);
+    let startMarker = L.marker([0, 0]);
 
     // Add Marker
     addPosMarker = (pos) => {
       map.removeLayer(positionMarker); // Remove old Marker
       const lat = pos.latitude;
       const lng = pos.longitude;
-      console.log(`Lat: ${lat} Lng: ${lng}`);
       positionMarker = L.marker([lat, lng]);
       positionMarker.addTo(map);
       map.setView([lat, lng]);
     };
 
+    // Assign buttons
     let start = document.getElementById("start");
     let end = document.getElementById("end");
-
+    // Add Listeners to buttons
     start.addEventListener("click", beginRun);
     end.addEventListener("click", endRun);
 
+    // When Begin run is clicked
     function beginRun() {
-      id = navigator.geolocation.watchPosition(success, error, options);
-    }
+      navigator.geolocation.getCurrentPosition(showPosition);
+      function showPosition(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        startMarker = L.marker([lat, lng]);
+        startMarker.addTo(map);
+      }
 
+      // Begin Watching Position
+      id = navigator.geolocation.watchPosition(beginSuccess, error, options);
+    }
+    /*
+    function showMarker(pos) {
+      const lat = pos.latitude;
+      const lng = pos.longitude;
+      console.log(`Lat: ${lat} Lng: ${lng}`);
+    }
+    */
     function endRun() {
+      // Draw a marker to mark Ending position
       navigator.geolocation.clearWatch(id);
     }
 
