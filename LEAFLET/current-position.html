@@ -82,6 +82,7 @@
       const crd = pos.coords;
       addPosMarker(crd);
       addCoords(crd.latitude, crd.longitude);
+      updateAnalyzer(reqCount, crd.accuracy, crd.heading, crd.speed);
     }
 
     // GeoLocation stop watch poisition
