@@ -1,0 +1,4 @@
+JSON.parse(variablePointingToJson) 
+
+const jsonString = dataFromGeoJSON
+const jsonObject = JSON.parse(jsonString
