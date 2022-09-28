@@ -63,7 +63,7 @@
     // Add Layers to map
     googleStreets.addTo(map);
 
-    // Variables for scope of watch poisition
+    // Variables for watch poisition
     let options = {
       enableHighAccuracy: true,
     };
@@ -103,9 +103,10 @@
     function endPosSuccess(pos) {}
     */
 
-    let positionMarker = L.marker([0, 0]);
-    let startMarker = L.marker([0, 0]);
-    let endMarker = L.marker([0, 0]);
+    let positionMarker = L.marker([0, 0]); // Live position
+    let startMarker = L.marker([0, 0]); // Begining marker
+    let endMarker = L.marker([0, 0]); // Ending Marker
+    let coordIndex = 0; // Index for storage
 
     // Add Marker
     addPosMarker = (pos) => {
@@ -124,12 +125,23 @@
     start.addEventListener("click", beginRun);
     end.addEventListener("click", endRun);
 
+    // Function to store run coordinates in localStorage
+    function storeCoords(lat, lng) {
+      coordIndex++;
+      localStorage.setItem(`"startLat${coordIndex}"`, `"${lat}"`);
+      localStorage.setItem(`"startLng${coordIndex}"`, `"${lng}"`);
+      console.log(`Store Coords Function:
+      Lat: ${lat}
+      Lng: ${lng}`);
+    }
+
     // When Begin run is clicked
     function beginRun() {
       navigator.geolocation.getCurrentPosition(showStartPosition);
       function showStartPosition(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
+        storeCoords(lat, lng);
         startMarker = L.marker([lat, lng]);
         startMarker.addTo(map);
       }
