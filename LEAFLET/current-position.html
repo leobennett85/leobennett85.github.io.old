@@ -39,9 +39,7 @@
         <div id="coordDisplay"></div>
         <div id="dataWrapRight">
           <div id="varDisplay"></div>
-          <div id="routeDisplay">
-            When a run is complete, index and display each run
-          </div>
+          <div id="routeDisplay"></div>
         </div>
       </div>
     </div>
@@ -89,19 +87,6 @@
     function stopWatch(id) {
       navigator.geolocation.clearWatch(id);
     }
-    /*
-    // GeoLocation start run info
-    function startPosSuccess(pos) {
-      const lat = pos.latitude;
-      const lng = pos.longitude;
-      console.log(`Lat: ${lat} Lng: ${lng}`);
-      const startMarker = L.marker([lat, lng]);
-      startMarker.addTo(map);
-    }
-
-    // GeoLocation end run info
-    function endPosSuccess(pos) {}
-    */
 
     let positionMarker = L.marker([0, 0]); // Live position
     let startMarker = L.marker([0, 0]); // Begining marker
@@ -161,13 +146,7 @@
       // Begin Watching Position
       id = navigator.geolocation.watchPosition(beginSuccess, error, options);
     }
-    /*
-    function showMarker(pos) {
-      const lat = pos.latitude;
-      const lng = pos.longitude;
-      console.log(`Lat: ${lat} Lng: ${lng}`);
-    }
-    */
+
     function endRun() {
       navigator.geolocation.getCurrentPosition(showEndPosition);
       function showEndPosition(pos) {
