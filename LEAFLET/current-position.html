@@ -61,6 +61,11 @@
     // Add Layers to map
     googleStreets.addTo(map);
 
+    L.Routing.control({
+      waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
+      routeWhileDragging: true,
+    }).addTo(map);
+
     // Variables for watch poisition
     let options = {
       enableHighAccuracy: true,
@@ -94,12 +99,19 @@
     let coordStartIndex = 0; // Index for starting coords storage
     let coordEndIndex = 0; // Index for ending coords storage
     let runIndex = 0; // Run index
+    let startLat,
+      endLat,
+      startLng,
+      endLng = [0, 0]; // Initialize waypoints
 
     // Add Marker
     addPosMarker = (pos) => {
       map.removeLayer(positionMarker); // Remove old Marker
+      let line = L.polyline([]).addTo(map);
       const lat = pos.latitude;
       const lng = pos.longitude;
+      const point = { lat: lat, lng: lng };
+      line.addLatLng(point);
       positionMarker = L.marker([lat, lng]);
       positionMarker.addTo(map);
       map.setView([lat, lng]);
@@ -192,5 +204,6 @@
       routeDisplay.innerHTML += newRouteDisplayHTML;
       routeDisplay.scrollTo(0, routeDisplay.scrollHeight);
     }
+    // Function to draw route between 2 waypoints
   </script>
 </html>
