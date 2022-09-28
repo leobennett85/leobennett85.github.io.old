@@ -105,3 +105,9 @@ html {
 .buttons {
     height: 30px;
 }
+
+.routes {
+    outline: 1px solid black;
+    outline-offset: -1px;
+    font-weight: bold;
+}

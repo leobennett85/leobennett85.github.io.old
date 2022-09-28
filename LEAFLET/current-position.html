@@ -39,9 +39,7 @@
         <div id="coordDisplay"></div>
         <div id="dataWrapRight">
           <div id="varDisplay"></div>
-          <div id="routeDisplay">
-            When a run is complete, index and display each run
-          </div>
+          <div id="routeDisplay"></div>
         </div>
       </div>
     </div>
@@ -63,7 +61,7 @@
     // Add Layers to map
     googleStreets.addTo(map);
 
-    // Variables for scope of watch poisition
+    // Variables for watch poisition
     let options = {
       enableHighAccuracy: true,
     };
@@ -89,23 +87,13 @@
     function stopWatch(id) {
       navigator.geolocation.clearWatch(id);
     }
-    /*
-    // GeoLocation start run info
-    function startPosSuccess(pos) {
-      const lat = pos.latitude;
-      const lng = pos.longitude;
-      console.log(`Lat: ${lat} Lng: ${lng}`);
-      const startMarker = L.marker([lat, lng]);
-      startMarker.addTo(map);
-    }
 
-    // GeoLocation end run info
-    function endPosSuccess(pos) {}
-    */
-
-    let positionMarker = L.marker([0, 0]);
-    let startMarker = L.marker([0, 0]);
-    let endMarker = L.marker([0, 0]);
+    let positionMarker = L.marker([0, 0]); // Live position
+    let startMarker = L.marker([0, 0]); // Begining marker
+    let endMarker = L.marker([0, 0]); // Ending Marker
+    let coordStartIndex = 0; // Index for starting coords storage
+    let coordEndIndex = 0; // Index for ending coords storage
+    let runIndex = 0; // Run index
 
     // Add Marker
     addPosMarker = (pos) => {
@@ -124,12 +112,33 @@
     start.addEventListener("click", beginRun);
     end.addEventListener("click", endRun);
 
+    // Function to store run coordinates in localStorage
+    function storeStartCoords(lat, lng) {
+      coordStartIndex++;
+      localStorage.setItem(`"startLat${coordStartIndex}"`, `"${lat}"`);
+      localStorage.setItem(`"startLng${coordStartIndex}"`, `"${lng}"`);
+      console.log(`Store Coords Function:
+      Lat: ${lat}
+      Lng: ${lng}`);
+    }
+
+    function storeEndCoords(lat, lng) {
+      coordEndIndex++;
+      runIndex = coordEndIndex;
+      localStorage.setItem(`"endLat${coordEndIndex}"`, `"${lat}"`);
+      localStorage.setItem(`"endLng${coordEndIndex}"`, `"${lng}"`);
+      console.log(`Store Coords Function:
+      Lat: ${lat}
+      Lng: ${lng}`);
+    }
+
     // When Begin run is clicked
     function beginRun() {
       navigator.geolocation.getCurrentPosition(showStartPosition);
       function showStartPosition(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
+        storeStartCoords(lat, lng);
         startMarker = L.marker([lat, lng]);
         startMarker.addTo(map);
       }
@@ -137,23 +146,19 @@
       // Begin Watching Position
       id = navigator.geolocation.watchPosition(beginSuccess, error, options);
     }
-    /*
-    function showMarker(pos) {
-      const lat = pos.latitude;
-      const lng = pos.longitude;
-      console.log(`Lat: ${lat} Lng: ${lng}`);
-    }
-    */
+
     function endRun() {
       navigator.geolocation.getCurrentPosition(showEndPosition);
       function showEndPosition(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
+        storeEndCoords(lat, lng);
         endMarker = L.marker([lat, lng]);
         endMarker.addTo(map);
       }
       // Draw a marker to mark Ending position
       navigator.geolocation.clearWatch(id);
+      updateFares();
     }
 
     // Function to add data to the coordinate display dashboard
@@ -166,7 +171,7 @@
       coordinateDisplay.innerHTML += newCoordHTML;
       coordinateDisplay.scrollTo(0, coordinateDisplay.scrollHeight);
     }
-
+    // Function to display live run data on the dashboard
     function updateAnalyzer(req, acc, head, speed) {
       let varDisplay = document.getElementById("varDisplay");
 
@@ -177,6 +182,15 @@
           <b>Speed:</b> <i>${speed}</i>
           </div>`;
       varDisplay.innerHTML = newVarDisplayHTML;
+    }
+    // Function to display each run on the dashboard
+    function updateFares(address, time) {
+      let routeDisplay = document.getElementById("routeDisplay");
+
+      let newRouteDisplayHTML = `<div class="routes">
+        <b>${runIndex}:</b> | <b>Address:</b> ${address} | <b>Time:</b> ${time}`;
+      routeDisplay.innerHTML += newRouteDisplayHTML;
+      routeDisplay.scrollTo(0, routeDisplay.scrollHeight);
     }
   </script>
 </html>
