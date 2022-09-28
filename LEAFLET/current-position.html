@@ -109,8 +109,6 @@
       map.removeLayer(positionMarker); // Remove old Marker
       const lat = pos.latitude;
       const lng = pos.longitude;
-
-      line.addLatLng(point);
       positionMarker = L.marker([lat, lng]);
       positionMarker.addTo(map);
       L.polyline([lat, lng]).addTo(map);
