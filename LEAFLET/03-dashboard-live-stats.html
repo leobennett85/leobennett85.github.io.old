@@ -105,8 +105,10 @@
       // addMarker(lat, lng);
     }
 
+    // Function to launch watchPosition and add startMarker
     function beginRun() {
       // Function to mark and display starting position
+      navigator.geolocation.getCurrentPosition(addStartMarker);
       // Begin watching Position
       let id = navigator.geolocation.watchPosition(
         beginSuccess,
@@ -115,10 +117,30 @@
       );
     }
 
+    // Function to end watchPosition
     function endRun() {
-      navigator.geolocation.getCurrentPosition(addMarker);
+      // Remove position marker
       map.removeLayer(positionMarker);
+      // Add ending marker
+      navigator.geolocation.getCurrentPosition(addEndMarker);
+      // End watchPosition
       navigator.geolocation.clearWatch(id);
+    }
+
+    // Function to add start marker
+    function addStartMarker(pos) {
+      const crd = pos.coords;
+      let lat = crd.latitude;
+      let lng = crd.longitude;
+      addMarker(lat, lng);
+    }
+
+    // Function to add end marker
+    function addEndMarker(pos) {
+      const crd = pos.coords;
+      let lat = crd.latitude;
+      let lng = crd.longitude;
+      addMarker(lat, lng);
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
