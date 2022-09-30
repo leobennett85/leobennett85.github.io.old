@@ -127,6 +127,7 @@ ESRI ARCGIS KEY
     let req = 0; // Number of request
     let positionMarker = L.marker([0, 0]); // use positionMarker to display current position
     let runIndex = 0; // Index variable for fares at end of runs
+    let endAdd;
     function beginSuccess(pos) {
       map.removeLayer(positionMarker);
       const crd = pos.coords; // Store coordinates in crd variable
@@ -148,7 +149,22 @@ ESRI ARCGIS KEY
       id = navigator.geolocation.watchPosition(beginSuccess, error, options);
     }
     // Initialize variables for geocding
-
+    // GEOCODE
+    function reverseGeoCode(pos) {
+      const crd = pos.coords;
+      let lat = crd.latitude;
+      let lng = crd.longitude;
+      geocodeService
+        .reverse()
+        .latlng([lat, lng])
+        .run(function (error, result) {
+          if (error) {
+            return;
+          }
+          endAdd = result.address.Address;
+          updateFares(endAdd);
+        });
+    }
     // Function to end watchPosition
     function endRun() {
       // Remove position marker
@@ -161,24 +177,6 @@ ESRI ARCGIS KEY
       runIndex++; // inc runIndex
       // Reverse geocode arrival address
       navigator.geolocation.getCurrentPosition(reverseGeoCode);
-      // GEOCODE
-      function reverseGeoCode(pos) {
-        const crd = pos.coords;
-        let lat = crd.latitude;
-        let lng = crd.longitude;
-        geocodeService
-          .reverse()
-          .latlng([lat, lng])
-          .run(function (error, result) {
-            if (error) {
-              return;
-            }
-
-            endAdd = result.address;
-            console.log(endAdd);
-          });
-      }
-      updateFares();
     }
 
     // Function to add start marker
