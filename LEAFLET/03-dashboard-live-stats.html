@@ -110,11 +110,7 @@
       // Function to mark and display starting position
       navigator.geolocation.getCurrentPosition(addStartMarker);
       // Begin watching Position
-      let id = navigator.geolocation.watchPosition(
-        beginSuccess,
-        error,
-        options
-      );
+      id = navigator.geolocation.watchPosition(beginSuccess, error, options);
     }
 
     // Function to end watchPosition
