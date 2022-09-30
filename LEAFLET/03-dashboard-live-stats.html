@@ -129,6 +129,7 @@ ESRI ARCGIS KEY
     let runIndex = 0; // Index variable for fares at end of runs
     let endAdd;
     function beginSuccess(pos) {
+      req++;
       map.removeLayer(positionMarker);
       const crd = pos.coords; // Store coordinates in crd variable
       let lat = crd.latitude; // use lat variable to store lat coord
@@ -229,7 +230,7 @@ ESRI ARCGIS KEY
       let routeDisplay = document.getElementById("routeDisplay");
 
       let newRouteDisplayHTML = `<div class="routes">
-        <b>${runIndex}:</b> | <b>Address:</b> ${endAdd} | <b>Time:</b> ${time}`;
+        <b>${runIndex}:</b> | <b>Ending Address:</b> ${endAdd}`;
       routeDisplay.innerHTML += newRouteDisplayHTML;
       routeDisplay.scrollTo(0, routeDisplay.scrollHeight);
     }
