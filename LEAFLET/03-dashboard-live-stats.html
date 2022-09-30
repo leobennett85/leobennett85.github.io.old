@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leafletjs Data Retrieval</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="siteWrap">
+      <div id="mapWrap">
+        <!--MAP ENCLOSURE-->
+        <div id="map"></div>
+
+        <!--MAP ENCLOSURE-->
+      </div>
+      <div id="dataTable">
+        <div id="buttonWrap">
+          <button id="start" class="buttons" type="button">Begin Run</button>
+          <button id="end" class="buttons" type="button">End Run</button>
+        </div>
+        <div id="coordDisplay"></div>
+        <div id="dataWrapRight">
+          <div id="varDisplay"></div>
+          <div id="routeDisplay"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Use watchPosition(Success, error, options) callback
+    // function to watch the position of the user and update
+    // when the user changes position
+
+    // Steps to watchPosition
+    //  1. Init Map
+    //  2. Setup previously coded watch position
+    //  3. Function to create a starting marker
+    //  4. Function to create an ending marker
+
+    // 1. Init Map
+    // Map Init
+    let map = L.map("map", {
+      center: [47.55157, -52.77066],
+      zoom: 16,
+    });
+    // baseMaps googleStreets Tile Layer
+    const googleStreets = L.tileLayer(
+      "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      {
+        maxZoom: 20,
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+      }
+    ).addTo(map);
+
+    // 2. Setup previously coded watchPosition
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Assign buttons
+    let start = document.getElementById("start");
+    let end = document.getElementById("end");
+    // Add Listeners to buttons
+    start.addEventListener("click", beginRun);
+    end.addEventListener("click", endRun);
+
+    // GeoLocation error handler
+    function error(err) {
+      console.log(`Error(${err.code}): ${err.message}`);
+    }
+
+    // GeoLocation options
+    let options = {
+      enableHighAccuracy: true,
+    };
+
+    // Initialize variables for callback function
+    let id;
+    let positionMarker = L.marker([0, 0]); // use positionMarker to display current position
+    function beginSuccess(pos) {
+      map.removeLayer(positionMarker);
+      const crd = pos.coords; // Store coordinates in crd variable
+      console.log(crd);
+      let lat = crd.latitude; // use lat variable to store lat coord
+      let lng = crd.longitude; // use lng variable to store lng coord
+      positionMarker = L.marker([lat, lng]); // use positionMarker to display current position
+      positionMarker.addTo(map); // Add position marker to map
+      // 3. Function to create a starting marker
+      addMarker(lat, lng);
+    }
+
+    function beginRun() {
+      // Function to mark and display starting position
+      // Begin watching Position
+      let id = navigator.geolocation.watchPosition(
+        beginSuccess,
+        error,
+        options
+      );
+    }
+
+    function endRun() {
+      navigator.geolocation.getCurrentPosition(addMarker);
+      map.removeLayer(positionMarker);
+      navigator.geolocation.clearWatch(id);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 3. Function to create a starting marker
+    function addMarker(lat, lng) {
+      const marker = L.marker([lat, lng]);
+      marker.addTo(map);
+    }
+
+    //  3. Create function during callback to pull coordinates
+    //     and other data required
+    // Function to add data to the coordinate display dashboard
+    function addCoords(lat, long) {
+      let coordinateDisplay = document.getElementById("coordDisplay");
+
+      let newCoordHTML = `<div class="coords">
+            Latitude: <i>${lat}</i> | Longitude: <i>${long}</i> <br />
+            </div>`;
+      coordinateDisplay.innerHTML += newCoordHTML;
+      coordinateDisplay.scrollTo(0, coordinateDisplay.scrollHeight);
+    }
+    // Function to display live run data on the dashboard
+    function updateAnalyzer(req, acc, head, speed) {
+      let varDisplay = document.getElementById("varDisplay");
+
+      let newVarDisplayHTML = `<div class="travelVariables">
+          <b>Number of Requests:</b> <i>${req}</i> <br>
+          <b>Accuracy:</b> <i>${acc}</i> <br>
+          <b>Heading:</b> <i>${head}</i> <br>
+          <b>Speed:</b> <i>${speed}</i>
+          </div>`;
+      varDisplay.innerHTML = newVarDisplayHTML;
+    }
+    // Function to display each run on the dashboard
+    function updateFares(address, time) {
+      let routeDisplay = document.getElementById("routeDisplay");
+
+      let newRouteDisplayHTML = `<div class="routes">
+        <b>${runIndex}:</b> | <b>Address:</b> ${address} | <b>Time:</b> ${time}`;
+      routeDisplay.innerHTML += newRouteDisplayHTML;
+      routeDisplay.scrollTo(0, routeDisplay.scrollHeight);
+    }
+  </script>
+</html>
