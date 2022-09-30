@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leafletjs Data Retrieval</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="siteWrap">
+      <div id="mapWrap">
+        <!--MAP ENCLOSURE-->
+        <div id="map"></div>
+
+        <!--MAP ENCLOSURE-->
+      </div>
+      <div id="dataTable">
+        <div id="buttonWrap">
+          <button id="start" class="buttons" type="button">Begin Run</button>
+          <button id="end" class="buttons" type="button">End Run</button>
+        </div>
+        <div id="coordDisplay"></div>
+        <div id="dataWrapRight">
+          <div id="varDisplay"></div>
+          <div id="routeDisplay"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Use watchPosition(Success, error, options) callback
+    // function to watch the position of the user and update
+    // when the user changes position
+
+    // Steps to watchPosition
+    //  1. Init Map
+    //  2. Setup dom assignments for beginWatch button
+    //     and endWatch button
+    //  3. Set Error handler for watchPosition() - wrror param
+    //  4. Set options for watchPosition
+    //  5. Set callback function for watchPosition() - success param
+    //  6. Call watchPosition() callback function after button clicked
+    //  7. Create a factory function to stop watching position
+    //     called at endRun
+
+    // 1. Init Map
+    // Map Init
+    let map = L.map("map", {
+      center: [47.55157, -52.77066],
+      zoom: 10,
+    });
+    // baseMaps googleStreets Tile Layer
+    const googleStreets = L.tileLayer(
+      "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      {
+        maxZoom: 20,
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+      }
+    ).addTo(map);
+
+    // 2. Setup dom assignments for beginWatch button
+    // Assign buttons
+    let start = document.getElementById("start");
+    let end = document.getElementById("end");
+    // Add Listeners to buttons
+    start.addEventListener("click", beginRun);
+    end.addEventListener("click", endRun);
+
+    // 3. Set Error handler for watchPosition() - error param
+    // GeoLocation error handler
+    function error(err) {
+      console.log(`Error(${err.code}): ${err.message}`);
+    }
+
+    // 4. Set options for watchPosition
+    // GeoLocation options
+    let options = {
+      enableHighAccuracy: true,
+    };
+
+    // Initialize variables
+    let id;
+    let positionMarker = L.marker([0, 0]); // use positionMarker to display current position
+    // 5. Set callback function for watchPosition() - success param
+    function beginSuccess(pos) {
+      map.removeLayer(positionMarker);
+      const crd = pos.coords; // Store coordinates in crd variable
+      console.log(crd);
+      let lat = crd.latitude; // use lat variable to store lat coord
+      let lng = crd.longitude; // use lng variable to store lng coord
+
+      positionMarker = L.marker([lat, lng]); // use positionMarker to display current position
+      positionMarker.addTo(map); // Add position marker to map
+      // TODO: Function to display starting position through a marker
+    }
+
+    // 6. Call watchPosition() callback function after button clicked
+    function beginRun() {
+      // Function to mark and display starting position
+      // Begin watching Position
+      let id = navigator.geolocation.watchPosition(
+        beginSuccess,
+        error,
+        options
+      );
+    }
+
+    // 7. Function to end watchPosition() callback function after button clicked
+    function endRun() {
+      // TODO: Function to display ending position through a marker
+      map.removeLayer(positionMarker);
+      navigator.geolocation.clearWatch(id);
+    }
+  </script>
+</html>

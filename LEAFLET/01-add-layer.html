@@ -1,10 +1,13 @@
+<!--  
+      // TASK: 
+    -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leafletjs Data Retrieval</title>
+    <title>Watch User Position</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
@@ -64,6 +67,11 @@
     // Layers can be controlled in by the LayerGroup class
     // BY USING THE LAYER CONTROL WE CAN DIFFERENTIATE BETWEEN OUR ROUTES
 
+    // Map Init
+    let map = L.map("map", {
+      center: [47.55157, -52.77066],
+      zoom: 10,
+    });
     // baseMaps googleStreets Tile Layer
     const googleStreets = L.tileLayer(
       "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
@@ -71,14 +79,9 @@
         maxZoom: 20,
         subdomains: ["mt0", "mt1", "mt2", "mt3"],
       }
-    );
-    // Map Init
-    let map = L.map("map", {
-      center: [47.55157, -52.77066],
-      zoom: 10,
-    });
+    ).addTo(map);
 
-    googleStreets.addTo(map);
+    // googleStreets.addTo(map);
 
     // To be able to load data more dynamically
     // create 2 objects. One to contain base layers
