@@ -47,15 +47,13 @@
     // Begin with city variables as example
     // Create a set of Overlay objects, in this case markers
     // to later be grouped
-    let stJohns = new L.Marker([47.55157, -52.77066]).bindPopup(
+    let stJohns = L.marker([47.55157, -52.77066]).bindPopup(
         `St. John's Newfoundland B'ys!`
       ),
-      mountPearl = new L.Marker([47.50791, -52.82044]).bindPopup(
+      mountPearl = L.marker([47.50791, -52.82044]).bindPopup(
         `Friggin Pearl... ugh`
       ),
-      maddoxCove = new L.Marker([47.49639, -52.70414]).bindPopup(
-        `Where's dat?`
-      );
+      maddoxCove = L.marker([47.49639, -52.70414]).bindPopup(`Where's dat?`);
 
     // Instead of Adding them directly to a map
     // we'll add them to a Layer Group called cities
