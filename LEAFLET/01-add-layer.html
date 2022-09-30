@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leafletjs Data Retrieval</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="siteWrap">
+      <div id="mapWrap">
+        <!--MAP ENCLOSURE-->
+        <div id="map"></div>
+
+        <!--MAP ENCLOSURE-->
+      </div>
+      <div id="dataTable">
+        <div id="buttonWrap">
+          <button id="start" class="buttons" type="button">Begin Run</button>
+          <button id="end" class="buttons" type="button">End Run</button>
+        </div>
+        <div id="coordDisplay"></div>
+        <div id="dataWrapRight">
+          <div id="varDisplay"></div>
+          <div id="routeDisplay"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Begin with city variables as example
+    // Create a set of Overlay objects, in this case markers
+    // to later be grouped
+    let stJohns = new L.Marker([47.55157, -52.77066]).bindPopup(
+        `St. John's Newfoundland B'ys!`
+      ),
+      mountPearl = new L.Marker([47.50791, -52.82044]).bindPopup(
+        `Friggin Pearl... ugh`
+      ),
+      maddoxCove = new L.Marker([47.49639, -52.70414]).bindPopup(
+        `Where's dat?`
+      );
+
+    // Instead of Adding them directly to a map
+    // we'll add them to a Layer Group called cities
+    const cities = new L.layerGroup([stJohns, mountPearl, maddoxCove]);
+
+    // 2 Types of Layers
+    // baseMaps (tiles to view map details) and
+    // overlayMaps (to view data and objects)
+    // Layers can be controlled in by the LayerGroup class
+    // BY USING THE LAYER CONTROL WE CAN DIFFERENTIATE BETWEEN OUR ROUTES
+
+    // baseMaps googleStreets Tile Layer
+    const googleStreets = L.tileLayer(
+      "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      {
+        maxZoom: 20,
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+      }
+    );
+    // Map Init
+    let map = L.map("map", {
+      center: [47.55157, -52.77066],
+      zoom: 10,
+    });
+
+    googleStreets.addTo(map);
+
+    // To be able to load data more dynamically
+    // create 2 objects. One to contain base layers
+    // like tileLayers and another for Overlays
+    let baseMaps = {
+      "GoogleMaps Streets": googleStreets,
+    };
+
+    let overlayMaps = {
+      // This is where the dynamically loaded routes must
+      // go to be seen
+      // Data must be pulled from routes as completed
+      // and Loaded into overlayMaps and posted with layerControl
+      // Stats will be stored in localStorage as a universal
+      // data store
+      "City Recs": cities,
+    };
+
+    // Add a Layer Control to the map.
+    // Here we can add our base and overlay groups
+    let layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+  </script>
+</html>
