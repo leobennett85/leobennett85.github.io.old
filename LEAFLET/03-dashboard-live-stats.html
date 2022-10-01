@@ -127,7 +127,7 @@ ESRI ARCGIS KEY
     let req = 0; // Number of request
     let positionMarker = L.marker([0, 0]); // use positionMarker to display current position
     let runIndex = 0; // Index variable for fares at end of runs
-    let endAdd;
+    let endAdd, startAdd;
     function beginSuccess(pos) {
       req++;
       map.removeLayer(positionMarker);
@@ -230,7 +230,8 @@ ESRI ARCGIS KEY
       let routeDisplay = document.getElementById("routeDisplay");
 
       let newRouteDisplayHTML = `<div class="routes">
-        <b>${runIndex}:</b> | <b>Ending Address:</b> ${endAdd}`;
+        <b>${runIndex}: Starting Address:</b> ${endAdd}
+                      | Ending Address:</b> ${startAdd}`;
       routeDisplay.innerHTML += newRouteDisplayHTML;
       routeDisplay.scrollTo(0, routeDisplay.scrollHeight);
     }
