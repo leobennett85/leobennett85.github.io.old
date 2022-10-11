@@ -64,6 +64,11 @@ const modalNewRunStartingAdd = new Modal(
   "Enter Starting Address",
   modalNewRunDestinationAdd
 );
+const modalNewRunStand = new Modal(
+  "NewRun",
+  "Enter Stand Number",
+  modalNewRunStartingAdd
+);
 
 // Build NewExpense Modal
 const modalNewExpenseCost = new Modal(
