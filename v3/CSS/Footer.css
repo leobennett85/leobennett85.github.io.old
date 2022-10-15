@@ -1,0 +1,39 @@
+#footerWrap {
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    width: 100%;
+    height: 4rem;
+    border: 1px solid;
+    grid-template-areas:
+        'footerOdometer'
+        'footerGas          footerLitresPer';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+}
+
+#idFooterOdometer {
+    grid-column: span 2;
+    background-color: rgb(222, 222, 222);
+}
+
+
+#idFooterGas {
+    background-color: rgb(255, 255, 255);
+}
+
+#idFooterLitresPer {
+    background-color: rgb(255, 255, 255)
+}
+
+.footerText {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}

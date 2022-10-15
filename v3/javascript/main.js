@@ -1,37 +1,54 @@
-// Create endModal instance to end modal builds
+// Create header instance and post to site
+const header = new Header();
 
-const endModal = new Modal("EndModal", "", "");
+// Create footer instance and post to site
+const footer = new Footer();
+
+// Create menu instance and post to site
+const menu = new Menu();
+
+// Create report instance and post to site
+const report = new DataReport();
+
+// Create endModal instance to end modal builds
+const endModal = new Modal("EndModal", "", "", "");
 
 // Build BeginShift Modal
 
 // Modal Declerations for BeginShift
 const modalBeginDispatcher = new Modal(
+  "dispatcherName",
   "BeginShift",
   "Enter Dispatcher's Name",
   endModal
 );
 const modalBeginLitresPer = new Modal(
+  "litresPer",
   "BeginShift",
   "Enter Litres/100km",
   modalBeginDispatcher
 );
 const modalBeginGas = new Modal(
+  "estGas",
   "BeginShift",
   "Enter Current Price of Gas",
   modalBeginLitresPer
 );
 const modalBeginOdometer = new Modal(
+  "beginOdometer",
   "BeginShift",
   "Enter Current Odometer Reading",
   modalBeginGas
 );
 const modalBeginBroker = new Modal(
+  "brokerName",
   "BeginShift",
   "Enter Broker's Name",
   modalBeginOdometer
 );
 
 const modalBeginDriver = new Modal(
+  "driverName",
   "BeginShift",
   "Enter Driver's Name",
   modalBeginBroker

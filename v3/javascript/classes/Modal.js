@@ -39,7 +39,8 @@ modalInput
 */
 // Modal Class to construct and display modals
 class Modal {
-  constructor(info, modalDesc, nextModal) {
+  constructor(key, info, modalDesc, nextModal) {
+    this.key = key;
     this.info = info;
     this.modalDesc = modalDesc;
     this.modalName = "id" + info + "Modal";
@@ -50,7 +51,7 @@ class Modal {
     this.modalInputId = "id" + info + "ModalInput";
     this.modalInput = this.modalName + "Input";
     this.modalBtnId = "id" + info + "ModalBtn";
-    this.modalHTML = `<div id="${this.modalName}" class="modal">;
+    this.modalHTML = `<div id="${this.modalName}" class="modal">
       <div id="${this.modalInfo}" class="modalContent">
         <div class="modalBanner1 checkers"></div>
         <div class="modalBanner2 checkers"></div>
@@ -74,7 +75,8 @@ class Modal {
   }
 
   get input() {
-    return document.getElementById(`${this.modalInputId.id}`);
+    const input = document.getElementById(`${this.modalInputId}`).value;
+    return input;
   }
 
   // Methods
@@ -84,9 +86,9 @@ class Modal {
   };
 
   modalClick = () => {
-    //value = this.input.value;
-    //console.log(value);
-    //addLocalStorageItem("globalOdometer", globalOdometer);
+    const value = this.input;
+    const key = this.info;
+    console.log(`Key: ${key} \n Value: ${value}`);
     //removeModal(currentModal);
     if (this.nextModal === endModal) {
       this.isEndModal();
@@ -114,4 +116,6 @@ class Modal {
     // Hide Modal
     this.modal.style.display = "none";
   };
+
+  localStorageCheck = () => {};
 }

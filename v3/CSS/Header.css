@@ -1,0 +1,57 @@
+#headerWrap {
+    z-index: 2;
+    position: absolute;
+    display: grid;
+    width: 100%;
+    top: 0;
+    height: 8rem;
+    border: 1px solid;
+    grid-template-areas:
+        'headerTitle'
+        'headerDate'
+        'headerDriver       headerBroker'
+        'headerDispatch';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    font-size: 1rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+}
+
+#idHeaderTitle {
+    grid-column: span 2;
+    border-bottom: 2px solid;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: rgb(0, 0, 0);
+    text-shadow: -1px -1px rgb(255, 255, 255), 1px 1px rgb(255, 255, 255), -1px 1px rgb(255, 255, 255), 1px -1px rgb(255, 255, 255);
+    background-image: linear-gradient(to bottom left, rgb(255, 243, 132), rgb(255, 183, 0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#idHeaderDate {
+    grid-column: span 2;
+    background-color: rgb(222, 222, 222);
+}
+
+#idHeaderDriver {
+    background-color: rgb(255, 255, 255);
+}
+
+#idHeaderBroker {
+    background-color: rgb(255, 255, 255);
+
+}
+
+#idHeaderDispatcher {
+    grid-column: span 2;
+    background-color: rgb(222, 222, 222);
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+}
