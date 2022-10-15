@@ -1,0 +1,49 @@
+#dataView {
+    z-index: 3;
+    position: fixed;
+    top: 8rem;
+    left: 2rem;
+    right: 2rem;
+    outline: 1px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
+#viewMainWrapper {
+    display: grid;
+    grid-template-areas:
+        'blank      DataView        blank';
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+#viewMain {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+
+#viewMainHeaders {
+    display: grid;
+    grid-template-areas:
+        'run    expcon  time startAdd   totalMeter';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#viewMainData {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.viewMainRowInfo {
+    display: grid;
+    grid-template-areas:
+        'run    expcon  time startAdd   totalMeter';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.viewMainDetailsInfo {
+    display: none;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
