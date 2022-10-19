@@ -8,28 +8,29 @@ class Header {
         <div id="idHeaderDispatcher" class="headerText">Dispatcher:</div>
         </div>`;
   }
+
   get headerWrap() {
     return document.getElementById("headerWrap");
   }
-  //Set Date on Page onload()
+
+  get headerDate() {
+    return document.getElementById("idHeaderDate");
+  }
+
+  // Method
   buildHeader = () => {
     // Generate Header HTML
     this.headerWrap.innerHTML = this.headerHTML;
+    this.postDate();
   };
 
   postDate = () => {
-    const headerDate = getFormattedDate();
+    const d = new Date();
+    let time = d.getTime();
+    const formattedTime = d.toLocaleString(time);
+    console.log(formattedTime);
+    console.log(this.headerDate);
     const dateElement = document.getElementById("idHeaderDate");
-    dateElement.innerHTML = "Date: " + headerDate;
-  };
-
-  updateHeader = (headerDriver, headerBroker, headerDispatcher) => {
-    const nodeDriver = document.getElementById("idHeaderDriver");
-    const nodeBroker = document.getElementById("idHeaderBroker");
-    const nodeDispatcher = document.getElementById("idHeaderDispatcher");
-
-    nodeDriver.innerHTML = "Taxi Driver: " + headerDriver;
-    nodeBroker.innerHTML = "Taxi Broker: " + headerBroker;
-    nodeDispatcher.innerHTML = "Dispatcher: " + headerDispatcher;
+    dateElement.innerHTML = "Date: " + formattedTime;
   };
 }
