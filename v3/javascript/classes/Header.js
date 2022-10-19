@@ -8,19 +8,30 @@ class Header {
         <div id="idHeaderDispatcher" class="headerText">Dispatcher:</div>
         </div>`;
   }
+
   get headerWrap() {
     return document.getElementById("headerWrap");
   }
-  //Set Date on Page onload()
+
+  get headerDate() {
+    return document.getElementById("idHeaderDate");
+  }
+
+  // Method
   buildHeader = () => {
     // Generate Header HTML
     this.headerWrap.innerHTML = this.headerHTML;
+    this.postDate();
   };
 
   postDate = () => {
-    const headerDate = getFormattedDate();
+    const d = new Date();
+    let time = d.getTime();
+    const formattedTime = d.toLocaleString(time);
+    console.log(formattedTime);
+    console.log(this.headerDate);
     const dateElement = document.getElementById("idHeaderDate");
-    dateElement.innerHTML = "Date: " + headerDate;
+    dateElement.innerHTML = "Date: " + formattedTime;
   };
 
   updateHeader = (headerDriver, headerBroker, headerDispatcher) => {
