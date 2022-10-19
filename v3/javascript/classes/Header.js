@@ -33,14 +33,4 @@ class Header {
     const dateElement = document.getElementById("idHeaderDate");
     dateElement.innerHTML = "Date: " + formattedTime;
   };
-
-  updateHeader = (headerDriver, headerBroker, headerDispatcher) => {
-    const nodeDriver = document.getElementById("idHeaderDriver");
-    const nodeBroker = document.getElementById("idHeaderBroker");
-    const nodeDispatcher = document.getElementById("idHeaderDispatcher");
-
-    nodeDriver.innerHTML = "Taxi Driver: " + headerDriver;
-    nodeBroker.innerHTML = "Taxi Broker: " + headerBroker;
-    nodeDispatcher.innerHTML = "Dispatcher: " + headerDispatcher;
-  };
 }

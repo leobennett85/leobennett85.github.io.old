@@ -4,7 +4,7 @@ class Menu {
         <div id="addWrap">
         <div id="idMenuAddRun" class="doubleMenu">New Run</div>
         <div id="idMenuAddExpense" class="doubleMenu">New Expense</div>
-        <div id="idBtnAdd" class="menuItem" onclick="checkAdd();">
+        <div id="idBtnAdd" class="menuItem">
           <span class="material-icons md-dark" style="font-size: 35px">
             add_circle_outline
           </span>
@@ -45,9 +45,45 @@ class Menu {
     return document.getElementById("menuWrap");
   }
 
+  // Button Items
+
+  get btnAdd() {
+    return document.getElementById("idBtnAdd");
+  }
+
+  get btnUpdate() {
+    return document.getElementById("idBtnUpdate");
+  }
+
+  get btnEdit() {
+    return document.getElementById("idBtnEdit");
+  }
+
+  get btnEod() {
+    return document.getElementById("idBtnEod");
+  }
+
   // METHODS
   buildMenu = () => {
     this.menuWrap.innerHTML = this.menuHTML;
+    const addMenu = this.btnAdd;
+    const updateMenu = this.btnUpdate;
+    const editMenu = this.btnEdit;
+    const eodMenu = this.btnEod;
+    const menuRef = this;
+    // onClick event to activate menus
+    addMenu.onclick = function () {
+      menuRef.checkAdd();
+    };
+    updateMenu.onclick = function () {
+      menuRef.checkUpdate();
+    };
+    editMenu.onclick = function () {
+      menuRef.checkEdit();
+    };
+    eodMenu.onclick = function () {
+      menuRef.checkEod();
+    };
   };
 
   checkAdd = () => {
@@ -56,11 +92,11 @@ class Menu {
     console.log(leftState);
     switch (leftState) {
       case "-160px":
-        hideAll();
-        showAdd();
+        this.hideAll();
+        this.showAdd();
         break;
       case "0px":
-        hideAdd();
+        this.hideAdd();
         break;
     }
   };
@@ -71,11 +107,11 @@ class Menu {
     console.log(leftState);
     switch (leftState) {
       case "-160px":
-        hideAll();
-        showUpdate();
+        this.hideAll();
+        this.showUpdate();
         break;
       case "0px":
-        hideUpdate();
+        this.hideUpdate();
         break;
     }
   };
@@ -86,11 +122,11 @@ class Menu {
     console.log(leftState);
     switch (leftState) {
       case "-160px":
-        hideAll();
-        showEdit();
+        this.hideAll();
+        this.showEdit();
         break;
       case "0px":
-        hideEdit();
+        this.hideEdit();
         break;
     }
   };
@@ -101,11 +137,11 @@ class Menu {
     console.log(leftState);
     switch (leftState) {
       case "-160px":
-        hideAll();
-        showEod();
+        this.hideAll();
+        this.showEod();
         break;
       case "0px":
-        hideEod();
+        this.hideEod();
         break;
     }
   };
@@ -159,6 +195,8 @@ class Menu {
   };
 
   hideAll = () => {
+    const totals = document.getElementById("totalsWrap");
+    const map = document.getElementById("mapWrap");
     const add = document.getElementById("addWrap");
     const update = document.getElementById("updateWrap");
     const edit = document.getElementById("editWrap");
@@ -168,5 +206,7 @@ class Menu {
     update.style.left = "-10rem";
     edit.style.left = "-10rem";
     eod.style.left = "-10rem";
+    totals.style.left = "0px";
+    map.style.left = "0px";
   };
 }
