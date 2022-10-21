@@ -91,32 +91,16 @@ class Modal {
     const modalStore = new Data();
     const value = this.inputVal;
     const key = this.key;
-    modalStore.storeItem(key, value);
-    console.log(`Key: ${key} \n Value: ${value}`);
+    const info = this.info;
+
+    modalStore.storeItem(info, key, value);
+
+    console.log(`Key: ${key} \nValue: ${value} \nInfo: ${info}`);
+
     if (this.nextModal === endModal) {
       this.isEndModal();
     } else {
       this.nextModal.buildModal();
-    }
-    switch (key) {
-      case "driverName":
-        header.updateDriver();
-        break;
-      case "brokerName":
-        header.updateBroker();
-        break;
-      case "beginOdometer":
-        footer.updateBeginOdometer();
-        break;
-      case "gasPrice":
-        footer.updateGasPrice();
-        break;
-      case "litresPer":
-        footer.updateLitresPer();
-        break;
-      case "dispatcherName":
-        header.updateDispatcher();
-        break;
     }
   };
 
@@ -126,6 +110,8 @@ class Modal {
     const submitModalInput = document.getElementById(this.modalBtnId);
     const modalRef = this;
     submitModalInput.onclick = function () {
+      // If NewRun then add 1 to index
+
       modalRef.modalClick();
     };
   };

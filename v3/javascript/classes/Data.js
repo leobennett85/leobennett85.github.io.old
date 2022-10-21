@@ -3,6 +3,7 @@ class Data {
   constructor() {}
 
   // GETTERS
+  // BeginShift data
   get driver() {
     const driver = window.localStorage.getItem("driverName");
     return driver;
@@ -33,9 +34,42 @@ class Data {
     return dispatcher;
   }
 
+  // NewRun data
+
   // Methods
 
-  storeItem(key, value) {
-    window.localStorage.setItem(key, value);
+  storeItem(info, key, value) {
+    switch (info) {
+      // BeginShift data input
+      case "BeginShift":
+        window.localStorage.setItem(key, value);
+        switch (key) {
+          case "driverName":
+            header.updateDriver();
+            break;
+          case "brokerName":
+            header.updateBroker();
+            break;
+          case "beginOdometer":
+            footer.updateBeginOdometer();
+            break;
+          case "gasPrice":
+            footer.updateGasPrice();
+            break;
+          case "litresPer":
+            footer.updateLitresPer();
+            break;
+          case "dispatcherName":
+            header.updateDispatcher();
+            break;
+        }
+        break;
+      // NewRun data input
+      case "NewRun":
+        const indexedKey = key + "_" + newRunIndex;
+        console.log("New Key: " + indexedKey);
+        window.localStorage.setItem(indexedKey, value);
+        break;
+    }
   }
 }

@@ -1,3 +1,6 @@
+// Index Variables
+let newRunIndex = 0;
+
 // Create LocalStorage keys
 const dataStore = new Data();
 
@@ -57,33 +60,39 @@ const modalBeginDriver = new Modal(
 );
 
 // Build NewRun Modal
-const modalNewRunTip = new Modal("NewRun", "Enter Tip", endModal);
+const modalNewRunTip = new Modal("tip", "NewRun", "Enter Tip", endModal);
 const modalNewRunTypePay = new Modal(
+  "paymentType",
   "NewRun",
   "Enter Type of Payment",
   modalNewRunTip
 );
 const modalNewRunTypeFare = new Modal(
+  "fareType",
   "NewRun",
   "Enter Type of Fare",
   modalNewRunTypePay
 );
 const modalNewRunTotalFare = new Modal(
+  "fareTotal",
   "NewRun",
   "Enter Total Fare",
   modalNewRunTypeFare
 );
 const modalNewRunDestinationAdd = new Modal(
+  "destinationAddress",
   "NewRun",
   "Enter Destination Address",
   modalNewRunTotalFare
 );
 const modalNewRunStartingAdd = new Modal(
+  "startingAddress",
   "NewRun",
   "Enter Starting Address",
   modalNewRunDestinationAdd
 );
 const modalNewRunStand = new Modal(
+  "standAcq",
   "NewRun",
   "Enter Stand Number",
   modalNewRunStartingAdd
@@ -91,16 +100,19 @@ const modalNewRunStand = new Modal(
 
 // Build NewExpense Modal
 const modalNewExpenseCost = new Modal(
+  "expenseCost",
   "NewExpense",
   "Enter Expense Cost",
   endModal
 );
 const modalNewExpenseItem = new Modal(
+  "expenseItem",
   "NewExpense",
   "Enter Expense Item",
   modalNewExpenseCost
 );
 const modalNewExpensePerson = new Modal(
+  "expensePerson",
   "NewExpense",
   "Broker or Driver Expense",
   modalNewExpenseItem

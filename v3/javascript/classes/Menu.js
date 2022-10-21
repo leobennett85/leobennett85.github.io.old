@@ -45,6 +45,10 @@ class Menu {
     return document.getElementById("menuWrap");
   }
 
+  get menuAddRun() {
+    return document.getElementById("idMenuAddRun");
+  }
+
   // Button Items
 
   get btnAdd() {
@@ -70,7 +74,9 @@ class Menu {
     const updateMenu = this.btnUpdate;
     const editMenu = this.btnEdit;
     const eodMenu = this.btnEod;
+    const newRun = this.menuAddRun;
     const menuRef = this;
+
     // onClick event to activate menus
     addMenu.onclick = function () {
       menuRef.checkAdd();
@@ -83,6 +89,10 @@ class Menu {
     };
     eodMenu.onclick = function () {
       menuRef.checkEod();
+    };
+    newRun.onclick = function () {
+      newRunIndex = newRunIndex + 1;
+      menuRef.launchNewRunModal();
     };
   };
 
@@ -208,5 +218,9 @@ class Menu {
     eod.style.left = "-10rem";
     totals.style.left = "0px";
     map.style.left = "0px";
+  };
+
+  launchNewRunModal = () => {
+    modalNewRunStand.buildModal();
   };
 }
