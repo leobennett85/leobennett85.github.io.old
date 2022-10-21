@@ -1,3 +1,6 @@
+// Create LocalStorage keys
+const dataStore = new Data();
+
 // Create header instance and post to site
 const header = new Header();
 
@@ -29,7 +32,7 @@ const modalBeginLitresPer = new Modal(
   modalBeginDispatcher
 );
 const modalBeginGas = new Modal(
-  "estGas",
+  "gasPrice",
   "BeginShift",
   "Enter Current Price of Gas",
   modalBeginLitresPer
@@ -46,7 +49,6 @@ const modalBeginBroker = new Modal(
   "Enter Broker's Name",
   modalBeginOdometer
 );
-
 const modalBeginDriver = new Modal(
   "driverName",
   "BeginShift",
