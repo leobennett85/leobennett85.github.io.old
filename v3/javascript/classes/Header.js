@@ -17,6 +17,18 @@ class Header {
     return document.getElementById("idHeaderDate");
   }
 
+  get headerDriver() {
+    return document.getElementById("idHeaderDriver");
+  }
+
+  get headerBroker() {
+    return document.getElementById("idHeaderBroker");
+  }
+
+  get headerDispatcher() {
+    return document.getElementById("idHeaderDispatcher");
+  }
+
   // Method
   buildHeader = () => {
     // Generate Header HTML
@@ -28,9 +40,22 @@ class Header {
     const d = new Date();
     let time = d.getTime();
     const formattedTime = d.toLocaleString(time);
-    console.log(formattedTime);
-    console.log(this.headerDate);
-    const dateElement = document.getElementById("idHeaderDate");
+    const dateElement = this.headerDate;
     dateElement.innerHTML = "Date: " + formattedTime;
+  };
+
+  updateDriver = () => {
+    const driverElement = this.headerDriver;
+    driverElement.innerHTML = "Driver: " + dataStore.driver;
+  };
+
+  updateBroker = () => {
+    const brokerElement = this.headerBroker;
+    brokerElement.innerHTML = "Broker: " + dataStore.broker;
+  };
+
+  updateDispatcher = () => {
+    const dispatcherElement = this.headerDispatcher;
+    dispatcherElement.innerHTML = "Dispatcher: " + dataStore.dispatcher;
   };
 }

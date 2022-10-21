@@ -26,6 +26,7 @@
     
     <script src="./javascript/classes/Menus.js"></script>
     -->
+    <script src="./javascript/classes/Data.js"></script>
     <script src="./javascript/classes/DataView.js"></script>
     <script src="./javascript/classes/Modal.js"></script>
     <script src="./javascript/classes/Header.js"></script>
@@ -37,7 +38,7 @@
     <script src="./javascript/main.js"></script>
   </head>
   <body
-    onload="modalBeginDriver.buildModal(); header.buildHeader(); footer.buildFooter(); menu.buildMenu(); report.buildDataReport();"
+    onload="localStorage.clear(); modalBeginDriver.buildModal(); header.buildHeader(); footer.buildFooter(); menu.buildMenu(); report.buildDataReport();"
   >
     <div id="siteWrap">
       <div id="fullModal"></div>

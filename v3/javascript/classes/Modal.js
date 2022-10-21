@@ -37,6 +37,7 @@ modalInput
   const modalInput = "idBeginShiftInput";
   const info = "Driver";
 */
+
 // Modal Class to construct and display modals
 class Modal {
   constructor(key, info, modalDesc, nextModal) {
@@ -74,7 +75,7 @@ class Modal {
     return document.getElementById(`${this.modalName}`);
   }
 
-  get input() {
+  get inputVal() {
     const input = document.getElementById(`${this.modalInputId}`).value;
     return input;
   }
@@ -82,18 +83,40 @@ class Modal {
   // Methods
 
   isEndModal = () => {
+    // Close modal at last input
     this.closeModal();
   };
 
   modalClick = () => {
-    const value = this.input;
-    const key = this.info;
+    const modalStore = new Data();
+    const value = this.inputVal;
+    const key = this.key;
+    modalStore.storeItem(key, value);
     console.log(`Key: ${key} \n Value: ${value}`);
-    //removeModal(currentModal);
     if (this.nextModal === endModal) {
       this.isEndModal();
     } else {
       this.nextModal.buildModal();
+    }
+    switch (key) {
+      case "driverName":
+        header.updateDriver();
+        break;
+      case "brokerName":
+        header.updateBroker();
+        break;
+      case "beginOdometer":
+        footer.updateBeginOdometer();
+        break;
+      case "gasPrice":
+        footer.updateGasPrice();
+        break;
+      case "litresPer":
+        footer.updateLitresPer();
+        break;
+      case "dispatcherName":
+        header.updateDispatcher();
+        break;
     }
   };
 
@@ -117,5 +140,6 @@ class Modal {
     this.modal.style.display = "none";
   };
 
+  // Method to preload local storage
   localStorageCheck = () => {};
 }

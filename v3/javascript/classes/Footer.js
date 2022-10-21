@@ -10,6 +10,18 @@ class Footer {
     return document.getElementById("footerWrap");
   }
 
+  get footerGas() {
+    return document.getElementById("idFooterGas");
+  }
+
+  get footerLitresPer() {
+    return document.getElementById("idFooterLitresPer");
+  }
+
+  get footerOdometer() {
+    return document.getElementById("idFooterOdometer");
+  }
+
   // METHODS
   // Set Date on Page onload()
   buildFooter = () => {
@@ -17,13 +29,18 @@ class Footer {
     this.footerWrap.innerHTML = this.footerHTML;
   };
 
-  updateFooter = (footerOdometer, footerGas, footerLitresPer) => {
-    const nodeOdometer = document.getElementById("idFooterOdometer");
-    const nodeGas = document.getElementById("idFooterGas");
-    const nodeLitresPer = document.getElementById("idFooterLitresPer");
+  updateGasPrice = () => {
+    const gasPriceElement = this.footerGas;
+    gasPriceElement.innerHTML = "Price of Gas: " + dataStore.gasPrice;
+  };
 
-    nodeOdometer.innerHTML = "Begining Odometer: " + footerOdometer;
-    nodeGas.innerHTML = "Price of Gas: " + footerGas;
-    nodeLitresPer.innerHTML = "Litres / 100km: " + footerLitresPer;
+  updateBeginOdometer = () => {
+    const odometerElement = this.footerOdometer;
+    odometerElement.innerHTML = "Starting Odometer: " + dataStore.beginOdometer;
+  };
+
+  updateLitresPer = () => {
+    const litresPerElement = this.footerLitresPer;
+    litresPerElement.innerHTML = "Dispatcher: " + dataStore.litresPer;
   };
 }
