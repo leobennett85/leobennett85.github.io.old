@@ -1,20 +1,11 @@
-#dataView {
-    z-index: 3;
+#dataViewWrap {
+    z-index: 0;
     position: fixed;
     top: 8rem;
     left: 2rem;
     right: 2rem;
-    outline: 1px;
-    position: absolute;
-    padding: 0;
+    padding: 4px;
     margin: 0;
-}
-
-#viewMainWrapper {
-    display: grid;
-    grid-template-areas:
-        'blank      DataView        blank';
-    grid-template-columns: 1fr 3fr 1fr;
 }
 
 #viewMain {
@@ -25,8 +16,7 @@
 
 #viewMainHeaders {
     display: grid;
-    grid-template-areas:
-        'run    expcon  time startAdd   totalMeter';
+    grid-template-areas: 'run    expcon  time startAdd   totalMeter';
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -43,7 +33,14 @@
 }
 
 .viewMainDetailsInfo {
-    display: none;
     grid-column-start: 2;
     grid-column-end: 2;
+}
+
+.viewMainDetailsHide {
+    display: none;
+}
+
+.viewMainDetailsShow {
+    display: block;
 }
