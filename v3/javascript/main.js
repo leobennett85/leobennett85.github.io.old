@@ -16,6 +16,9 @@ const menu = new Menu();
 // Create report instance and post to site
 const report = new DataReport();
 
+// Create main DataView
+const mainView = new ViewMain();
+
 // Create endModal instance to end modal builds
 const endModal = new Modal("EndModal", "", "", "");
 

@@ -1,86 +1,115 @@
+expCon = (expConDetails) => {
+  console.log(expConDetails);
+  if (expConDetails.classList.contains("viewMainDetailsHide")) {
+    expConDetails.classList.replace(
+      "viewMainDetailsHide",
+      "viewMainDetailsShow"
+    );
+  } else if (expConDetails.classList.contains("viewMainDetailsShow")) {
+    expConDetails.classList.replace(
+      "viewMainDetailsShow",
+      "viewMainDetailsHide"
+    );
+  }
+};
+
 class ViewMain {
-  constructor(
-    runIndex,
+  constructor() {
+    this.expConState = "con";
+    this.viewMainHeaderHTML = `
+          <div id="viewMain">
+              <div id="viewMainHeaders">
+                  <div class="headerStyle">Run</div>
+                  <div class="headerStyle">+/-</div>
+                  <div class="headerStyle">Time</div>
+                  <div class="headerStyle">Starting Address</div>
+                  <div class="headerStyle">Total Meter</div>
+              </div>
+          </div>
+      `;
+  }
+
+  // GETTERS
+  get dataWrap() {
+    return document.getElementById("dataViewWrap");
+  }
+
+  get expConClicked() {
+    return document.getElementById("viewMainExpCon" + newRunIndex);
+  }
+
+  buildMainViewHeader = () => {
+    console.log(this.dataWrap);
+    this.dataWrap.innerHTML = this.viewMainHeaderHTML;
+  };
+
+  // Methods
+  addRow = (
     startingAdd,
-    totalMeter,
+    totalFare,
     standAcq,
     time,
     duration,
     dolPerKm,
     fareType,
     tip
-  ) {
-    this.exp = "+";
-    this.con = "-";
-    this.runIndex = runIndex;
-    this.startingAdd = startingAdd;
-    this.totalMeter = totalMeter;
-    this.standAcq = standAcq;
-    this.time = time;
-    this.duration = duration;
-    this.dolPerKm = dolPerKm;
-    this.fareType = fareType;
-    this.tip = tip;
-    this.viewMainWrapper = `<div id="viewMainWrapper">`;
-    this.viewMainHeaderHTML = `
-        <div id="viewMain">
-            <div id="viewMainHeaders">
-                <div class="headerStyle">Run</div>
-                <div class="headerStyle">+/-</div>
-                <div class="headerStyle">Time</div>
-                <div class="headerStyle">Starting Address</div>
-                <div class="headerStyle">Total Meter</div>
-            </div>
+  ) => {
+    const viewMainRowHTML = `
+    <div id="viewMainData${newRunIndex}">
+        <div id="viewMainRow${newRunIndex}" class="viewMainRowInfo">
+            <div id="viewMainRunIndex${newRunIndex}">${newRunIndex}</div>
+            <div id="viewMainExpCon${newRunIndex}">+</div>
+            <div id="viewMainStatingAdd${newRunIndex}">${startingAdd}</div>
+            <div id="viewMainTotalMeter${newRunIndex}">${totalFare}</div>
         </div>
-        `;
-    this.viewMainRowHTML = `
-        <div id="viewMainData">
-            <div id="viewMainRow${this.runIndex}" class="viewMainRowInfo">
-                <div id="viewMainRunIndex${this.runIndex}">${this.runIndex}</div>
-                <div id="viewMainExpCon${this.runIndex}">${this.exp}</div>
-                <div id="viewMainStatingAdd${this.runIndex}">${this.startingAdd}</div>
-                <div id="viewMainTotalMeter${this.runIndex}">${this.totalMeter}</div>
-            </div>
-        </div> `;
-    this.viewMainDetailsHTML = `
-    <div id="viewMainDetails${this.runIndex}" class="viewMainDetailsInfo">
-        <div id="viewMainDetails">
-            <div class="label">Destination Address: </div><div id="viewMainDestinationAdd${this.runIndex}">${this.runIndex}</div>
-            <div class="label">Stand Acquired: </div><div id="viewMainJobAcq${this.runIndex}">${this.standAcq}</div>
-            <div class="label">Time of Run: </div><div id="viewMainArrival${this.runIndex}">${this.time}</div>
-            <div class="label">Duration of Run: </div><div id="viewMainDuration${this.runIndex}">${this.duration}</div>
-            <div class="label">Total Meter: </div><div id="viewMainDistance${this.runIndex}">${this.totalMeter}</div>
-            <div class="label">$/km: </div><div id="viewMainDolPerKm${this.runIndex}">${this.dolPerKm}</div>
-            <div class="label">Type of Fare: </div><div id="viewMainFareType${this.runIndex}">${this.fareType}</div>
-            <div class="label">Tip: </div><div id="viewMainTip${this.runIndex}">${this.tip}</div>
-        </div>
+    </div> `;
+    const viewMainDetailsHTML = `
+    <div id="viewMainDetails${newRunIndex}" class="viewMainDetailsInfo viewMainDetailsHide">
+            <div class="label">Destination Address: </div><div id="viewMainDestinationAdd${newRunIndex}">${newRunIndex}</div>
+            <div class="label">Stand Acquired: </div><div id="viewMainJobAcq${newRunIndex}">${standAcq}</div>
+            <div class="label">Time of Run: </div><div id="viewMainArrival${newRunIndex}">${time}</div>
+            <div class="label">Duration of Run: </div><div id="viewMainDuration${newRunIndex}">${duration}</div>
+            <div class="label">$/km: </div><div id="viewMainDolPerKm${newRunIndex}">${dolPerKm}</div>
+            <div class="label">Type of Fare: </div><div id="viewMainFareType${newRunIndex}">${fareType}</div>
+            <div class="label">Tip: </div><div id="viewMainTip${newRunIndex}">${tip}</div>
     </div>
     `;
-    this.viewMainWrapperClose = `</div>`;
-  }
-  // Getters
+    const viewMainWrapperClose = `</div>`;
 
-  get newRowLine() {
-    return document.getElementById("dataView");
-  }
+    const dataWrapNewRow = document.createElement("div");
 
-  get expcon() {
-    let clickedExpCon = "viewMainExpCon";
-    let index = this.runIndex;
-    let expcon = clickedExpCon + index;
-    return document.getElementById(expcon);
-  }
+    dataWrapNewRow.innerHTML =
+      viewMainRowHTML + viewMainDetailsHTML + viewMainWrapperClose;
 
-  // Methods
-  expConClick = () => {};
-  addRow = () => {
-    // Generate new row HTML
-    const expConClicked = document.getElementById(this.expcon);
-    console.log(expConClicked);
-    this.newRowLine.innerHTML = this.viewMainHeaderHTML;
-    this.newRowLine.innerHTML +=
-      this.viewMainRowHTML + this.viewMainDetailsHTML;
-    //expConClick.onclick = function () {
-    //Ref.modalClick();
+    this.dataWrap.appendChild(dataWrapNewRow);
+
+    const expConDetails = document.getElementById(
+      "viewMainDetails" + newRunIndex
+    );
+    this.expConClicked.addEventListener("click", function () {
+      expCon(expConDetails);
+    });
+    ///////////////////////////////////////////////////////
+    /*
+    const getExpCon = "viewMainExpCon" + newRunIndex;
+    const expConClicked = document.getElementById(getExpCon);
+    console.log("expConClicked" + expConClicked);
+    const expCon = `${this.expConState}`;
+    console.log("expCon: " + expCon);
+    //expConClicked.style.display = "none";
+    //const expConRef = this;
+
+      console.log(newRunIndex);
+      if (expCon === "exp") {
+        console.log(expCon);
+        expConClicked.style.display = "none";
+        this.expConState = "con";
+      } else if (expCon === "con") {
+        console.log(expCon);
+        expConClicked.style.display = "block";
+        this.expConState = "exp";
+      }
+      
+    };*/
   };
 }

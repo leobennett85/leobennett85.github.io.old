@@ -72,4 +72,24 @@ class Data {
         break;
     }
   }
+
+  pullNewRun = () => {
+    const getStandAcq = "standAcq_" + newRunIndex;
+    const getStartingAddress = "startingAddress_" + newRunIndex;
+    const getDestinationAddress = "destinationAddress_" + newRunIndex;
+    const getFareTotal = "fareTotal_" + newRunIndex;
+    const getFareType = "fareType_" + newRunIndex;
+    const getFarePayment = "paymentType_" + newRunIndex;
+    const getTip = "tip_" + newRunIndex;
+
+    mainView.addRow(
+      getStandAcq,
+      getStartingAddress,
+      getDestinationAddress,
+      getFareTotal,
+      getFareType,
+      getFarePayment,
+      getTip
+    );
+  };
 }

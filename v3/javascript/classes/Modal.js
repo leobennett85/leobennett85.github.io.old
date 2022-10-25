@@ -1,43 +1,3 @@
-/*  Div constructor
-modalName,
-modalInfo,
-modalTitle,
-modalTitleIndex,
-modalDescription,
-modalDescIndex,
-modalInput
-=>
-    `<div id="${modalName}" class="modal">
-      <div id="${modalInfo}" class="modalContent">
-        <div class="modalBanner1 checkers"></div>
-        <div class="modalBanner2 checkers"></div>
-        <div id="${modalTitleIndex}" class="modalHeader1">${modalTitle}</div>
-        <input id="${modalInput}" class="modalInput" onkeypress="isEnter(${modalInput},${modalName})" autofocus />
-        <div id="${modalDescIndex}" class="modalHeader2">${modalDescription}</div>
-        <div class="btnModalEnter" onclick="storeBeginInput(${modalInput},${modalName})"><span class="material-icons" style="font-size: 62px">arrow_circle_right</span></div>
-      </div>
-    </div>`,
-*/
-
-/*  Example of Indexed names
-  let modalNameIndex = modalName + info;
-  let modalInfoIndex = modalInfo + info;
-  let modalTitleIndex = modalTitleId + info;
-  let modalDescIndex = modalDescId + info;
-  let modalInputIndex = modalInput + info;
-*/
-
-/*  Example of data needed
-  const modalName = "idBeginShiftModal";
-  const modalInfo = "idBeginShiftInfo";
-  const modalTitleId = "idBeginShiftModalTitle"; //ID
-  const modalTitle = "TaxiStats"; //Text
-  const modalDescId = "idBeginShiftModalDesc"; //ID
-  const modalDescription = "Enter Driver's Name"; //Text
-  const modalInput = "idBeginShiftInput";
-  const info = "Driver";
-*/
-
 // Modal Class to construct and display modals
 class Modal {
   constructor(key, info, modalDesc, nextModal) {
@@ -85,6 +45,38 @@ class Modal {
   isEndModal = () => {
     // Close modal at last input
     this.closeModal();
+    switch (this.info) {
+      case "NewRun":
+        const standAcq = window.localStorage.getItem("standAcq_" + newRunIndex);
+        const startingAdd = window.localStorage.getItem(
+          "startingAddress_" + newRunIndex
+        );
+        const destAdd = window.localStorage.getItem(
+          "destinationAddress_" + newRunIndex
+        );
+        const fareTotal = window.localStorage.getItem(
+          "fareTotal_" + newRunIndex
+        );
+        const payType = window.localStorage.getItem(
+          "paymentType_" + newRunIndex
+        );
+        const tip = window.localStorage.getItem("tip_" + newRunIndex);
+        const fareType = "x";
+        const time = "x";
+        const duration = "x";
+        const dolPerKm = "x";
+
+        mainView.addRow(
+          startingAdd,
+          fareTotal,
+          standAcq,
+          time,
+          duration,
+          dolPerKm,
+          fareType,
+          tip
+        );
+    }
   };
 
   modalClick = () => {

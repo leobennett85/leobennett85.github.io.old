@@ -24,7 +24,6 @@
     <!-- JAVASCRIPT CLASS FILES
     <script src="./javascript/classes/DataReports.js"></script>
     
-    <script src="./javascript/classes/Menus.js"></script>
     -->
     <script src="./javascript/classes/Data.js"></script>
     <script src="./javascript/classes/DataView.js"></script>
@@ -38,7 +37,7 @@
     <script src="./javascript/main.js"></script>
   </head>
   <body
-    onload="localStorage.clear(); modalBeginDriver.buildModal(); header.buildHeader(); footer.buildFooter(); menu.buildMenu(); report.buildDataReport();"
+    onload="localStorage.clear(); mainView.buildMainViewHeader(); modalBeginDriver.buildModal(); header.buildHeader(); footer.buildFooter(); menu.buildMenu(); report.buildDataReport();"
   >
     <div id="siteWrap">
       <div id="fullModal"></div>
@@ -46,7 +45,7 @@
       <div id="menuWrap"></div>
       <div id="dataReportWrap"></div>
       <div id="footerWrap"></div>
-      <div id="dataView"></div>
+      <div id="dataViewWrap"></div>
     </div>
   </body>
 </html>
