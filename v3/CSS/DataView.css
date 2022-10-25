@@ -16,8 +16,8 @@
 
 #viewMainHeaders {
     display: grid;
-    grid-template-areas: 'run    expcon  time startAdd   totalMeter';
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 'run    expcon startAdd   totalMeter';
+    grid-template-columns: 0.5fr 0.5fr 2fr 1fr;
 }
 
 #viewMainData {
@@ -27,14 +27,28 @@
 
 .viewMainRowInfo {
     display: grid;
+    gap: 2px;
     grid-template-areas:
-        'run    expcon  time startAdd   totalMeter';
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        'run    expcon  startAdd   totalMeter';
+    grid-template-columns: 0.5fr 0.5fr 2fr 1fr;
+    font-size: 0.7rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
 }
 
 .viewMainDetailsInfo {
-    grid-column-start: 2;
-    grid-column-end: 2;
+    font-size: 0.5rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    display: grid;
+    grid-template-areas:
+        'label      viewMainDestinationAdd',
+        'label      viewMainArrival',
+        'label      viewMainDuration',
+        'label      viewMainDolPerKm',
+        'label      viewMainFareType',
+        'label      viewMainTip';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .viewMainDetailsHide {
@@ -42,5 +56,31 @@
 }
 
 .viewMainDetailsShow {
-    display: block;
+    display: grid;
+}
+
+.headerStyle {
+    font-size: 1rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+    gap: 2px;
+    background-color: rgb(190, 190, 190);
+    display: flex;
+    justify-content: center;
+}
+
+.label {
+    background-color: rgb(150, 150, 150);
+    font-size: 0.8rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+}
+
+.info {
+    background-color: rgb(190, 190, 190);
+    font-size: 0.7rem;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
 }
