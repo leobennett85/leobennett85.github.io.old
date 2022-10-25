@@ -69,6 +69,7 @@ class Data {
         const indexedKey = key + "_" + newRunIndex;
         console.log("New Key: " + indexedKey);
         window.localStorage.setItem(indexedKey, value);
+
         break;
     }
   }
