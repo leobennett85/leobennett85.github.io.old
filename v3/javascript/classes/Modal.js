@@ -47,33 +47,49 @@ class Modal {
     this.closeModal();
     switch (this.info) {
       case "NewRun":
+        const beginOdometer = window.localStorage.getItem(
+          "beginOdometer_" + newRunIndex
+        );
+        const timeAcq = window.localStorage.getItem("timeAcq_" + newRunIndex);
         const standAcq = window.localStorage.getItem("standAcq_" + newRunIndex);
         const startingAdd = window.localStorage.getItem(
           "startingAddress_" + newRunIndex
         );
-        const destAdd = window.localStorage.getItem(
+        const destinationAdd = window.localStorage.getItem(
           "destinationAddress_" + newRunIndex
         );
-        const fareTotal = window.localStorage.getItem(
-          "fareTotal_" + newRunIndex
+        const endOdometer = window.localStorage.getItem(
+          "endOdometer_" + newRunIndex
         );
-        const payType = window.localStorage.getItem(
+        const timeArrival = window.localStorage.getItem(
+          "timeArrival_" + newRunIndex
+        );
+        const duration = window.localStorage.getItem("duration_" + newRunIndex);
+        const distance = window.localStorage.getItem("distance_" + newRunIndex);
+        const totalMeter = window.localStorage.getItem(
+          "totalMeter_" + newRunIndex
+        );
+        const dolPerKm = window.localStorage.getItem("dolPerKm_" + newRunIndex);
+        const fareType = window.localStorage.getItem("fareType_" + newRunIndex);
+        const paymentType = window.localStorage.getItem(
           "paymentType_" + newRunIndex
         );
         const tip = window.localStorage.getItem("tip_" + newRunIndex);
-        const fareType = "x";
-        const time = "x";
-        const duration = "x";
-        const dolPerKm = "x";
 
         mainView.addRow(
-          startingAdd,
-          fareTotal,
+          beginOdometer,
+          timeAcq,
           standAcq,
-          time,
+          startingAdd,
+          destinationAdd,
+          endOdometer,
+          timeArrival,
           duration,
+          distance,
+          totalMeter,
           dolPerKm,
           fareType,
+          paymentType,
           tip
         );
     }

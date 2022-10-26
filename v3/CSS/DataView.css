@@ -70,14 +70,16 @@
 }
 
 .label {
-    background-color: rgb(150, 150, 150);
+    border-bottom: 1px solid rgb(150, 150, 150);
+    background-color: rgb(200, 200, 200);
     font-size: 0.8rem;
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: bold;
 }
 
 .info {
-    background-color: rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(150, 150, 150);
+    background-color: rgb(225, 225, 225);
     font-size: 0.7rem;
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: bold;

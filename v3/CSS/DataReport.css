@@ -37,6 +37,11 @@
     right: 0;
 }
 
+#idReportTotals {
+    top: 0;
+    bottom: 0;
+}
+
 .report {
     top: 8.2rem;
     bottom: 4rem;
