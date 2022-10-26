@@ -7,7 +7,29 @@ class DataReport {
               calculate
             </span>
           </div>
-          <div id="idReportTotals" class="report"></div>
+          <div id="idReportTotals" class="report">
+            <div class="reportHeader">Shift Gross</div>
+            <div class="reportLabel">Total Meter:</div><div id="reportShiftTotalMeter">test</div>
+            <div class="reportLabel">Total Flat Rates:</div><div id="reportShiftFlatRate"></div>
+            <div class="reportLabel">Total Tips:</div><div id="reportShiftTotalTips">test</div>
+            <div class="reportTotal">Total Shift Gross:</div><div id="reportShiftTotalGross"></div>
+            <div class="reportHeader">Profit</div>
+            <div class="reportLabel">Broker Profit:</div><div id="reportProfitBroker"></div>
+            <div class="reportLabel">Driver Profit:</div><div id="reportProfitDriver"></div>
+            <div class="reportHeader">Payment Type</div>
+            <div class="reportLabel">Cash:</div><div id="reportPaymentCash"></div>
+            <div class="reportLabel">Card:</div><div id="reportPaymentCard"></div>
+            <div class="reportLabel">Charge:</div><div id="reportPaymentCharge"></div>
+            <div class="reportTotal">Total Paid:</div><div id="reportPaymentTotal"></div>
+            <div class="reportHeader">Travel</div>
+            <div class="reportLabel">Km Metered:</div><div id="reportTravelKmMetered"></div>
+            <div class="reportLabel">$/km:</div><div id="reportTravelDolPerKm"></div>
+            <div class="reportHeader">Expense</div>
+            <div class="reportLabel">Personal Expense Total:</div><div id="reportExpenseTotalPersonal"></div>
+            <div class="reportLabel">Broker Expense Total:</div><div id="reportExpenseTotalBroker"></div>
+            <div class="reportHeader">Estimated Gas</div>
+            <div class="reportTotal">Estimated cost of Gas:</div><div id="reportEstGasTotal"></div>
+          </div>
         </div>
 
         <div id="mapWrap">

@@ -11,6 +11,8 @@
         'mapWrap';
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-weight: bold;
 }
 
 #idBtnTotals {}
@@ -38,8 +40,47 @@
 }
 
 #idReportTotals {
-    top: 0;
-    bottom: 0;
+    background-image: linear-gradient(to bottom left, rgb(255, 243, 132), rgb(255, 183, 0));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.reportLabel {
+    border-right: 1px solid white;
+    border-bottom: 1px solid black;
+    margin: 1;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.reportHeader {
+    grid-column: span 2;
+    background-image: linear-gradient(to bottom left, rgb(230, 255, 210), rgb(255, 182, 182));
+    border-top: 1px solid white;
+    border-bottom: 1px solid black;
+    margin: 1;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-shadow: -1px -1px rgb(255, 255, 255), 1px 1px rgb(255, 255, 255), -1px 1px rgb(255, 255, 255), 1px -1px rgb(255, 255, 255);
+}
+
+.reportTotal {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-rendering: optimizeLegibility;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgb(210, 210, 210);
 }
 
 .report {
