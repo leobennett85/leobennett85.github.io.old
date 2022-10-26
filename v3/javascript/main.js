@@ -22,8 +22,6 @@ const mainView = new ViewMain();
 // Create endModal instance to end modal builds
 const endModal = new Modal("EndModal", "", "", "");
 
-// Build BeginShift Modal
-
 // Modal Declerations for BeginShift
 const modalBeginDispatcher = new Modal(
   "dispatcherName",
@@ -64,29 +62,41 @@ const modalBeginDriver = new Modal(
 
 // Build NewRun Modal
 const modalNewRunTip = new Modal("tip", "NewRun", "Enter Tip", endModal);
-const modalNewRunTypePay = new Modal(
+const modalNewRunPayType = new Modal(
   "paymentType",
   "NewRun",
   "Enter Type of Payment",
   modalNewRunTip
 );
-const modalNewRunTypeFare = new Modal(
+const modalNewRunFareType = new Modal(
   "fareType",
   "NewRun",
   "Enter Type of Fare",
-  modalNewRunTypePay
+  modalNewRunPayType
 );
-const modalNewRunTotalFare = new Modal(
-  "fareTotal",
+const modalNewRunTotalMeter = new Modal(
+  "totalMeter",
   "NewRun",
-  "Enter Total Fare",
-  modalNewRunTypeFare
+  "Enter Total Meter",
+  modalNewRunFareType
+);
+const modalNewRunEndOdometer = new Modal(
+  "endOdometer",
+  "NewRun",
+  "Enter Current Odometer Reading",
+  modalNewRunTotalMeter
+);
+const modalNewRunStopModal = new Modal(
+  "stopModal",
+  "NewRun",
+  "Click here upon arrival to complete Run",
+  modalNewRunEndOdometer
 );
 const modalNewRunDestinationAdd = new Modal(
   "destinationAddress",
   "NewRun",
   "Enter Destination Address",
-  modalNewRunTotalFare
+  modalNewRunStopModal
 );
 const modalNewRunStartingAdd = new Modal(
   "startingAddress",
@@ -94,11 +104,17 @@ const modalNewRunStartingAdd = new Modal(
   "Enter Starting Address",
   modalNewRunDestinationAdd
 );
-const modalNewRunStand = new Modal(
+const modalNewRunStandAcq = new Modal(
   "standAcq",
   "NewRun",
   "Enter Stand Number",
   modalNewRunStartingAdd
+);
+const modalNewRunBeginOdometer = new Modal(
+  "beginOdometer",
+  "NewRun",
+  "Enter Current Odometer Reading",
+  modalNewRunStandAcq
 );
 
 // Build NewExpense Modal

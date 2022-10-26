@@ -31,16 +31,18 @@ class Footer {
 
   updateGasPrice = () => {
     const gasPriceElement = this.footerGas;
-    gasPriceElement.innerHTML = "Price of Gas: " + dataStore.gasPrice;
+    gasPriceElement.innerHTML = "Price of Gas: $" + dataStore.gasPrice;
   };
 
   updateBeginOdometer = () => {
     const odometerElement = this.footerOdometer;
-    odometerElement.innerHTML = "Starting Odometer: " + dataStore.beginOdometer;
+    odometerElement.innerHTML =
+      "Starting Odometer: " + dataStore.beginOdometer + " km";
   };
 
   updateLitresPer = () => {
     const litresPerElement = this.footerLitresPer;
-    litresPerElement.innerHTML = "Dispatcher: " + dataStore.litresPer;
+    litresPerElement.innerHTML =
+      "Fuel Consumption: " + dataStore.litresPer + "L/100km";
   };
 }

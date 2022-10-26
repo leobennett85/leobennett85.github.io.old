@@ -220,7 +220,18 @@ class Menu {
     map.style.left = "0px";
   };
 
+  getTime = () => {
+    const d = new Date();
+    const time = d.getTime();
+    window.localStorage.setItem("timeAcq_" + newRunIndex, time);
+    const formattedTime = d.toLocaleTimeString(time);
+    return formattedTime;
+  };
+
   launchNewRunModal = () => {
-    modalNewRunStand.buildModal();
+    modalNewRunBeginOdometer.buildModal();
+    // Get the time of Job Acquired
+    this.getTime();
+    this.hideAll();
   };
 }
