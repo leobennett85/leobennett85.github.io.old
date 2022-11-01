@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header and Nav -->
+      <div class="top">
+        <!-- Header -->
+        <div class="header">
+          
+        </div>
+        <!-- Navigation -->
+        <div class="navigation">
+          <p class="pNav">.navigation - Navigation bar</p>
+        </div>
+      </div>
+
+      <div class="main">
+        <!-- Content -->
+        <div class="content">
+          <p class="pContent">
+            <h1>Enter fare address</h1>
+            <input type="text" id="fareAddressInput" /> 
+
+            <h1>Enter destination address</h1>
+            <input type="text" id="destAddressInput" />
+
+            <h1>Select the type of Fare</h1>
+            <select id="fareTypeInput">
+              <option value="meter">Metered</option>
+              <option value="flat">Flat Rate</option>
+            </select>
+
+            <h1>Select the type of payment</h1>
+            <select id="farePaymentTypeInput">
+              <option value="cash">Cash</option>
+              <option value="charge">Charge</option>
+              <option value="debit">Debit/Credit</option>
+            </select>
+
+            <h1>Enter the fare total from the Meter</h1>
+            <input type="number" id="fareMeterInput" />
+
+            <h1>Enter total payment from customer</h1>
+            <input type="number" id="farePaymentInput" />
+
+            <h1>Enter tip total</h1>
+            <input type="number" id="fareTipInput" />
+            <br />
+            <input
+              type="button"
+              onclick="calcFare()"
+              value="Calculate and report totals from fare"
+            />
+          </p>
+
+
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <p class="pSidebar">.sidebar - Running totals
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+          eligendi dignissimos eaque aliquid nihil amet similique perferendis
+          reprehenderit atque! Sit?</.p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p class="pFooter">&copy; Leo Bennett Jr. - leobennett85@mail.com</p>
+      </div>
+    </div>
+  </body>
+</html>
