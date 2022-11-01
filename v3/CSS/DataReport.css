@@ -11,7 +11,7 @@
         'mapWrap';
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-family: "Times New Roman";
     font-weight: bold;
 }
 
@@ -43,7 +43,15 @@
     background-image: linear-gradient(to bottom left, rgb(255, 243, 132), rgb(255, 183, 0));
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(1fr);
+}
+
+#reportExpenseTotalPersonal {
+    grid-column: span 2;
+}
+
+#reportExpenseTotalBroker {
+    grid-column: span 2;
 }
 
 .reportLabel {
@@ -60,7 +68,7 @@
 .reportHeader {
     grid-column: span 2;
     background-image: linear-gradient(to bottom left, rgb(230, 255, 210), rgb(255, 182, 182));
-    border-top: 1px solid white;
+    border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin: 1;
     display: flex;
