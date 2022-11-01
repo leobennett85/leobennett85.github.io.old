@@ -19,5 +19,5 @@ Having driven for Jiffy Cabs for 5 years, I was always quite surprised at my bot
 ### Challenges
 
 I have built in 2 challenges for myself on this project
-<br>**Challenge 1** - No Graphics. Everything on the site had to be built in CSS, Javaascript and HTML
+<br>**Challenge 1** - No Graphics. Everything on the site had to be built in CSS, Javascript and HTML
 <br>**Challenge 2** - To create an object oriented library for scalability of project
