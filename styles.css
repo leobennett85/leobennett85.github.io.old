@@ -1,0 +1,64 @@
+html,
+body {
+    inset: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #B6AD90;
+}
+
+#siteWrap {
+    inset: 0;
+    padding: 10px;
+}
+
+#headerWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #582F0E;
+    padding: 5rem;
+    ;
+}
+
+#contentWrap {
+    background-color: #A4AC86;
+}
+
+#footerWrap {
+    background-color: #A68A64;
+}
+
+.header {
+    color: #C2C5AA;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+}
+
+.header2 {
+    color: #414833;
+}
+
+.header3 {
+    color: #333D29;
+}
+
+.label {
+    color: #414833;
+}
+
+.desc {}
+
+.footer {
+    display: flex;
+    align-items: center;
+    color: #333D29;
+}
+
+a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #6a0000;
+}
+
+a:hover {
+    font-style: italic;
+}
