@@ -3,62 +3,132 @@ body {
     inset: 0;
     padding: 0;
     margin: 0;
-    background-color: #B6AD90;
+    background-color: #1F85DE;
 }
 
 #siteWrap {
+    position: absolute;
     inset: 0;
-    padding: 10px;
+    border: 0.5rem solid #0b3c66;
 }
 
 #headerWrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #582F0E;
-    padding: 5rem;
-    ;
+    border: 1px solid #781FDE;
+    background-image: linear-gradient(to bottom left, #781FDE, #7c7c7c);
+
 }
 
 #contentWrap {
-    background-color: #A4AC86;
+    position: absolute;
+    top: 3rem;
+    bottom: 10rem;
+    right: 0;
+    left: 0;
+    background-color: #1F85DE;
+    border-left: 1px solid #781FDE;
+    border-right: 1px solid #781FDE;
 }
 
 #footerWrap {
-    background-color: #A68A64;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #781FDE;
+}
+
+#taxiStats {
+    display: none;
+}
+
+#leaflet {
+    display: none;
+}
+
+#notesResources {
+    display: none;
+}
+
+.dropShadow {
+    box-shadow: 0 3px 10px #000000;
 }
 
 .header {
-    color: #C2C5AA;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
 }
 
 .header2 {
-    color: #414833;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    border: 1px solid #781FDE;
+    background-image: linear-gradient(to bottom left, #781FDE, #7c7c7c);
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
+
 }
 
 .header3 {
-    color: #333D29;
+    padding-left: 3rem;
+    background-color: #1FDE78;
+    color: #ffffff;
+    border: 1px solid #781FDE;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
+
 }
 
 .label {
-    color: #414833;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding-left: 4rem;
+    color: #000000;
 }
 
-.desc {}
+.desc {
+    color: #000000;
+    background-color: #cbe7ff;
+    padding-left: 5rem;
+}
 
 .footer {
-    display: flex;
-    align-items: center;
-    color: #333D29;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
 }
 
 a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #6a0000;
+    color: #000000;
 }
 
 a:hover {
     font-style: italic;
+}
+
+.bg1 {
+    background-color: #6dbbff
+}
+
+.bg2 {
+    background-color: #a3d4ff
 }
