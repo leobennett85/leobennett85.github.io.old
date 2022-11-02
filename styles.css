@@ -57,22 +57,26 @@ body {
     display: none;
 }
 
+.iconSpace {
+    padding-right: 10px;
+}
+
 .dropShadow {
     box-shadow: 0 3px 10px #000000;
 }
 
 .header {
     color: #ffffff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
     font-weight: bolder;
     text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
 }
 
 .header2 {
     color: #ffffff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
     border: 1px solid #781FDE;
     background-image: linear-gradient(to bottom left, #781FDE, #7c7c7c);
     font-weight: bolder;
@@ -86,7 +90,7 @@ body {
     color: #ffffff;
     border: 1px solid #781FDE;
     cursor: pointer;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     font-weight: bolder;
     text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
@@ -94,7 +98,7 @@ body {
 }
 
 .label {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     font-weight: bolder;
     padding-left: 4rem;
@@ -105,13 +109,6 @@ body {
     color: #000000;
     background-color: #cbe7ff;
     padding-left: 5rem;
-}
-
-.footer {
-    color: #ffffff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-    font-weight: bolder;
 }
 
 a {
