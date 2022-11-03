@@ -3,13 +3,13 @@ body {
     inset: 0;
     padding: 0;
     margin: 0;
-    background-color: #1F85DE;
+    background-color: #ffffff;
 }
 
 #siteWrap {
     position: absolute;
+    background-color: #000923;
     inset: 0;
-    border: 0.5rem solid #0b3c66;
 }
 
 #headerWrap {
@@ -18,11 +18,8 @@ body {
     right: 0;
     left: 0;
     height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #781FDE;
-    background-image: linear-gradient(to bottom left, #781FDE, #7c7c7c);
+    border: 1px solid #000000;
+    /*background-image: linear-gradient(to bottom left, #ffffff, #7c7c7c);*/
 
 }
 
@@ -32,17 +29,18 @@ body {
     bottom: 10rem;
     right: 0;
     left: 0;
-    background-color: #1F85DE;
-    border-left: 1px solid #781FDE;
-    border-right: 1px solid #781FDE;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
 }
 
 #footerWrap {
     position: absolute;
+    color: #FFFFFF;
+    text-shadow: -1px -1px #001f74, 1px 1px #001f74, -1px 1px #001f74, 1px -1px #001f74;
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #781FDE;
+    background-color: #001f74;
 }
 
 #taxiStats {
@@ -66,35 +64,39 @@ body {
 }
 
 .header {
+    top: 3rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    height: 5rem;
     color: #ffffff;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2rem;
-    font-weight: bolder;
-    text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
+    background-image: url("./images/headerbg.png");
+    background-size: 100% 100%;
+    font-style: italic;
+    font-size: 1rem;
+    text-shadow: -1px -1px #001f74, 1px 1px #001f74, -1px 1px #001f74, 1px -1px #001f74;
 }
 
 .header2 {
     color: #ffffff;
+    padding-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
-    border: 1px solid #781FDE;
-    background-image: linear-gradient(to bottom left, #781FDE, #7c7c7c);
-    font-weight: bolder;
+    background-color: #001f74;
     text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
 
 }
 
 .header3 {
-    padding-left: 3rem;
-    background-color: #1FDE78;
+    padding-left: 1.5rem;
     color: #ffffff;
-    border: 1px solid #781FDE;
+    background-color: #8eacff;
+    border: 1px solid #000000;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
-    font-weight: bolder;
+    /*
     text-shadow: -1px -1px #000000, 1px 1px #000000, -1px 1px #000000, 1px -1px #000000;
-
+    */
 }
 
 .label {
@@ -112,7 +114,8 @@ body {
 }
 
 a {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
     color: #000000;
 }
 
@@ -121,9 +124,20 @@ a:hover {
 }
 
 .bg1 {
-    background-color: #6dbbff
+    background-color: #ffffff
 }
 
 .bg2 {
-    background-color: #a3d4ff
+    background-color: #a3d4ff;
+    border-bottom: 1px solid black;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
