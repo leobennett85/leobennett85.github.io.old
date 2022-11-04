@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaxiStats v4</title>
+    <!-- Leaflet.js CSS file -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <!-- Leaflet.js Javascript file -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+    <link href="./CSS/map.css" rel="stylesheet" />
+    <link href="./CSS/tags.css" rel="stylesheet" />
+    <link href="./CSS/layout.css" rel="stylesheet" />
+
+    <script src="./JAVASCRIPT/maps/"></script>
+  </head>
+  <body>
+    <div id="siteWrap">
+      <div id="headerWrap">
+        <div id=""></div>
+        <div id="icon"></div>
+        <div id="menu"></div>
+      </div>
+      <div id="mapWrap">
+        <div id="map"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Map Init
+    let map = L.map("map", {
+      center: [47.55157, -52.77066],
+      zoom: 10,
+    });
+    // baseMaps googleStreets Tile Layer
+    const googleStreets = L.tileLayer(
+      "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+      {
+        maxZoom: 20,
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+      }
+    ).addTo(map);
+
+    // To be able to load data more dynamically
+    // create 2 objects. One to contain base layers
+    // like tileLayers and another for Overlays
+    let baseMaps = {
+      "GoogleMaps Streets": googleStreets,
+    };
+
+    let overlayMaps = {
+      // This is where the dynamically loaded routes must
+      // go to be seen
+      // Data must be pulled from routes as completed
+      // and Loaded into overlayMaps and posted with layerControl
+      // Stats will be stored in localStorage as a universal
+      // data store
+      "City Recs": cities,
+    };
+
+    // Add a Layer Control to the map.
+    // Here we can add our base and overlay groups
+    let layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+  </script>
+</html>
