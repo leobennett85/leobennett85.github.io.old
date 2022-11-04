@@ -1,0 +1,28 @@
+#siteWrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#headerWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: #000000;
+
+}
+
+#mapWrap {
+    position: fixed;
+    top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 10px solid black;
+    width: 100%;
+}
