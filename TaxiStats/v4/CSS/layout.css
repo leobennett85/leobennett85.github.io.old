@@ -30,7 +30,7 @@
     width: 100%;
 }
 
-#command {
+#settings {
     grid-area: a;
     align-self: center;
     justify-self: center;
