@@ -1,5 +1,7 @@
 # leobennett85.github.io
 
+![alt text](image.jpg)
+
 ## [V3 of TaxiStats Website](https://leobennett85.github.io/TaxiStats/v3/index.html)
 
 ### Project Description:
