@@ -1,6 +1,6 @@
 # leobennett85.github.io
 
-![alt text](image.jpg)
+![alt text](https://raw.githubusercontent.com/leobennett85/leobennett85.github.io/main/images/Screenshot%202022-11-10%20143027.png)
 
 ## [V3 of TaxiStats Website](https://leobennett85.github.io/TaxiStats/v3/index.html)
 
