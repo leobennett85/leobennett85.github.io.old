@@ -33,7 +33,7 @@ showMenuContent = () => {
 };
 
 hideSettings = () => {
-  const settings = getSettingsId();
+  const menu = getSettingsId();
   menu.style.top = "-130px";
 };
 
@@ -42,6 +42,6 @@ hideMenu = () => {
   menu.style.top = "-130px";
 };
 
-document.addEventListener("click", checkMenus);
-
-checkMenus = () => {};
+clickOffMenu = (target) => {
+  console.log(target);
+};
